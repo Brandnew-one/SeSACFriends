@@ -25,21 +25,25 @@ class MyButton: UIButton {
         self.mode = mode
         self.text = text
         super.init(frame: frame)
-        setupView(mode: mode, text: text)
+        setupView(text: text)
+        setupMode(mode: mode)
     }
     
     required init?(coder: NSCoder) {
         fatalError()
     }
     
-    //CustomTextField 와 달리 setupMode 로 분리 하지 않은 상태 -> 테스트 하고 바꾸기
-    func setupView(mode: ButtonMode, text: String) {
+    func setupView(text: String) {
         clipsToBounds = true
         layer.cornerRadius = 8
-        self.mode = mode
+        
         setTitle(text, for: .normal)
         titleLabel?.font = FontSet.body3R14
-        
+
+    }
+    
+    func setupMode(mode: ButtonMode) {
+        self.mode = mode
         switch self.mode {
         case .inactive:
             backgroundColor = UIColor.init(rgbString: ColorSet.white)
@@ -59,6 +63,6 @@ class MyButton: UIButton {
             backgroundColor = UIColor.init(rgbString: ColorSet.gray6)
             setTitleColor(UIColor.init(rgbString: ColorSet.white), for: .normal)
         }
-        
     }
+    
 }

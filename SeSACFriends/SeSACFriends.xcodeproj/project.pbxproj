@@ -15,6 +15,9 @@
 		AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07E6132797CF7C00866766 /* LoginViewModel.swift */; };
 		AE07E6162797D0C700866766 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07E6152797D0C700866766 /* LoginModel.swift */; };
 		AE07E6182797D1B500866766 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07E6172797D1B500866766 /* Observable.swift */; };
+		AE16285E27980EC800CE45E8 /* LoginView+TFextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285D27980EC800CE45E8 /* LoginView+TFextension.swift */; };
+		AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */; };
+		AE162863279831C800CE45E8 /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE162862279831C800CE45E8 /* CertificationView.swift */; };
 		AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */; };
 		AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */; };
 		AEA0A3EB279658AF009B6D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA0A3EA279658AF009B6D05 /* Assets.xcassets */; };
@@ -36,6 +39,10 @@
 		AE07E6132797CF7C00866766 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AE07E6152797D0C700866766 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		AE07E6172797D1B500866766 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		AE16285D27980EC800CE45E8 /* LoginView+TFextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+TFextension.swift"; sourceTree = "<group>"; };
+		AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewController.swift.swift; sourceTree = "<group>"; };
+		AE162862279831C800CE45E8 /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
+		AE1628642798648D00CE45E8 /* SeSACFriends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACFriends.entitlements; sourceTree = "<group>"; };
 		AEA0A3DE279658A5009B6D05 /* SeSACFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +111,9 @@
 				AE07E6152797D0C700866766 /* LoginModel.swift */,
 				AE07E6132797CF7C00866766 /* LoginViewModel.swift */,
 				AEA0A3FB27969D0C009B6D05 /* LoginView.swift */,
+				AE16285D27980EC800CE45E8 /* LoginView+TFextension.swift */,
 				AE07E60A2797ABD300866766 /* LoginViewController.swift */,
+				AE162861279831B200CE45E8 /* Certification */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -118,6 +127,15 @@
 				AE07E6112797B18300866766 /* FontSet.swift */,
 			);
 			path = "Color&Font";
+			sourceTree = "<group>";
+		};
+		AE162861279831B200CE45E8 /* Certification */ = {
+			isa = PBXGroup;
+			children = (
+				AE162862279831C800CE45E8 /* CertificationView.swift */,
+				AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */,
+			);
+			path = Certification;
 			sourceTree = "<group>";
 		};
 		AEA0A3D5279658A5009B6D05 = {
@@ -141,6 +159,7 @@
 		AEA0A3E0279658A5009B6D05 /* SeSACFriends */ = {
 			isa = PBXGroup;
 			children = (
+				AE1628642798648D00CE45E8 /* SeSACFriends.entitlements */,
 				AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */,
 				AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */,
 				AE07E6172797D1B500866766 /* Observable.swift */,
@@ -275,7 +294,9 @@
 			files = (
 				AE07E60B2797ABD300866766 /* LoginViewController.swift in Sources */,
 				AEA0A3FC27969D0C009B6D05 /* LoginView.swift in Sources */,
+				AE162863279831C800CE45E8 /* CertificationView.swift in Sources */,
 				AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */,
+				AE16285E27980EC800CE45E8 /* LoginView+TFextension.swift in Sources */,
 				AEA0A3F827967CE1009B6D05 /* ColorSet.swift in Sources */,
 				AE07E6182797D1B500866766 /* Observable.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
@@ -285,6 +306,7 @@
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
 				AE07E6162797D0C700866766 /* LoginModel.swift in Sources */,
 				AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */,
+				AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSACFriends/SeSACFriends.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
@@ -452,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSACFriends/SeSACFriends.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
