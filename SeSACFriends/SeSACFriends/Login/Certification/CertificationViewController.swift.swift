@@ -5,6 +5,7 @@
 //  Created by 신상원 on 2022/01/19.
 //
 
+import FirebaseAuth
 import SnapKit
 import Toast_Swift
 
@@ -24,19 +25,66 @@ class CertificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        Auth.auth().languageCode = "ko"
+    
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
         view.addGestureRecognizer(tapGesture)
         certificationView.textField.keyboardType = .numberPad
+        sendCertification()
         
-        startTimer()
-        
-        certificationView.sendButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        certificationView.sendButton.addTarget(self, action: #selector(sendButtonClicked), for: .touchUpInside)
+        certificationView.startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
     }
     
     //다시 인증번호를 요구하는 로직 필요
-    @objc func buttonClicked() {
+    @objc func sendButtonClicked() {
+        sendCertification()
+    }
+    
+    @objc func startButtonClicked() {
+        checkCertification {
+            let vc = NicknameViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func sendCertification() {
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber(LoginViewModel.shared.phoneNumber.value, uiDelegate: nil) { verificationID, error in
+              if error == nil {
+                  //error 가 아닌 경우 verficationID 가 무조건 온다고 가정(수정 가능성)
+                  LoginViewModel.shared.verificationID.value = verificationID!
+              } else {
+                  print("error: ", error.debugDescription)
+              }
+          }
+        self.view.makeToast("인증번호를 보냈습니다.")
         startTimer()
+    }
+    
+    func checkCertification(completion: @escaping () -> Void) {
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: LoginViewModel.shared.verificationID.value, verificationCode: certificationView.textField.text ?? "")
+        
+        Auth.auth().signIn(with: credential) { (success, error) in
+            if error == nil {
+                print("User Signed in!")
+                let currentUser = Auth.auth().currentUser
+                currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+                  if let error = error {
+                    //error
+                    return;
+                  } else {
+                      self.stopTimer() // 타이머 멈추는 거 잊지말기
+//                      print(idToken!)
+                      LoginViewModel.shared.token.value = idToken!
+                      completion()
+                  }
+                }
+            } else {
+                self.view.makeToast("인증번호가 잘못되었습니다.")
+                print(error.debugDescription)
+            }
+        }
     }
     
     //Start & Reset
@@ -70,6 +118,5 @@ class CertificationViewController: UIViewController {
         self.timer?.cancel()
         self.timer = nil //nil 로 메모리 해제 필요!
     }
-    
     
 }

@@ -13,9 +13,10 @@
 		AE07E60F2797B15A00866766 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE07E60D2797B15A00866766 /* NotoSansCJKkr-Medium.otf */; };
 		AE07E6122797B18300866766 /* FontSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07E6112797B18300866766 /* FontSet.swift */; };
 		AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07E6132797CF7C00866766 /* LoginViewModel.swift */; };
-		AE07E6162797D0C700866766 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07E6152797D0C700866766 /* LoginModel.swift */; };
 		AE07E6182797D1B500866766 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07E6172797D1B500866766 /* Observable.swift */; };
-		AE16285E27980EC800CE45E8 /* LoginView+TFextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285D27980EC800CE45E8 /* LoginView+TFextension.swift */; };
+		AE0D40942799B38A001818A2 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0D40932799B38A001818A2 /* NicknameViewController.swift */; };
+		AE0D40962799B5A9001818A2 /* NicknameView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0D40952799B5A9001818A2 /* NicknameView+Extension.swift */; };
+		AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285D27980EC800CE45E8 /* LoginView+Extension.swift */; };
 		AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */; };
 		AE162863279831C800CE45E8 /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE162862279831C800CE45E8 /* CertificationView.swift */; };
 		AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */; };
@@ -26,7 +27,10 @@
 		AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3F927967F88009B6D05 /* CustomButton.swift */; };
 		AEA0A3FC27969D0C009B6D05 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3FB27969D0C009B6D05 /* LoginView.swift */; };
 		AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */; };
+		AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA32054279933C800E9B7C4 /* UserModel.swift */; };
 		AEBF93A42796B6E7004C5B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */; };
+		AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C6F27992A54001ACE37 /* EndPoint.swift */; };
+		AEE96C722799305D001ACE37 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C712799305D001ACE37 /* APIService.swift */; };
 		AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49A902796DCC800A693F3 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,9 +41,10 @@
 		AE07E60D2797B15A00866766 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		AE07E6112797B18300866766 /* FontSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSet.swift; sourceTree = "<group>"; };
 		AE07E6132797CF7C00866766 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		AE07E6152797D0C700866766 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		AE07E6172797D1B500866766 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		AE16285D27980EC800CE45E8 /* LoginView+TFextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+TFextension.swift"; sourceTree = "<group>"; };
+		AE0D40932799B38A001818A2 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		AE0D40952799B5A9001818A2 /* NicknameView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NicknameView+Extension.swift"; sourceTree = "<group>"; };
+		AE16285D27980EC800CE45E8 /* LoginView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+Extension.swift"; sourceTree = "<group>"; };
 		AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewController.swift.swift; sourceTree = "<group>"; };
 		AE162862279831C800CE45E8 /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
 		AE1628642798648D00CE45E8 /* SeSACFriends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACFriends.entitlements; sourceTree = "<group>"; };
@@ -53,7 +58,10 @@
 		AEA0A3F927967F88009B6D05 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AEA0A3FB27969D0C009B6D05 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocol.swift; sourceTree = "<group>"; };
+		AEA32054279933C800E9B7C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AEE96C6F27992A54001ACE37 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		AEE96C712799305D001ACE37 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AEF49A902796DCC800A693F3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DFBF7245F6D0B701BD3EA4C1 /* Pods-SeSACFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACFriends.debug.xcconfig"; path = "Target Support Files/Pods-SeSACFriends/Pods-SeSACFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		E8CA0D5DA75D5BB144D1D9BB /* Pods-SeSACFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACFriends.release.xcconfig"; path = "Target Support Files/Pods-SeSACFriends/Pods-SeSACFriends.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,12 +116,13 @@
 		AE07E6092797A56E00866766 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				AE07E6152797D0C700866766 /* LoginModel.swift */,
+				AEA32054279933C800E9B7C4 /* UserModel.swift */,
 				AE07E6132797CF7C00866766 /* LoginViewModel.swift */,
 				AEA0A3FB27969D0C009B6D05 /* LoginView.swift */,
-				AE16285D27980EC800CE45E8 /* LoginView+TFextension.swift */,
+				AE16285D27980EC800CE45E8 /* LoginView+Extension.swift */,
 				AE07E60A2797ABD300866766 /* LoginViewController.swift */,
 				AE162861279831B200CE45E8 /* Certification */,
+				AEA3205927993D3300E9B7C4 /* Nickname */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -163,6 +172,8 @@
 				AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */,
 				AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */,
 				AE07E6172797D1B500866766 /* Observable.swift */,
+				AEE96C712799305D001ACE37 /* APIService.swift */,
+				AEE96C6F27992A54001ACE37 /* EndPoint.swift */,
 				AEA0A3EA279658AF009B6D05 /* Assets.xcassets */,
 				AEA0A3EC279658AF009B6D05 /* LaunchScreen.storyboard */,
 				AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */,
@@ -173,6 +184,15 @@
 				AE07E6082797A54900866766 /* Protocols */,
 			);
 			path = SeSACFriends;
+			sourceTree = "<group>";
+		};
+		AEA3205927993D3300E9B7C4 /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				AE0D40932799B38A001818A2 /* NicknameViewController.swift */,
+				AE0D40952799B5A9001818A2 /* NicknameView+Extension.swift */,
+			);
+			path = Nickname;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,19 +312,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0D40962799B5A9001818A2 /* NicknameView+Extension.swift in Sources */,
+				AEE96C722799305D001ACE37 /* APIService.swift in Sources */,
 				AE07E60B2797ABD300866766 /* LoginViewController.swift in Sources */,
 				AEA0A3FC27969D0C009B6D05 /* LoginView.swift in Sources */,
 				AE162863279831C800CE45E8 /* CertificationView.swift in Sources */,
 				AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */,
-				AE16285E27980EC800CE45E8 /* LoginView+TFextension.swift in Sources */,
+				AE0D40942799B38A001818A2 /* NicknameViewController.swift in Sources */,
+				AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */,
 				AEA0A3F827967CE1009B6D05 /* ColorSet.swift in Sources */,
 				AE07E6182797D1B500866766 /* Observable.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
 				AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */,
 				AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */,
+				AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */,
 				AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */,
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
-				AE07E6162797D0C700866766 /* LoginModel.swift in Sources */,
+				AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */,
 				AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */,
 				AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */,
 			);
