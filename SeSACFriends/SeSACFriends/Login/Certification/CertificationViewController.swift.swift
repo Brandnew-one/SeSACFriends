@@ -77,6 +77,7 @@ class CertificationViewController: UIViewController {
                       self.stopTimer() // 타이머 멈추는 거 잊지말기
 //                      print(idToken!)
                       LoginViewModel.shared.token.value = idToken!
+                      print(idToken)
                       completion()
                   }
                 }

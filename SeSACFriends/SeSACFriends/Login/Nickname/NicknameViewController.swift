@@ -48,7 +48,7 @@ class NicknameViewController: UIViewController {
     @objc func nextButtonClicked() {
         if loginView.myButton.mode == .fill {
             LoginViewModel.shared.nick.value = loginView.phoneNumberTextField.textField.text!
-            let vc = CertificationViewController()
+            let vc = BirthViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             self.view.endEditing(true)
