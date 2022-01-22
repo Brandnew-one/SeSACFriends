@@ -33,6 +33,11 @@ class GenderViewController: UIViewController {
         genderView.femaleView.addGestureRecognizer(femaleGesture)
         genderView.femaleView.isUserInteractionEnabled = true
         
+        genderView.myButton.addTarget(self, action: #selector(myButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func myButtonClicked() {
+        print(LoginViewModel.shared)
     }
     
     @objc func mainViewTapped() {

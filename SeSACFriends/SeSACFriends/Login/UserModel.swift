@@ -11,7 +11,8 @@ import Foundation
 
 // MARK: LoginUser
 struct Login: Codable {
-    let phonNumber, fcMtoken, nick, birth: String
+    let phonNumber, fcMtoken, nick: String
+    let birth: Date
     let email: String
     let gender: Int
 

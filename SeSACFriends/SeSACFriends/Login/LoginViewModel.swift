@@ -16,7 +16,7 @@ class LoginViewModel {
     let phoneNumber = Observable("")
     let token = Observable("")
     let nick = Observable("")
-    let birth = Observable("")
+    let birth = Observable(Date())
     let email = Observable("")
     let gender = Observable(0)
     
