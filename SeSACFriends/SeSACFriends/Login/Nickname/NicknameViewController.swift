@@ -66,8 +66,8 @@ class NicknameViewController: UIViewController {
     func settingView() {
         loginView.phoneNumberTextField.textField.text = LoginViewModel.shared.nick.value
         if checkExpression(text: loginView.phoneNumberTextField.textField.text ?? "") {
-            loginView.phoneNumberTextField.setupMode(mode: .success)
-            loginView.phoneNumberTextField.additionLabel.text = "올바른 형식입니다"
+//            loginView.phoneNumberTextField.setupMode(mode: .success)
+//            loginView.phoneNumberTextField.additionLabel.text = "올바른 형식입니다"
             loginView.myButton.setupMode(mode: .fill)
         }
     }

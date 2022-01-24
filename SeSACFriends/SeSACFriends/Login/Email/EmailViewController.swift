@@ -69,8 +69,8 @@ class EmailViewController: UIViewController {
     func settingView() {
         emailView.loginView.phoneNumberTextField.textField.text = LoginViewModel.shared.email.value
         if checkExpression(text: emailView.loginView.phoneNumberTextField.textField.text ?? "") {
-            emailView.loginView.phoneNumberTextField.setupMode(mode: .success)
-            emailView.loginView.phoneNumberTextField.additionLabel.text = "올바른 형식입니다"
+//            emailView.loginView.phoneNumberTextField.setupMode(mode: .success)
+//            emailView.loginView.phoneNumberTextField.additionLabel.text = "올바른 형식입니다"
             emailView.loginView.myButton.setupMode(mode: .fill)
         }
     }

@@ -69,12 +69,7 @@ class BirthViewController: UIViewController {
         }
     }
     
-    @objc func datepicked(_ sender: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko")
-        formatter.dateFormat = "yyyy-MM-dd"
-        let koDate = formatter.string(from: birthView.datePicker.date)
-        
+    func changeLabel(koDate: String) {
         if koDate.count == 10 {
             var makeString: String = ""
             for i in 0...3 {
@@ -98,6 +93,14 @@ class BirthViewController: UIViewController {
             birthView.dayView.dayLabel.text = makeString
             makeString = ""
         }
+    }
+    
+    @objc func datepicked(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "yyyy-MM-dd"
+        let koDate = formatter.string(from: birthView.datePicker.date)
+        changeLabel(koDate: koDate)
         
         if checkAge(pickedDate: birthView.datePicker.date) {
             birthView.myButton.setupMode(mode: .fill)
@@ -113,27 +116,7 @@ class BirthViewController: UIViewController {
         birthView.datePicker.date = formatter.date(from: LoginViewModel.shared.birth.value) ?? Date()
         if LoginViewModel.shared.birth.value.count == 10 {
             let koDate = LoginViewModel.shared.birth.value
-            var makeString: String = ""
-            for i in 0...3 {
-                let makeIndex = koDate.index(koDate.startIndex, offsetBy: i)
-                makeString.append(koDate[makeIndex])
-            }
-            birthView.yearView.dayLabel.text = makeString
-            makeString = ""
-            
-            for i in 5...6 {
-                let makeIndex = koDate.index(koDate.startIndex, offsetBy: i)
-                makeString.append(koDate[makeIndex])
-            }
-            birthView.monthView.dayLabel.text = makeString
-            makeString = ""
-            
-            for i in 8...9 {
-                let makeIndex = koDate.index(koDate.startIndex, offsetBy: i)
-                makeString.append(koDate[makeIndex])
-            }
-            birthView.dayView.dayLabel.text = makeString
-            makeString = ""
+            changeLabel(koDate: koDate)
         }
         
         if checkAge(pickedDate: birthView.datePicker.date) {

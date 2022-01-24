@@ -15,7 +15,7 @@ class APIService {
         guard let token = UserDefaults.standard.string(forKey: "FBToken") else {
             return
         }
-        print(token)
+//        print(token)
         var request = URLRequest(url: url)
         request.httpMethod = Method.GET.rawValue
         request.setValue(token, forHTTPHeaderField: "idtoken")

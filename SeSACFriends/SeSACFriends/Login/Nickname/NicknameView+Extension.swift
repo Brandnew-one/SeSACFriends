@@ -11,7 +11,10 @@ extension NicknameViewController: UITextFieldDelegate {
     
     // 정규 표현식 테스트 함수
     func checkExpression(text: String) -> Bool {
-        if text.count >= 1 && text.count <= 10 {
+        let pattern = "^[가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9_]{1,10}$"
+        let regex = try? NSRegularExpression(pattern: pattern)
+        
+        if let _ = regex?.firstMatch(in: text, options: [], range: NSRange(location: 0, length: text.count)) {
             return true
         } else {
             return false
