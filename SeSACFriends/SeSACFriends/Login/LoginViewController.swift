@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
     @objc func buttonClicked() {
         // 올바른 전화번호를 입력한 경우 -> 화면전환 (viewModel에 전화번호 넣어줌)
         if loginView.myButton.mode == .fill {
+            UserDefaults.standard.set(changePhoneNumber(), forKey: "phone") // 전화번호 저장
             LoginViewModel.shared.phoneNumber.value = changePhoneNumber()
             let vc = CertificationViewController()
             self.navigationController?.pushViewController(vc, animated: true)

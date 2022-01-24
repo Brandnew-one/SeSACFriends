@@ -52,7 +52,7 @@ class EmailViewController: UIViewController {
     
     @objc func nextButtonClicked() {
         if emailView.loginView.myButton.mode == .fill {
-            LoginViewModel.shared.nick.value = emailView.loginView.phoneNumberTextField.textField.text!
+            LoginViewModel.shared.email.value = emailView.loginView.phoneNumberTextField.textField.text!
             let vc = GenderViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {

@@ -37,7 +37,19 @@ class GenderViewController: UIViewController {
     }
     
     @objc func myButtonClicked() {
-        print(LoginViewModel.shared)
+        LoginViewModel.shared.fetchSignup { code in
+            if code == 200 {
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+                windowScene.windows.first?.makeKeyAndVisible()
+            } else if code == 201 {
+                self.view.makeToast("이미 가입한 유저입니다")
+            } else if code == 202 {
+                self.view.makeToast("사용할 수 없는 닉네임입니다")
+            } else {
+                self.view.makeToast("네트워크 오류입니다")
+            }
+        }
     }
     
     @objc func mainViewTapped() {

@@ -16,8 +16,34 @@ class LoginViewModel {
     let phoneNumber = Observable("")
     let token = Observable("")
     let nick = Observable("")
-    let birth = Observable(Date())
+    let birth = Observable("")
     let email = Observable("")
     let gender = Observable(0)
+    
+    func fetchSignup(completion: @escaping (Int) -> Void) {
+        let fcm = UserDefaults.standard.string(forKey: "FCMToken") ?? ""
+        let phone = UserDefaults.standard.string(forKey: "phone") ?? ""
+        let body = Signup(phoneNumber: phone, fcMtoken: fcm, nick: nick.value, birth: birth.value, email: email.value, gender: gender.value)
+        
+        APIService.signupUser(body: body) { error, code in
+            if let error = error {
+                print("네트워크 에러 발생")
+            }
+            if let code = code {
+                completion(code)
+            }
+        }
+    }
+    
+    func fetchWithdraw(completion: @escaping (Int) -> Void) {
+        APIService.withdrawUser { error, code in
+            if let error = error {
+                print("네트워크 에러 발생")
+            }
+            if let code = code {
+                completion(code)
+            }
+        }
+    }
     
 }

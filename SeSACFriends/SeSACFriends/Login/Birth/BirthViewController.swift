@@ -30,7 +30,10 @@ class BirthViewController: UIViewController {
     @objc func buttonClicked() {
         print(birthView.datePicker.date)
         if birthView.myButton.mode == .fill {
-            LoginViewModel.shared.birth.value = birthView.datePicker.date
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "ko")
+            formatter.dateFormat = "yyyy-MM-dd"
+            LoginViewModel.shared.birth.value = formatter.string(from: birthView.datePicker.date)
             let vc = EmailViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {

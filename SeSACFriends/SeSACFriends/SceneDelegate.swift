@@ -5,6 +5,7 @@
 //  Created by 신상원 on 2022/01/18.
 //
 
+import FirebaseAuth
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -17,7 +18,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene:  windowScene)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        
+        // 1) 처음 앱을 켰을 때 FB에 가입을 한 user 인 경우, idtoken을 갱신만 해준다
+        // 만약 FB 가입을 하지않은 user 의 경우, 휴대폰 전화 인증을 통해서 FB에 가입을 시켜준다. (FCM 토큰 분기 처리 필요!)
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            if let error = error {
+                self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+                return;
+            } else {
+                // FB에 가입을 한 user의 경우, SeSAC Friends 서비스에 회원가입을 한 user 인지 확인한다. (GET/USER)
+                UserDefaults.standard.set(idToken!, forKey: "FBToken") // 토큰 갱신
+                APIService.getUser { user, error, code in
+                    if let error = error {
+                        print("error 발생")
+                        print(error)
+                    } else {
+                        if code == .success {
+                            self.window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+                            print("user")
+                        } else if code == .already {
+                            self.window?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
+                        } else {
+                            print("FAIL CODE")
+                        }
+                    }
+                }
+            }
+        }
+//        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         window?.makeKeyAndVisible()
     }
 
