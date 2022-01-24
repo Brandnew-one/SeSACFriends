@@ -20,12 +20,17 @@ class EmailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setText()
+        settingView()
         
         // 탭하면 키보드 사라지도록 구현
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
         view.addGestureRecognizer(tapGesture)
         
         emailView.loginView.phoneNumberTextField.textField.delegate = self
+        
+        LoginViewModel.shared.email.bind { text in
+            self.emailView.loginView.phoneNumberTextField.textField.text = text
+        }
         
         emailView.loginView.phoneNumberTextField.textField.addTarget(self, action: #selector(textFieldDidchanged(_:)), for: .editingChanged)
         emailView.loginView.myButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
@@ -58,6 +63,15 @@ class EmailViewController: UIViewController {
         } else {
             self.view.endEditing(true)
             self.view.makeToast("이메일 형식이 올바르지 않습니다")
+        }
+    }
+    
+    func settingView() {
+        emailView.loginView.phoneNumberTextField.textField.text = LoginViewModel.shared.email.value
+        if checkExpression(text: emailView.loginView.phoneNumberTextField.textField.text ?? "") {
+            emailView.loginView.phoneNumberTextField.setupMode(mode: .success)
+            emailView.loginView.phoneNumberTextField.additionLabel.text = "올바른 형식입니다"
+            emailView.loginView.myButton.setupMode(mode: .fill)
         }
     }
     

@@ -43,8 +43,20 @@ class CertificationViewController: UIViewController {
     
     @objc func startButtonClicked() {
         checkCertification {
-            let vc = NicknameViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+            APIService.getUser { user, error, code in
+                if let code = code {
+                    if code == 200 {
+                        windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+                    } else if code == 201 {
+                        windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
+                    } else {
+                        self.view.makeToast("네트워크 오류입니다.")
+                    }
+                }
+            }
+            
+            windowScene.windows.first?.makeKeyAndVisible()
         }
     }
     
@@ -58,6 +70,7 @@ class CertificationViewController: UIViewController {
                   print("error: ", error.debugDescription)
               }
           }
+        self.view.endEditing(true)
         self.view.makeToast("인증번호를 보냈습니다.")
         startTimer()
     }
@@ -83,6 +96,7 @@ class CertificationViewController: UIViewController {
                   }
                 }
             } else {
+                self.view.endEditing(true)
                 self.view.makeToast("인증번호가 잘못되었습니다.")
                 print(error.debugDescription)
             }

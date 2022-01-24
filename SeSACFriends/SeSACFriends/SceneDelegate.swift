@@ -30,23 +30,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // FB에 가입을 한 user의 경우, SeSAC Friends 서비스에 회원가입을 한 user 인지 확인한다. (GET/USER)
                 UserDefaults.standard.set(idToken!, forKey: "FBToken") // 토큰 갱신
                 APIService.getUser { user, error, code in
-                    if let error = error {
-                        print("error 발생")
-                        print(error)
-                    } else {
-                        if code == .success {
+                    if let code = code {
+                        if code == 200 { // 회원가입을 한 유저
                             self.window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
-                            print("user")
-                        } else if code == .already {
+                        } else if code == 201 { // 회원가입을 하지 않은 유저
                             self.window?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
                         } else {
-                            print("FAIL CODE")
+                            print(code)
                         }
+                    } else {
+                        print(error)
+                        print("네트워크 통신 오류")
                     }
                 }
             }
         }
-//        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         window?.makeKeyAndVisible()
     }
 

@@ -22,6 +22,7 @@ class NicknameViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setText()
+        settingView()
         
         // 탭하면 키보드 사라지도록 구현
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
@@ -60,6 +61,15 @@ class NicknameViewController: UIViewController {
         loginView.textLabel.text = "닉네임을 입력해주세요"
         loginView.phoneNumberTextField.textField.placeholder = "10자리 이내로 입력"
         loginView.myButton.setTitle("다음", for: .normal)
+    }
+    
+    func settingView() {
+        loginView.phoneNumberTextField.textField.text = LoginViewModel.shared.nick.value
+        if checkExpression(text: loginView.phoneNumberTextField.textField.text ?? "") {
+            loginView.phoneNumberTextField.setupMode(mode: .success)
+            loginView.phoneNumberTextField.additionLabel.text = "올바른 형식입니다"
+            loginView.myButton.setupMode(mode: .fill)
+        }
     }
     
 }

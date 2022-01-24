@@ -19,6 +19,7 @@ class GenderViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setText()
+        settingView()
         
         //target: self 로 안하면 오류 (키보드 내리는건 왜 잘 동작하는 걸까?)
         let mainGesture = UITapGestureRecognizer(target: self, action: #selector(mainViewTapped))
@@ -46,6 +47,11 @@ class GenderViewController: UIViewController {
                 self.view.makeToast("이미 가입한 유저입니다")
             } else if code == 202 {
                 self.view.makeToast("사용할 수 없는 닉네임입니다")
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
+                windowScene.windows.first?.makeKeyAndVisible()
+            } else if code == 401 {
+                self.view.makeToast("다시 시도해주세요")
             } else {
                 self.view.makeToast("네트워크 오류입니다")
             }
@@ -56,7 +62,7 @@ class GenderViewController: UIViewController {
 //        print(#function)
         genderView.maleView.backgroundColor = UIColor(rgbString: ColorSet.white)
         genderView.femaleView.backgroundColor = UIColor(rgbString: ColorSet.white)
-        LoginViewModel.shared.gender.value = 2
+        LoginViewModel.shared.gender.value = -1
         genderView.myButton.setupMode(mode: .disable)
     }
     
@@ -83,4 +89,20 @@ class GenderViewController: UIViewController {
         genderView.femaleView.imageLable.text = "여자"
     }
     
+    // 사용자가 화면을 다시 돌아왔을 때(닉네임) 입력값을 화면에 보여주기 위해서
+    func settingView() {
+        if LoginViewModel.shared.gender.value == -1 {
+            genderView.maleView.backgroundColor = UIColor(rgbString: ColorSet.white)
+            genderView.femaleView.backgroundColor = UIColor(rgbString: ColorSet.white)
+            genderView.myButton.setupMode(mode: .disable)
+        } else if LoginViewModel.shared.gender.value == 0 {
+            genderView.maleView.backgroundColor = UIColor(rgbString: ColorSet.white)
+            genderView.femaleView.backgroundColor = UIColor(rgbString: ColorSet.whiteGreen)
+            genderView.myButton.setupMode(mode: .fill)
+        } else {
+            genderView.maleView.backgroundColor = UIColor(rgbString: ColorSet.whiteGreen)
+            genderView.femaleView.backgroundColor = UIColor(rgbString: ColorSet.white)
+            genderView.myButton.setupMode(mode: .fill)
+        }
+    }
 }

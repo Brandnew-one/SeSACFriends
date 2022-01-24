@@ -9,7 +9,7 @@ import Foundation
 
 class APIService {
     
-    static func getUser(completion: @escaping (User?, APIError?, StatusCode?) -> Void) {
+    static func getUser(completion: @escaping (User?, APIError?, Int?) -> Void) {
         
         let url = EndPoint.getUser.url
         guard let token = UserDefaults.standard.string(forKey: "FBToken") else {

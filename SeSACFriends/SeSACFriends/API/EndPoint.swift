@@ -22,15 +22,6 @@ enum APIError {
     case decodeError
 }
 
-enum StatusCode: Int {
-    case success = 200
-    case already = 201
-    case FbToken = 401
-    case server = 500
-    case client = 501
-    case unknown
-}
-
 enum EndPoint {
     case getUser
     case signupUser
@@ -87,7 +78,7 @@ extension URLSession {
         }
     }
     
-    static func request<T: Decodable>(_ session: URLSession = . shared, endpoint: URLRequest, completion: @escaping (T?, APIError?, StatusCode?) -> Void) {
+    static func request<T: Decodable>(_ session: URLSession = . shared, endpoint: URLRequest, completion: @escaping (T?, APIError?, Int?) -> Void) {
         session.dataTask(endpoint) { data, response, error in
             
             DispatchQueue.main.async {
@@ -105,25 +96,12 @@ extension URLSession {
                     completion(nil, .responseError, nil)
                     return
                 }
-                
-                if response.statusCode == 201 {
-                    completion(nil, nil, .already)
-                } else if response.statusCode == 401 {
-                    completion(nil, nil, .FbToken)
-                } else if response.statusCode == 500 {
-                    completion(nil, nil, .server)
-                } else if response.statusCode == 501 {
-                    completion(nil, nil, .client)
-                } else if response.statusCode == 200 {
-                    do {
-                        let decoder = JSONDecoder()
-                        let userData = try decoder.decode(T.self, from: data)
-                        completion(userData, nil, .success) //성공적으로 통신에 성공한 경우
-                    } catch {
-                        completion(nil, .decodeError, nil)
-                    }
-                } else {
-                    completion(nil, nil, .unknown)
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(T.self, from: data)
+                    completion(userData, nil, response.statusCode) //성공적으로 통신에 성공한 경우
+                } catch {
+                    completion(nil, .decodeError, response.statusCode)
                 }
                 return
             }

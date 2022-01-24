@@ -18,7 +18,7 @@ class LoginViewModel {
     let nick = Observable("")
     let birth = Observable("")
     let email = Observable("")
-    let gender = Observable(0)
+    let gender = Observable(-1)
     
     func fetchSignup(completion: @escaping (Int) -> Void) {
         let fcm = UserDefaults.standard.string(forKey: "FCMToken") ?? ""
