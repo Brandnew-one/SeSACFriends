@@ -20,12 +20,17 @@
 		AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285D27980EC800CE45E8 /* LoginView+Extension.swift */; };
 		AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */; };
 		AE162863279831C800CE45E8 /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE162862279831C800CE45E8 /* CertificationView.swift */; };
+		AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */; };
+		AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */; };
+		AE23F9E527A127FF008D9223 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E427A127FF008D9223 /* InformationView.swift */; };
 		AE241189279A8AC000A8C421 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241188279A8AC000A8C421 /* EmailViewController.swift */; };
 		AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118A279A8D0000A8C421 /* EmailView.swift */; };
 		AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118C279A8FC500A8C421 /* EmailView+Extension.swift */; };
 		AE24118F279A990900A8C421 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118E279A990900A8C421 /* GenderView.swift */; };
 		AE241191279A9A8100A8C421 /* GenderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241190279A9A8100A8C421 /* GenderImageView.swift */; };
 		AE46E04D279E6E9E00247060 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46E04C279E6E9E00247060 /* Form.swift */; };
+		AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B45F27A1895C00AD5092 /* MyInfoView.swift */; };
+		AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46127A1897500AD5092 /* MyGenderView.swift */; };
 		AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F3279B111A00668D28 /* BirthView.swift */; };
 		AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F5279B113500668D28 /* BirthViewController.swift */; };
 		AE80A1F8279B168C00668D28 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F7279B168C00668D28 /* DayView.swift */; };
@@ -39,6 +44,7 @@
 		AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */; };
 		AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA32054279933C800E9B7C4 /* UserModel.swift */; };
 		AEBF93A42796B6E7004C5B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */; };
+		AED3412627A03AA60062BEAE /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3412527A03AA60062BEAE /* InformationViewController.swift */; };
 		AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C6F27992A54001ACE37 /* EndPoint.swift */; };
 		AEE96C722799305D001ACE37 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C712799305D001ACE37 /* APIService.swift */; };
 		AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49A902796DCC800A693F3 /* CustomTextField.swift */; };
@@ -60,12 +66,17 @@
 		AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewController.swift.swift; sourceTree = "<group>"; };
 		AE162862279831C800CE45E8 /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
 		AE1628642798648D00CE45E8 /* SeSACFriends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACFriends.entitlements; sourceTree = "<group>"; };
+		AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
+		AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationHeaderView.swift; sourceTree = "<group>"; };
+		AE23F9E427A127FF008D9223 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		AE241188279A8AC000A8C421 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		AE24118A279A8D0000A8C421 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		AE24118C279A8FC500A8C421 /* EmailView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmailView+Extension.swift"; sourceTree = "<group>"; };
 		AE24118E279A990900A8C421 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		AE241190279A9A8100A8C421 /* GenderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderImageView.swift; sourceTree = "<group>"; };
 		AE46E04C279E6E9E00247060 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		AE77B45F27A1895C00AD5092 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		AE77B46127A1897500AD5092 /* MyGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenderView.swift; sourceTree = "<group>"; };
 		AE80A1F3279B111A00668D28 /* BirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthView.swift; sourceTree = "<group>"; };
 		AE80A1F5279B113500668D28 /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
 		AE80A1F7279B168C00668D28 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 		AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocol.swift; sourceTree = "<group>"; };
 		AEA32054279933C800E9B7C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AED3412527A03AA60062BEAE /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		AEE96C6F27992A54001ACE37 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		AEE96C712799305D001ACE37 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AEF49A902796DCC800A693F3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -172,6 +184,18 @@
 			path = Certification;
 			sourceTree = "<group>";
 		};
+		AE23F9DD27A1194F008D9223 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				AE23F9E427A127FF008D9223 /* InformationView.swift */,
+				AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */,
+				AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */,
+				AED3412527A03AA60062BEAE /* InformationViewController.swift */,
+				AE77B45E27A1889500AD5092 /* MyInformation */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
 		AE241185279A8A4600A8C421 /* Email */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +224,15 @@
 				AE0A851B279AF9A7004C3EFA /* GenderViewController.swift */,
 			);
 			path = Gender;
+			sourceTree = "<group>";
+		};
+		AE77B45E27A1889500AD5092 /* MyInformation */ = {
+			isa = PBXGroup;
+			children = (
+				AE77B45F27A1895C00AD5092 /* MyInfoView.swift */,
+				AE77B46127A1897500AD5092 /* MyGenderView.swift */,
+			);
+			path = MyInformation;
 			sourceTree = "<group>";
 		};
 		AEA0A3D5279658A5009B6D05 = {
@@ -232,11 +265,12 @@
 				AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */,
 				AEA0A3EF279658AF009B6D05 /* Info.plist */,
 				AEFF5AE5279D35050070E0CA /* API */,
-				AE07E6102797B16A00866766 /* Color&Font */,
-				AE07E6092797A56E00866766 /* Login */,
 				AE07E6072797A52900866766 /* CustomViews */,
+				AE07E6102797B16A00866766 /* Color&Font */,
 				AE07E6082797A54900866766 /* Protocols */,
+				AE07E6092797A56E00866766 /* Login */,
 				AEFF5AE3279D21780070E0CA /* HomeViewController.swift */,
+				AE23F9DD27A1194F008D9223 /* Information */,
 			);
 			path = SeSACFriends;
 			sourceTree = "<group>";
@@ -384,13 +418,19 @@
 				AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */,
 				AEA0A3FC27969D0C009B6D05 /* LoginView.swift in Sources */,
 				AE162863279831C800CE45E8 /* CertificationView.swift in Sources */,
+				AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */,
+				AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */,
 				AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */,
 				AE0D40942799B38A001818A2 /* NicknameViewController.swift in Sources */,
 				AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */,
+				AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */,
 				AEA0A3F827967CE1009B6D05 /* ColorSet.swift in Sources */,
+				AE23F9E527A127FF008D9223 /* InformationView.swift in Sources */,
 				AE07E6182797D1B500866766 /* Observable.swift in Sources */,
 				AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */,
+				AED3412627A03AA60062BEAE /* InformationViewController.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
+				AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */,
 				AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */,
 				AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */,
 				AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */,
