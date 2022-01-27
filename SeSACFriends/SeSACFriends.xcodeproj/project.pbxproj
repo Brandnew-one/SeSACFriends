@@ -29,8 +29,13 @@
 		AE24118F279A990900A8C421 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118E279A990900A8C421 /* GenderView.swift */; };
 		AE241191279A9A8100A8C421 /* GenderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241190279A9A8100A8C421 /* GenderImageView.swift */; };
 		AE46E04D279E6E9E00247060 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46E04C279E6E9E00247060 /* Form.swift */; };
+		AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */; };
+		AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1727A279AC000CDC79 /* MyCardView.swift */; };
 		AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B45F27A1895C00AD5092 /* MyInfoView.swift */; };
 		AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46127A1897500AD5092 /* MyGenderView.swift */; };
+		AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46327A194BB00AD5092 /* MyHobbyView.swift */; };
+		AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46527A1993900AD5092 /* MyPhoneView.swift */; };
+		AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46727A1A79500AD5092 /* MyAgeView.swift */; };
 		AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F3279B111A00668D28 /* BirthView.swift */; };
 		AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F5279B113500668D28 /* BirthViewController.swift */; };
 		AE80A1F8279B168C00668D28 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F7279B168C00668D28 /* DayView.swift */; };
@@ -75,8 +80,13 @@
 		AE24118E279A990900A8C421 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		AE241190279A9A8100A8C421 /* GenderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderImageView.swift; sourceTree = "<group>"; };
 		AE46E04C279E6E9E00247060 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWithdrawView.swift; sourceTree = "<group>"; };
+		AE47ED1727A279AC000CDC79 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
 		AE77B45F27A1895C00AD5092 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		AE77B46127A1897500AD5092 /* MyGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenderView.swift; sourceTree = "<group>"; };
+		AE77B46327A194BB00AD5092 /* MyHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyView.swift; sourceTree = "<group>"; };
+		AE77B46527A1993900AD5092 /* MyPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhoneView.swift; sourceTree = "<group>"; };
+		AE77B46727A1A79500AD5092 /* MyAgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgeView.swift; sourceTree = "<group>"; };
 		AE80A1F3279B111A00668D28 /* BirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthView.swift; sourceTree = "<group>"; };
 		AE80A1F5279B113500668D28 /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
 		AE80A1F7279B168C00668D28 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
@@ -231,6 +241,11 @@
 			children = (
 				AE77B45F27A1895C00AD5092 /* MyInfoView.swift */,
 				AE77B46127A1897500AD5092 /* MyGenderView.swift */,
+				AE77B46327A194BB00AD5092 /* MyHobbyView.swift */,
+				AE77B46527A1993900AD5092 /* MyPhoneView.swift */,
+				AE77B46727A1A79500AD5092 /* MyAgeView.swift */,
+				AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */,
+				AE47ED1727A279AC000CDC79 /* MyCardView.swift */,
 			);
 			path = MyInformation;
 			sourceTree = "<group>";
@@ -413,11 +428,13 @@
 			files = (
 				AE0D40962799B5A9001818A2 /* NicknameView+Extension.swift in Sources */,
 				AEE96C722799305D001ACE37 /* APIService.swift in Sources */,
+				AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */,
 				AE07E60B2797ABD300866766 /* LoginViewController.swift in Sources */,
 				AE241191279A9A8100A8C421 /* GenderImageView.swift in Sources */,
 				AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */,
 				AEA0A3FC27969D0C009B6D05 /* LoginView.swift in Sources */,
 				AE162863279831C800CE45E8 /* CertificationView.swift in Sources */,
+				AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */,
 				AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */,
 				AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */,
 				AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */,
@@ -428,15 +445,18 @@
 				AE23F9E527A127FF008D9223 /* InformationView.swift in Sources */,
 				AE07E6182797D1B500866766 /* Observable.swift in Sources */,
 				AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */,
+				AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */,
 				AED3412627A03AA60062BEAE /* InformationViewController.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
 				AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */,
 				AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */,
 				AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */,
+				AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */,
 				AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */,
 				AE46E04D279E6E9E00247060 /* Form.swift in Sources */,
 				AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */,
 				AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */,
+				AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */,
 				AEFF5AE4279D21780070E0CA /* HomeViewController.swift in Sources */,
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
 				AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */,
