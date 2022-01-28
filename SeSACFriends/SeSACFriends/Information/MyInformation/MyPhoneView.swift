@@ -28,8 +28,11 @@ class MyPhoneView: UIView, ViewRepresentable {
             self.addSubview($0)
         }
         phoneSwitch.tintColor = UIColor(rgbString: ColorSet.green)
+        phoneSwitch.onTintColor = UIColor(rgbString: ColorSet.green)
+        
         label.textColor = UIColor(rgbString: ColorSet.black)
         label.font = FontSet.title4R14
+        label.text = "내 번호 검색 허용"
     }
     
     func setupConstraints() {

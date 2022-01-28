@@ -10,8 +10,14 @@ import UIKit
 
 class MyCardView: UIView, ViewRepresentable {
     
+    let backgroundImageView = UIImageView()
+    let sesacImageView = UIImageView()
+    let toggleView = ToggleView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -19,11 +25,41 @@ class MyCardView: UIView, ViewRepresentable {
     }
     
     func setupView() {
-        <#code#>
+        [backgroundImageView, sesacImageView, toggleView].forEach {
+            self.addSubview($0)
+        }
+        backgroundImageView.image = UIImage(named: "sesac_bg_01")
+        backgroundImageView.clipsToBounds = true
+        backgroundImageView.layer.cornerRadius = 8
+        sesacImageView.image = UIImage(named: "sesac_face_2")
+        
+        toggleView.clipsToBounds = true
+        toggleView.layer.cornerRadius = 8
+        toggleView.layer.borderWidth = 1
+        toggleView.layer.borderColor = UIColor(rgbString: ColorSet.gray2).cgColor
     }
     
     func setupConstraints() {
-        <#code#>
+        backgroundImageView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(194)
+        }
+        
+        sesacImageView.snp.makeConstraints { make in
+            make.top.equalTo(backgroundImageView).offset(19)
+            make.leading.equalTo(backgroundImageView).offset(75)
+            make.trailing.equalTo(backgroundImageView).offset(-84)
+            make.height.equalTo(184)
+        }
+        
+        toggleView.snp.makeConstraints { make in
+            make.top.equalTo(backgroundImageView.snp.bottom)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(58)
+        }
+        
     }
     
 }
@@ -31,10 +67,13 @@ class MyCardView: UIView, ViewRepresentable {
 class ToggleView: UIView, ViewRepresentable {
     
     let nameLabel = UILabel()
-    
+    let toggleButton = UIButton()
+    let tableView = UITableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -42,10 +81,27 @@ class ToggleView: UIView, ViewRepresentable {
     }
     
     func setupView() {
-        <#code#>
+        [nameLabel, toggleButton].forEach {
+            self.addSubview($0)
+        }
+        nameLabel.textColor = UIColor(rgbString: ColorSet.black)
+        nameLabel.font = FontSet.title1M16
+        nameLabel.text = "신상원"
+        
+        toggleButton.setImage(UIImage(named: "more_arrow-bottom"), for: .normal)
     }
     
     func setupConstraints() {
-        <#code#>
+        nameLabel.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().offset(-16)
+        }
+        
+        toggleButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(26)
+            make.trailing.equalToSuperview().offset(-18)
+            make.width.equalTo(12)
+            make.height.equalTo(12)
+        }
     }
 }

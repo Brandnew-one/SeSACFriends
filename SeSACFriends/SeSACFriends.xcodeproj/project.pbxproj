@@ -22,7 +22,7 @@
 		AE162863279831C800CE45E8 /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE162862279831C800CE45E8 /* CertificationView.swift */; };
 		AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */; };
 		AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */; };
-		AE23F9E527A127FF008D9223 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E427A127FF008D9223 /* InformationView.swift */; };
+		AE23F9E527A127FF008D9223 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E427A127FF008D9223 /* InformationViewController.swift */; };
 		AE241189279A8AC000A8C421 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241188279A8AC000A8C421 /* EmailViewController.swift */; };
 		AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118A279A8D0000A8C421 /* EmailView.swift */; };
 		AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118C279A8FC500A8C421 /* EmailView+Extension.swift */; };
@@ -31,6 +31,7 @@
 		AE46E04D279E6E9E00247060 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46E04C279E6E9E00247060 /* Form.swift */; };
 		AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */; };
 		AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1727A279AC000CDC79 /* MyCardView.swift */; };
+		AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */; };
 		AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B45F27A1895C00AD5092 /* MyInfoView.swift */; };
 		AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46127A1897500AD5092 /* MyGenderView.swift */; };
 		AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46327A194BB00AD5092 /* MyHobbyView.swift */; };
@@ -49,7 +50,6 @@
 		AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */; };
 		AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA32054279933C800E9B7C4 /* UserModel.swift */; };
 		AEBF93A42796B6E7004C5B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */; };
-		AED3412627A03AA60062BEAE /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3412527A03AA60062BEAE /* InformationViewController.swift */; };
 		AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C6F27992A54001ACE37 /* EndPoint.swift */; };
 		AEE96C722799305D001ACE37 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C712799305D001ACE37 /* APIService.swift */; };
 		AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49A902796DCC800A693F3 /* CustomTextField.swift */; };
@@ -73,7 +73,7 @@
 		AE1628642798648D00CE45E8 /* SeSACFriends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACFriends.entitlements; sourceTree = "<group>"; };
 		AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationHeaderView.swift; sourceTree = "<group>"; };
-		AE23F9E427A127FF008D9223 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		AE23F9E427A127FF008D9223 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		AE241188279A8AC000A8C421 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		AE24118A279A8D0000A8C421 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		AE24118C279A8FC500A8C421 /* EmailView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmailView+Extension.swift"; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 		AE46E04C279E6E9E00247060 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWithdrawView.swift; sourceTree = "<group>"; };
 		AE47ED1727A279AC000CDC79 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
+		AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationViewController.swift; sourceTree = "<group>"; };
 		AE77B45F27A1895C00AD5092 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		AE77B46127A1897500AD5092 /* MyGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenderView.swift; sourceTree = "<group>"; };
 		AE77B46327A194BB00AD5092 /* MyHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyView.swift; sourceTree = "<group>"; };
@@ -102,7 +103,6 @@
 		AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocol.swift; sourceTree = "<group>"; };
 		AEA32054279933C800E9B7C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AED3412527A03AA60062BEAE /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		AEE96C6F27992A54001ACE37 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		AEE96C712799305D001ACE37 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AEF49A902796DCC800A693F3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -197,10 +197,9 @@
 		AE23F9DD27A1194F008D9223 /* Information */ = {
 			isa = PBXGroup;
 			children = (
-				AE23F9E427A127FF008D9223 /* InformationView.swift */,
+				AE23F9E427A127FF008D9223 /* InformationViewController.swift */,
 				AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */,
 				AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */,
-				AED3412527A03AA60062BEAE /* InformationViewController.swift */,
 				AE77B45E27A1889500AD5092 /* MyInformation */,
 			);
 			path = Information;
@@ -246,6 +245,7 @@
 				AE77B46727A1A79500AD5092 /* MyAgeView.swift */,
 				AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */,
 				AE47ED1727A279AC000CDC79 /* MyCardView.swift */,
+				AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */,
 			);
 			path = MyInformation;
 			sourceTree = "<group>";
@@ -442,11 +442,10 @@
 				AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */,
 				AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */,
 				AEA0A3F827967CE1009B6D05 /* ColorSet.swift in Sources */,
-				AE23F9E527A127FF008D9223 /* InformationView.swift in Sources */,
+				AE23F9E527A127FF008D9223 /* InformationViewController.swift in Sources */,
 				AE07E6182797D1B500866766 /* Observable.swift in Sources */,
 				AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */,
 				AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */,
-				AED3412627A03AA60062BEAE /* InformationViewController.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
 				AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */,
 				AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */,
@@ -455,6 +454,7 @@
 				AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */,
 				AE46E04D279E6E9E00247060 /* Form.swift in Sources */,
 				AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */,
+				AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */,
 				AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */,
 				AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */,
 				AEFF5AE4279D21780070E0CA /* HomeViewController.swift in Sources */,

@@ -19,10 +19,10 @@ class MyAgeView: UIView, ViewRepresentable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        makeLabels()
-        setupDoubleSlider()
         setupView()
         setupConstraints()
+        makeLabels()
+        setupDoubleSlider()
     }
     
     required init?(coder: NSCoder) {
@@ -35,29 +35,31 @@ class MyAgeView: UIView, ViewRepresentable {
         }
         label.textColor = UIColor(rgbString: ColorSet.black)
         label.font = FontSet.title4R14
+        label.text = "상대방 연령대"
         
         ageLabel.textColor = UIColor(rgbString: ColorSet.green)
         ageLabel.font = FontSet.title3M14
+        ageLabel.text = "18 - 35"
     }
     
     func setupConstraints() {
         label.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.top.equalToSuperview().offset(13)
-            make.bottom.equalToSuperview().offset(-13)
         }
         
         ageLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
             make.top.equalToSuperview().offset(13)
-            make.bottom.equalToSuperview().offset(-13)
         }
         
+        // 높이가 중복되서 오류가 발생할 수 있는 지점! 문제가 생기면 여기 확인하기!
         ageSlider.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(12)
-            make.trailing.equalToSuperview().offset(-12)
-            make.bottom.equalToSuperview().offset(-18)
-            make.height.equalTo(24)
+            make.leading.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-13)
+            make.top.equalTo(label.snp.bottom).offset(8)
+            make.height.equalTo(38.0) // 38 보다 높이가 작은 경우에는 track 의 색깔이 오류
         }
     }
     
@@ -73,23 +75,16 @@ class MyAgeView: UIView, ViewRepresentable {
         ageSlider.labelsAreHidden = true
         
         ageSlider.trackHighlightTintColor = UIColor(rgbString: ColorSet.green)
+        ageSlider.trackTintColor = UIColor(rgbString: ColorSet.gray2)
         ageSlider.thumbTintColor = UIColor(rgbString: ColorSet.green)
         ageSlider.numberOfSteps = labels.count
         ageSlider.smoothStepping = true
         
         ageSlider.lowerValueStepIndex = 0
         ageSlider.upperValueStepIndex = labels.count - 1
-        
-        // You can use traditional notifications
-//        ageSlider.addTarget(self, action: #selector(printVal(_:)), for: .valueChanged)
-        // Or Swifty delegates
+    
         ageSlider.editingDidEndDelegate = self
     }
-    
-//    @objc func printVal(_ doubleSlider: DoubleSlider) {
-//        print("Lower: \(doubleSlider.lowerValue) Upper: \(doubleSlider.upperValue)")
-//    }
-    
 }
 
 extension MyAgeView: DoubleSliderEditingDidEndDelegate {

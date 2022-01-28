@@ -30,17 +30,24 @@ class MyGenderView: UIView, ViewRepresentable {
         }
         label.textColor = UIColor(rgbString: ColorSet.black)
         label.font = FontSet.title4R14
+        label.text = "내 성별"
+        
         maleButton.titleLabel?.font = FontSet.body3R14
         femaleButton.titleLabel?.font = FontSet.body3R14
         
         maleButton.clipsToBounds = true
         maleButton.layer.cornerRadius = 8
         maleButton.layer.borderWidth = 1
+        maleButton.setTitle("남자", for: .normal)
+        maleButton.setTitleColor(UIColor(rgbString: ColorSet.black), for: .normal)
         maleButton.layer.borderColor = UIColor(rgbString: ColorSet.gray4).cgColor
+        
         
         femaleButton.clipsToBounds = true
         femaleButton.layer.cornerRadius = 8
         femaleButton.layer.borderWidth = 1
+        femaleButton.setTitle("여자", for: .normal)
+        femaleButton.setTitleColor(UIColor(rgbString: ColorSet.black), for: .normal)
         femaleButton.layer.borderColor = UIColor(rgbString: ColorSet.gray4).cgColor
     }
     

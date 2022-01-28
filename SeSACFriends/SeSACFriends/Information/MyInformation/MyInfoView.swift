@@ -8,6 +8,74 @@
 import SnapKit
 import UIKit
 
-class MyInfoView: UIView {
+class MyInfoView: UIView, ViewRepresentable {
+    
+    let scrollView = UIScrollView()
+    let myCardView = MyCardView()
+    let myGenderView = MyGenderView()
+    let myHobbyView = MyHobbyView()
+    let myPhoneView = MyPhoneView()
+    let myAgeView = MyAgeView()
+    let myWithdrawView = MyWithdrawView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    func setupView() {
+        [myCardView, myGenderView, myHobbyView, myPhoneView, myAgeView, myWithdrawView].forEach {
+            self.addSubview($0)
+        }
+    }
+    
+    func setupConstraints() {
+        myCardView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            
+        }
+        
+        myGenderView.snp.makeConstraints { make in
+            make.top.equalTo(myCardView.toggleView.snp.bottom).offset(24)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(48)
+        }
+        
+        myHobbyView.snp.makeConstraints { make in
+            make.top.equalTo(myGenderView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(48)
+        }
+        
+        myPhoneView.snp.makeConstraints { make in
+            make.top.equalTo(myHobbyView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(48)
+        }
+        
+        myAgeView.snp.makeConstraints { make in
+            make.top.equalTo(myPhoneView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(80)
+        }
+        
+        myWithdrawView.snp.makeConstraints { make in
+            make.top.equalTo(myAgeView.ageSlider.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(48)
+        }
+        
+    }
     
 }
