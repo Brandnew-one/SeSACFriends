@@ -176,7 +176,7 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		AE07E6102797B16A00866766 /* Color&Font */ = {
+		AE07E6102797B16A00866766 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				AE07E60D2797B15A00866766 /* NotoSansCJKkr-Medium.otf */,
@@ -184,7 +184,7 @@
 				AEA0A3F727967CE0009B6D05 /* ColorSet.swift */,
 				AE07E6112797B18300866766 /* FontSet.swift */,
 			);
-			path = "Color&Font";
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		AE162861279831B200CE45E8 /* Certification */ = {
@@ -283,7 +283,7 @@
 				AEA0A3EF279658AF009B6D05 /* Info.plist */,
 				AEFF5AE5279D35050070E0CA /* API */,
 				AE07E6072797A52900866766 /* CustomViews */,
-				AE07E6102797B16A00866766 /* Color&Font */,
+				AE07E6102797B16A00866766 /* Resource */,
 				AE07E6082797A54900866766 /* Protocols */,
 				AE07E6092797A56E00866766 /* Login */,
 				AECEBE6C27A501740062B86E /* TabBarController */,

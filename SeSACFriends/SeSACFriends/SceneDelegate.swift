@@ -12,44 +12,58 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene:  windowScene)
         window?.windowScene = windowScene
-//        window?.rootViewController = UINavigationController(rootViewController: InformationViewController())
+        // fireBase에 회원가입 하지 않은 경우 휴대폰 전화 인증을 통해서 FB에 가입을 시켜준다.
         
-        //1) 처음 앱을 켰을 때 FB에 가입을 한 user 인 경우, idtoken을 갱신만 해준다
-        // 만약 FB 가입을 하지않은 user 의 경우, 휴대폰 전화 인증을 통해서 FB에 가입을 시켜준다. (FCM 토큰 분기 처리 필요!)
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-            if let error = error {
-                print("error:", error.localizedDescription)
-                self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
-                return;
-            } else {
-                // FB에 가입을 한 user의 경우, SeSAC Friends 서비스에 회원가입을 한 user 인지 확인한다. (GET/USER)
-                UserDefaults.standard.set(idToken!, forKey: "FBToken") // 토큰 갱신
-                print("idToken: ", idToken)
-                APIService.getUser { user, error, code in
-                    if let code = code {
-                        if code == 200 { // 회원가입을 한 유저
-                            self.window?.rootViewController = TabBarController()
-                        } else if code == 201 { // 회원가입을 하지 않은 유저
-                            self.window?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
-                        } else {
-                            print("Code ERROR")
-                            print(code)
+        if UserDefaults.standard.string(forKey: "FBToken") == nil {
+            self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+            self.window?.makeKeyAndVisible()
+            return
+        } else {
+            Auth.auth().currentUser?.getIDToken { idToken, error in
+                if let error = error {
+                    print("error")
+                    return
+                }
+                // fireBase에 회원가입 하지 않은 경우 휴대폰 전화 인증을 통해서 FB에 가입을 시켜준다.
+                if UserDefaults.standard.string(forKey: "FBToken") == nil {
+                    print("111")
+                    self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+                    self.window?.makeKeyAndVisible()
+                    return
+                }
+            
+                if let idToken = idToken {
+                    print("222")
+                    DispatchQueue.main.async {
+                        UserDefaults.standard.set(idToken, forKey: "FBToken") // 토큰 갱신
+                        APIService.getUser { user, error, code in
+                            if let code = code {
+                                if code == 200 { // 회원가입을 한 유저
+                                    self.window?.rootViewController = TabBarController()
+                                    self.window?.makeKeyAndVisible()
+                                    return
+                                } else if code == 201 { // 회원가입을 하지 않은 유저
+                                    self.window?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
+                                    self.window?.makeKeyAndVisible()
+                                    return
+                                } else {
+                                    print("Code ERROR")
+                                    print(code)
+                                }
+                            } else {
+                                print(error)
+                                print("네트워크 통신 오류")
+                            }
                         }
-                    } else {
-                        print(error)
-                        print("네트워크 통신 오류")
                     }
                 }
             }
         }
-        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
