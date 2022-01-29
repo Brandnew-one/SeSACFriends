@@ -41,6 +41,7 @@ class InformationViewController: UIViewController, ViewRepresentable {
     func setupConstraints() {
         tableView.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+//            make.top.leading.trailing.bottom.equalToSuperview()
         }
     }
 }

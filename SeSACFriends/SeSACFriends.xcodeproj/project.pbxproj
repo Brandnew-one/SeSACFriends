@@ -50,6 +50,7 @@
 		AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */; };
 		AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA32054279933C800E9B7C4 /* UserModel.swift */; };
 		AEBF93A42796B6E7004C5B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */; };
+		AECEBE6E27A501A60062B86E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECEBE6D27A501A60062B86E /* TabBarController.swift */; };
 		AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C6F27992A54001ACE37 /* EndPoint.swift */; };
 		AEE96C722799305D001ACE37 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C712799305D001ACE37 /* APIService.swift */; };
 		AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49A902796DCC800A693F3 /* CustomTextField.swift */; };
@@ -103,6 +104,7 @@
 		AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocol.swift; sourceTree = "<group>"; };
 		AEA32054279933C800E9B7C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AECEBE6D27A501A60062B86E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AEE96C6F27992A54001ACE37 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		AEE96C712799305D001ACE37 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AEF49A902796DCC800A693F3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -284,8 +286,7 @@
 				AE07E6102797B16A00866766 /* Color&Font */,
 				AE07E6082797A54900866766 /* Protocols */,
 				AE07E6092797A56E00866766 /* Login */,
-				AEFF5AE3279D21780070E0CA /* HomeViewController.swift */,
-				AE23F9DD27A1194F008D9223 /* Information */,
+				AECEBE6C27A501740062B86E /* TabBarController */,
 			);
 			path = SeSACFriends;
 			sourceTree = "<group>";
@@ -297,6 +298,16 @@
 				AE0D40952799B5A9001818A2 /* NicknameView+Extension.swift */,
 			);
 			path = Nickname;
+			sourceTree = "<group>";
+		};
+		AECEBE6C27A501740062B86E /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				AECEBE6D27A501A60062B86E /* TabBarController.swift */,
+				AEFF5AE3279D21780070E0CA /* HomeViewController.swift */,
+				AE23F9DD27A1194F008D9223 /* Information */,
+			);
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 		AEFF5AE5279D35050070E0CA /* API */ = {
@@ -465,6 +476,7 @@
 				AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */,
 				AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */,
 				AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */,
+				AECEBE6E27A501A60062B86E /* TabBarController.swift in Sources */,
 				AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */,
 				AE241189279A8AC000A8C421 /* EmailViewController.swift in Sources */,
 			);

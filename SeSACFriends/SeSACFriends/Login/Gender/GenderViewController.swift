@@ -41,7 +41,7 @@ class GenderViewController: UIViewController {
         LoginViewModel.shared.fetchSignup { code in
             if code == 200 {
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-                windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+                windowScene.windows.first?.rootViewController = TabBarController()
                 windowScene.windows.first?.makeKeyAndVisible()
             } else if code == 201 {
                 self.view.makeToast("이미 가입한 유저입니다")
@@ -53,6 +53,7 @@ class GenderViewController: UIViewController {
             } else if code == 401 {
                 self.view.makeToast("다시 시도해주세요")
             } else {
+                print(code)
                 self.view.makeToast("네트워크 오류입니다")
             }
         }
