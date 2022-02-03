@@ -33,6 +33,7 @@ class MyCardView: UIView, ViewRepresentable {
         backgroundImageView.layer.cornerRadius = 8
         sesacImageView.image = UIImage(named: "sesac_face_2")
         
+        toggleView.backgroundColor = .systemBlue
         toggleView.clipsToBounds = true
         toggleView.layer.cornerRadius = 8
         toggleView.layer.borderWidth = 1
@@ -88,7 +89,14 @@ class ToggleView: UIView, ViewRepresentable {
         nameLabel.textColor = UIColor(rgbString: ColorSet.black)
         nameLabel.font = FontSet.title1M16
         nameLabel.text = "신상원"
+        nameLabel.backgroundColor = .red
+        
         toggleButton.setImage(UIImage(named: "more_arrow-bottom"), for: .normal)
+        toggleButton.isEnabled = true
+        toggleButton.backgroundColor = .blue
+        
+        titleView.backgroundColor = .brown
+        reviewView.backgroundColor = .systemPink
     }
     
     func setupConstraints() {
@@ -100,8 +108,8 @@ class ToggleView: UIView, ViewRepresentable {
         toggleButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(26)
             make.trailing.equalToSuperview().offset(-18)
-            make.width.equalTo(12)
-            make.height.equalTo(12)
+            make.width.equalTo(24)
+            make.height.equalTo(24)
         }
         
         titleView.snp.makeConstraints { make in

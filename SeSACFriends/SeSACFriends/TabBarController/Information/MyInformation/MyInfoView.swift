@@ -32,7 +32,7 @@ class MyInfoView: UIView, ViewRepresentable {
     func setupView() {
         addSubview(scrollView)
         scrollView.addSubview(containerView)
-        [myCardView, myGenderView, myHobbyView, myPhoneView, myAgeView, myWithdrawView].forEach {
+        [myGenderView, myHobbyView, myPhoneView, myAgeView, myWithdrawView, myCardView].forEach {
             containerView.addSubview($0)
         }
     }
