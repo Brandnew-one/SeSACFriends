@@ -11,6 +11,7 @@ import UIKit
 class MyInfoView: UIView, ViewRepresentable {
     
     let scrollView = UIScrollView()
+    let containerView = UIView()
     let myCardView = MyCardView()
     let myGenderView = MyGenderView()
     let myHobbyView = MyHobbyView()
@@ -29,22 +30,35 @@ class MyInfoView: UIView, ViewRepresentable {
     }
     
     func setupView() {
+        addSubview(scrollView)
+        scrollView.addSubview(containerView)
         [myCardView, myGenderView, myHobbyView, myPhoneView, myAgeView, myWithdrawView].forEach {
-            self.addSubview($0)
+            containerView.addSubview($0)
         }
     }
     
     func setupConstraints() {
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        containerView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalTo(scrollView.contentLayoutGuide)
+            make.width.equalTo(scrollView.frameLayoutGuide)
+        }
+        
         myCardView.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            
+            make.top.equalToSuperview().offset(16)
         }
         
         myGenderView.snp.makeConstraints { make in
             make.top.equalTo(myCardView.toggleView.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+//            make.leading.trailing.equalToSuperview()
             make.height.equalTo(48)
         }
         
@@ -52,6 +66,7 @@ class MyInfoView: UIView, ViewRepresentable {
             make.top.equalTo(myGenderView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+//            make.leading.trailing.equalToSuperview()
             make.height.equalTo(48)
         }
         
@@ -59,6 +74,7 @@ class MyInfoView: UIView, ViewRepresentable {
             make.top.equalTo(myHobbyView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+//            make.leading.trailing.equalToSuperview()
             make.height.equalTo(48)
         }
         
@@ -66,13 +82,15 @@ class MyInfoView: UIView, ViewRepresentable {
             make.top.equalTo(myPhoneView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+//            make.leading.trailing.equalToSuperview()
             make.height.equalTo(80)
         }
         
         myWithdrawView.snp.makeConstraints { make in
             make.top.equalTo(myAgeView.ageSlider.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.trailing.bottom.equalToSuperview().offset(-16)
+//            make.leading.trailing.equalToSuperview()
             make.height.equalTo(48)
         }
         

@@ -47,7 +47,7 @@ class CertificationViewController: UIViewController {
             APIService.getUser { user, error, code in
                 if let code = code {
                     if code == 200 {
-                        windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+                        windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: TabBarController())
                     } else if code == 201 {
                         windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
                     } else {

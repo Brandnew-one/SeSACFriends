@@ -10,7 +10,9 @@ import UIKit
 
 class MyInformationViewController: UIViewController {
     
-    let myInfoView = MyInfoView()
+    var myInfoView = MyInfoView()
+    var toggle: Bool = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,19 @@ class MyInformationViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
         view.addGestureRecognizer(tapGesture)
+        
         setupView()
+        myInfoView.myCardView.toggleView.toggleButton.addTarget(self, action: #selector(toggleButtonClicked), for: .touchUpInside)
+        myInfoView.myWithdrawView.button.addTarget(self, action: #selector(withdrawButtonClicked), for: .touchUpInside)
+        
+    }
+    
+    @objc func toggleButtonClicked() {
+        print("더 보기 버튼 눌림")
+    }
+    
+    @objc func withdrawButtonClicked() {
+        print("회원탈퇴 눌림")
     }
     
     func setupView() {
@@ -30,3 +44,4 @@ class MyInformationViewController: UIViewController {
     }
     
 }
+

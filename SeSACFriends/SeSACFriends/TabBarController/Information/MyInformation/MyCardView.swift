@@ -57,7 +57,7 @@ class MyCardView: UIView, ViewRepresentable {
             make.top.equalTo(backgroundImageView.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(58)
+//            make.height.equalTo(58)
         }
         
     }
@@ -67,8 +67,9 @@ class MyCardView: UIView, ViewRepresentable {
 class ToggleView: UIView, ViewRepresentable {
     
     let nameLabel = UILabel()
-    let toggleButton = UIButton()
-    let tableView = UITableView()
+    var toggleButton = UIButton()
+    let titleView = sesacTitleView()
+    let reviewView = sesacReviewView(frame: CGRect(), review: nil)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -81,20 +82,19 @@ class ToggleView: UIView, ViewRepresentable {
     }
     
     func setupView() {
-        [nameLabel, toggleButton].forEach {
+        [nameLabel, toggleButton, titleView, reviewView].forEach {
             self.addSubview($0)
         }
         nameLabel.textColor = UIColor(rgbString: ColorSet.black)
         nameLabel.font = FontSet.title1M16
         nameLabel.text = "신상원"
-        
         toggleButton.setImage(UIImage(named: "more_arrow-bottom"), for: .normal)
     }
     
     func setupConstraints() {
         nameLabel.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(-16)
+//            make.bottom.equalToSuperview().offset(-16)
         }
         
         toggleButton.snp.makeConstraints { make in
@@ -103,5 +103,19 @@ class ToggleView: UIView, ViewRepresentable {
             make.width.equalTo(12)
             make.height.equalTo(12)
         }
+        
+        titleView.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(24)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(146)
+        }
+        
+        reviewView.snp.makeConstraints { make in
+            make.top.equalTo(titleView.snp.bottom).offset(24)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.bottom.equalToSuperview().offset(-16)
+        }
+        
     }
 }
