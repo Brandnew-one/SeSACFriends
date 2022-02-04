@@ -31,10 +31,10 @@ class User: Codable {
     let purchaseToken, transactionID, reviewedBefore, reportedUser: [String]
     let uid, phoneNumber, fcMtoken, nick: String
     let birth, email: String
-    let gender, sesac: Int
-    let hobby: String
-    let dodgepenalty, background, ageMin, ageMax: Int
-    let dodgeNum, searchable, reportedNum: Int
+    var gender, sesac: Int
+    var hobby: String
+    var dodgepenalty, background, ageMin, ageMax: Int
+    var dodgeNum, searchable, reportedNum: Int
     let createdAt: String
     let v: Int
 

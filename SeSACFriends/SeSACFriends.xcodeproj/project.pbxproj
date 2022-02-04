@@ -35,6 +35,7 @@
 		AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */; };
 		AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1727A279AC000CDC79 /* MyCardView.swift */; };
 		AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */; };
+		AE642EA427AD170400F583BA /* WithdrawPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */; };
 		AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B45F27A1895C00AD5092 /* MyInfoView.swift */; };
 		AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46127A1897500AD5092 /* MyGenderView.swift */; };
 		AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46327A194BB00AD5092 /* MyHobbyView.swift */; };
@@ -92,6 +93,7 @@
 		AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWithdrawView.swift; sourceTree = "<group>"; };
 		AE47ED1727A279AC000CDC79 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
 		AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationViewController.swift; sourceTree = "<group>"; };
+		AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawPopupViewController.swift; sourceTree = "<group>"; };
 		AE77B45F27A1895C00AD5092 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		AE77B46127A1897500AD5092 /* MyGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGenderView.swift; sourceTree = "<group>"; };
 		AE77B46327A194BB00AD5092 /* MyHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyView.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				AE77B46527A1993900AD5092 /* MyPhoneView.swift */,
 				AE77B46727A1A79500AD5092 /* MyAgeView.swift */,
 				AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */,
+				AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */,
 				AE47ED1727A279AC000CDC79 /* MyCardView.swift */,
 				AE11286027AC3F1900826C9A /* MyInfoViewModel.swift */,
 				AE77B45F27A1895C00AD5092 /* MyInfoView.swift */,
@@ -471,6 +474,7 @@
 				AE065AA427A9213D007742DC /* sesacReviewView.swift in Sources */,
 				AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */,
 				AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */,
+				AE642EA427AD170400F583BA /* WithdrawPopupViewController.swift in Sources */,
 				AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */,
 				AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */,
 				AE0D40942799B38A001818A2 /* NicknameViewController.swift in Sources */,

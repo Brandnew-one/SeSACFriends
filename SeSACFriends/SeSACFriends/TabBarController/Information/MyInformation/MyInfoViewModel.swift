@@ -9,7 +9,7 @@ import Foundation
 
 class MyInfoViewModel {
     
-    let user = Observable(User())
+    var user = Observable(User())
     
     func fetchUser(completion: @escaping () -> Void) {
         APIService.getUser { user, error, code in
@@ -37,6 +37,7 @@ class MyInfoViewModel {
         }
     }
     
+    //escaping (String?) -> Void 형태로 토스트 수정해보기
     func updateMypage(completion: @escaping () -> Void) {
         let body = updateMypageForm(searchable: user.value.searchable, ageMin: user.value.ageMin, ageMax: user.value.ageMax, gender: user.value.gender, hobby: user.value.hobby)
         APIService.updateMyPage(body: body) { error, code in

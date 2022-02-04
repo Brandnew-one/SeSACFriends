@@ -31,13 +31,16 @@ class APIService {
         var request = URLRequest(url: url)
         request.httpMethod = Method.POST.rawValue
         request.setValue(token, forHTTPHeaderField: "idtoken")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    
-        let json = signupForm(phoneNumber: body.phoneNumber, FCMtoken: body.fcMtoken, nick: body.nick, birth: body.birth, email: body.email, gender: body.gender)
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        let jsonData = try? encoder.encode(json)
-        request.httpBody = jsonData
+        
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = "phoneNumber=\(body.phoneNumber)&FCMtoken=\(body.fcMtoken)&nick=\(body.nick)&birth=\(body.birth)&email=\(body.email)&gender=\(body.gender)".data(using: .utf8, allowLossyConversion: false)
+        
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        let json = signupForm(phoneNumber: body.phoneNumber, FCMtoken: body.fcMtoken, nick: body.nick, birth: body.birth, email: body.email, gender: body.gender)
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//        let jsonData = try? encoder.encode(json)
+//        request.httpBody = jsonData
         
         URLSession.request2(endpoint: request, completion: completion)
     }
@@ -62,15 +65,10 @@ class APIService {
         }
         var request = URLRequest(url: url)
         request.httpMethod = Method.POST.rawValue
+        request.httpBody = "searchable=\(body.searchable)&ageMin=\(body.ageMin)&ageMax=\(body.ageMax)&gender=\(body.gender)&hobby=\(body.hobby)".data(using: .utf8, allowLossyConversion: false)
         request.setValue(token, forHTTPHeaderField: "idtoken")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
     
-        let json = updateMypageForm(searchable: body.searchable, ageMin: body.ageMin, ageMax: body.ageMax, gender: body.gender, hobby: body.hobby)
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        let jsonData = try? encoder.encode(json)
-        request.httpBody = jsonData
-        
         URLSession.request2(endpoint: request, completion: completion)
     }
 }

@@ -5,7 +5,9 @@
 //  Created by 신상원 on 2022/01/28.
 //
 
+import Toast_Swift
 import SnapKit
+
 import UIKit
 
 class MyInformationViewController: UIViewController {
@@ -45,9 +47,23 @@ class MyInformationViewController: UIViewController {
     @objc func saveButtonClicked() {
         print("저장버튼 눌림")
         
+        if myInfoView.myPhoneView.phoneSwitch.isOn {
+            myInfoViewModel.user.value.searchable = 1
+        } else {
+            myInfoViewModel.user.value.searchable = 0
+        }
+        
+        myInfoViewModel.user.value.ageMin = myInfoView.myAgeView.ageSlider.lowerValueStepIndex + 18
+        myInfoViewModel.user.value.ageMax = myInfoView.myAgeView.ageSlider.upperValueStepIndex + 18
+        myInfoViewModel.user.value.hobby = myInfoView.myHobbyView.myTextField.textField.text ?? ""
+        
+        myInfoViewModel.updateMypage {
+            self.view.makeToast("사용자 정보가 수정되었습니다.")
+        }
     }
     
     @objc func maleButtonTapped() {
+        myInfoViewModel.user.value.gender = 1
         myInfoView.myGenderView.maleButton.backgroundColor = UIColor(rgbString: ColorSet.green)
         myInfoView.myGenderView.maleButton.setTitleColor(UIColor(rgbString: ColorSet.white), for: .normal)
         myInfoView.myGenderView.femaleButton.backgroundColor = UIColor(rgbString: ColorSet.white)
@@ -55,6 +71,7 @@ class MyInformationViewController: UIViewController {
     }
     
     @objc func femaleButtonTapped() {
+        myInfoViewModel.user.value.gender = 0
         myInfoView.myGenderView.maleButton.backgroundColor = UIColor(rgbString: ColorSet.white)
         myInfoView.myGenderView.maleButton.setTitleColor(UIColor(rgbString: ColorSet.black), for: .normal)
         myInfoView.myGenderView.femaleButton.backgroundColor = UIColor(rgbString: ColorSet.green)
@@ -76,6 +93,10 @@ class MyInformationViewController: UIViewController {
     
     @objc func withdrawButtonClicked() {
         print("회원탈퇴 눌림")
+        let vc = WithdrawPopupViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
     }
     
     func setupView() {
@@ -86,8 +107,29 @@ class MyInformationViewController: UIViewController {
     }
     
     func updateView() {
+        // 새싹 타이틀
+        var index = 0
+        for rep in myInfoViewModel.user.value.reputation {
+            if index >= 6 {
+                break
+            }
+            if rep > 0 {
+                myInfoView.myCardView.titleView.cellTitles[index].setupMode(isOn: true)
+            }
+            index += 1
+        }
+        
+        // 새싹 리뷰
+        if myInfoViewModel.user.value.comment.isEmpty {
+            myInfoView.myCardView.reviewView.setupMode(review: nil)
+        } else {
+            myInfoView.myCardView.reviewView.setupMode(review: myInfoViewModel.user.value.comment.first)
+        }
+        
+        // 이름
         myInfoView.myCardView.nameView.nameLabel.text = myInfoViewModel.user.value.nick
         
+        // 성별
         if myInfoViewModel.user.value.gender == 0 {
             myInfoView.myGenderView.femaleButton.backgroundColor = UIColor(rgbString: ColorSet.green)
             myInfoView.myGenderView.femaleButton.setTitleColor(UIColor(rgbString: ColorSet.white), for: .normal)
@@ -95,21 +137,21 @@ class MyInformationViewController: UIViewController {
             myInfoView.myGenderView.maleButton.backgroundColor = UIColor(rgbString: ColorSet.green)
             myInfoView.myGenderView.maleButton.setTitleColor(UIColor(rgbString: ColorSet.white), for: .normal)
         }
+        // 자주하는 취미
+        myInfoView.myHobbyView.myTextField.textField.text = myInfoViewModel.user.value.hobby
         
+        //내 번호 검색 허용
         if myInfoViewModel.user.value.searchable == 0 {
             myInfoView.myPhoneView.phoneSwitch.isOn = false
         } else {
             myInfoView.myPhoneView.phoneSwitch.isOn = true
         }
         
-        myInfoView.myHobbyView.myTextField.textField.text = myInfoViewModel.user.value.hobby
-        
+        // 상대방 연령대
         myInfoView.myAgeView.ageSlider.lowerValueStepIndex = myInfoViewModel.user.value.ageMin - 18
         myInfoView.myAgeView.ageSlider.upperValueStepIndex = myInfoViewModel.user.value.ageMax - 18
         myInfoView.myAgeView.ageLabel.text = "\(myInfoViewModel.user.value.ageMin) - \(myInfoViewModel.user.value.ageMax)"
-        
     }
-    
     
 }
 
