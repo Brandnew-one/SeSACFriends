@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B16562A98DD7C83E811770D /* Pods_SeSACFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD2109D89D0DC4769F994A6 /* Pods_SeSACFriends.framework */; };
-		AE065AA427A9213D007742DC /* sesacReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE065AA327A9213D007742DC /* sesacReviewTableViewCell.swift */; };
+		AE065AA427A9213D007742DC /* sesacReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE065AA327A9213D007742DC /* sesacReviewView.swift */; };
 		AE07E60B2797ABD300866766 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE07E60A2797ABD300866766 /* LoginViewController.swift */; };
 		AE07E60E2797B15A00866766 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE07E60C2797B15900866766 /* NotoSansCJKkr-Regular.otf */; };
 		AE07E60F2797B15A00866766 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE07E60D2797B15A00866766 /* NotoSansCJKkr-Medium.otf */; };
@@ -18,6 +18,8 @@
 		AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0A851B279AF9A7004C3EFA /* GenderViewController.swift */; };
 		AE0D40942799B38A001818A2 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0D40932799B38A001818A2 /* NicknameViewController.swift */; };
 		AE0D40962799B5A9001818A2 /* NicknameView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0D40952799B5A9001818A2 /* NicknameView+Extension.swift */; };
+		AE11285F27AC1E5500826C9A /* sesacNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE11285E27AC1E5500826C9A /* sesacNameView.swift */; };
+		AE11286127AC3F1900826C9A /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE11286027AC3F1900826C9A /* MyInfoViewModel.swift */; };
 		AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285D27980EC800CE45E8 /* LoginView+Extension.swift */; };
 		AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */; };
 		AE162863279831C800CE45E8 /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE162862279831C800CE45E8 /* CertificationView.swift */; };
@@ -42,7 +44,7 @@
 		AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F5279B113500668D28 /* BirthViewController.swift */; };
 		AE80A1F8279B168C00668D28 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F7279B168C00668D28 /* DayView.swift */; };
 		AE8EA41E27A6F39400853DC0 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8EA41D27A6F39400853DC0 /* TitleView.swift */; };
-		AE8EA42127A6F40700853DC0 /* sesacTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8EA42027A6F40700853DC0 /* sesacTitleTableViewCell.swift */; };
+		AE8EA42127A6F40700853DC0 /* sesacTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */; };
 		AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */; };
 		AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */; };
 		AEA0A3EB279658AF009B6D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA0A3EA279658AF009B6D05 /* Assets.xcassets */; };
@@ -62,7 +64,7 @@
 
 /* Begin PBXFileReference section */
 		3BD2109D89D0DC4769F994A6 /* Pods_SeSACFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSACFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE065AA327A9213D007742DC /* sesacReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacReviewTableViewCell.swift; sourceTree = "<group>"; };
+		AE065AA327A9213D007742DC /* sesacReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacReviewView.swift; sourceTree = "<group>"; };
 		AE07E60A2797ABD300866766 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AE07E60C2797B15900866766 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		AE07E60D2797B15A00866766 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
@@ -72,6 +74,8 @@
 		AE0A851B279AF9A7004C3EFA /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		AE0D40932799B38A001818A2 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		AE0D40952799B5A9001818A2 /* NicknameView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NicknameView+Extension.swift"; sourceTree = "<group>"; };
+		AE11285E27AC1E5500826C9A /* sesacNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacNameView.swift; sourceTree = "<group>"; };
+		AE11286027AC3F1900826C9A /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
 		AE16285D27980EC800CE45E8 /* LoginView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+Extension.swift"; sourceTree = "<group>"; };
 		AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewController.swift.swift; sourceTree = "<group>"; };
 		AE162862279831C800CE45E8 /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
@@ -97,7 +101,7 @@
 		AE80A1F5279B113500668D28 /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
 		AE80A1F7279B168C00668D28 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		AE8EA41D27A6F39400853DC0 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		AE8EA42027A6F40700853DC0 /* sesacTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacTitleTableViewCell.swift; sourceTree = "<group>"; };
+		AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacTitleView.swift; sourceTree = "<group>"; };
 		AEA0A3DE279658A5009B6D05 /* SeSACFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +158,9 @@
 				AEA0A3F927967F88009B6D05 /* CustomButton.swift */,
 				AEF49A902796DCC800A693F3 /* CustomTextField.swift */,
 				AE8EA41D27A6F39400853DC0 /* TitleView.swift */,
+				AE11285E27AC1E5500826C9A /* sesacNameView.swift */,
+				AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */,
+				AE065AA327A9213D007742DC /* sesacReviewView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -183,7 +190,7 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		AE07E6102797B16A00866766 /* Resource */ = {
+		AE07E6102797B16A00866766 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				AE07E60D2797B15A00866766 /* NotoSansCJKkr-Medium.otf */,
@@ -191,7 +198,7 @@
 				AEA0A3F727967CE0009B6D05 /* ColorSet.swift */,
 				AE07E6112797B18300866766 /* FontSet.swift */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		AE162861279831B200CE45E8 /* Certification */ = {
@@ -247,13 +254,14 @@
 		AE77B45E27A1889500AD5092 /* MyInformation */ = {
 			isa = PBXGroup;
 			children = (
-				AE77B45F27A1895C00AD5092 /* MyInfoView.swift */,
 				AE77B46127A1897500AD5092 /* MyGenderView.swift */,
 				AE77B46327A194BB00AD5092 /* MyHobbyView.swift */,
 				AE77B46527A1993900AD5092 /* MyPhoneView.swift */,
 				AE77B46727A1A79500AD5092 /* MyAgeView.swift */,
 				AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */,
 				AE47ED1727A279AC000CDC79 /* MyCardView.swift */,
+				AE11286027AC3F1900826C9A /* MyInfoViewModel.swift */,
+				AE77B45F27A1895C00AD5092 /* MyInfoView.swift */,
 				AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */,
 			);
 			path = MyInformation;
@@ -262,8 +270,6 @@
 		AE8EA41F27A6F3E700853DC0 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				AE8EA42027A6F40700853DC0 /* sesacTitleTableViewCell.swift */,
-				AE065AA327A9213D007742DC /* sesacReviewTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -300,7 +306,7 @@
 				AEFF5AE5279D35050070E0CA /* API */,
 				AE07E6072797A52900866766 /* CustomViews */,
 				AE8EA41F27A6F3E700853DC0 /* CustomCells */,
-				AE07E6102797B16A00866766 /* Resource */,
+				AE07E6102797B16A00866766 /* Resources */,
 				AE07E6082797A54900866766 /* Protocols */,
 				AE07E6092797A56E00866766 /* Login */,
 				AECEBE6C27A501740062B86E /* TabBarController */,
@@ -462,16 +468,17 @@
 				AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */,
 				AEA0A3FC27969D0C009B6D05 /* LoginView.swift in Sources */,
 				AE162863279831C800CE45E8 /* CertificationView.swift in Sources */,
-				AE065AA427A9213D007742DC /* sesacReviewTableViewCell.swift in Sources */,
+				AE065AA427A9213D007742DC /* sesacReviewView.swift in Sources */,
 				AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */,
 				AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */,
 				AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */,
 				AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */,
 				AE0D40942799B38A001818A2 /* NicknameViewController.swift in Sources */,
 				AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */,
+				AE11286127AC3F1900826C9A /* MyInfoViewModel.swift in Sources */,
 				AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */,
 				AEA0A3F827967CE1009B6D05 /* ColorSet.swift in Sources */,
-				AE8EA42127A6F40700853DC0 /* sesacTitleTableViewCell.swift in Sources */,
+				AE8EA42127A6F40700853DC0 /* sesacTitleView.swift in Sources */,
 				AE23F9E527A127FF008D9223 /* InformationViewController.swift in Sources */,
 				AE07E6182797D1B500866766 /* Observable.swift in Sources */,
 				AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */,
@@ -481,6 +488,7 @@
 				AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */,
 				AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */,
 				AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */,
+				AE11285F27AC1E5500826C9A /* sesacNameView.swift in Sources */,
 				AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */,
 				AE46E04D279E6E9E00247060 /* Form.swift in Sources */,
 				AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */,

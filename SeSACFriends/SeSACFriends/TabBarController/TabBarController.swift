@@ -16,12 +16,21 @@ class TabBarController: UITabBarController {
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())
         homeVC.tabBarItem.title = "홈"
+        homeVC.tabBarItem.image = UIImage(named: "ic")
+        
+        let shopVC = UINavigationController(rootViewController: HomeViewController())
+        shopVC.tabBarItem.title = "새싹샵"
+        shopVC.tabBarItem.image = UIImage(named: "ic-1")
+        
+        let friendVC = UINavigationController(rootViewController: HomeViewController())
+        friendVC.tabBarItem.title = "새싹친구"
+        friendVC.tabBarItem.image = UIImage(named: "ic-2")
         
         let profileVC = UINavigationController(rootViewController: InformationViewController())
         profileVC.tabBarItem.title = "내 정보"
+        profileVC.tabBarItem.image = UIImage(named: "ic-3")
         
-        viewControllers = [homeVC, profileVC]
-        
+        viewControllers = [homeVC, shopVC, friendVC, profileVC]
     }
     
 }

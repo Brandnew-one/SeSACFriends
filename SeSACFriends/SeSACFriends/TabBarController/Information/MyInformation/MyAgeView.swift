@@ -13,7 +13,7 @@ class MyAgeView: UIView, ViewRepresentable {
     
     let label = UILabel()
     let ageLabel = UILabel()
-    let ageSlider = DoubleSlider()
+    var ageSlider = DoubleSlider()
     
     var labels: [String] = []
     
@@ -83,15 +83,17 @@ class MyAgeView: UIView, ViewRepresentable {
         ageSlider.lowerValueStepIndex = 0
         ageSlider.upperValueStepIndex = labels.count - 1
     
-        ageSlider.editingDidEndDelegate = self
+        ageSlider.addTarget(self, action: #selector(printVal(_:)), for: .valueChanged)
+        
+    }
+    
+    // 기존 라이브러리에서 제공하는 방법을 사용하면 index가 반영되지 않을 때가 있는 문제점 발생
+    @objc func printVal(_ doubleSlider: DoubleSlider) {
+//        print("Lower Step Index: \(doubleSlider.lowerValueStepIndex + 18) Upper Step Index: \(doubleSlider.upperValueStepIndex + 18)")
+        ageLabel.text = "\(doubleSlider.lowerValueStepIndex + 18) - \(doubleSlider.upperValueStepIndex + 18)"
     }
 }
 
-extension MyAgeView: DoubleSliderEditingDidEndDelegate {
-    func editingDidEnd(for doubleSlider: DoubleSlider) {
-        print("Lower Step Index: \(doubleSlider.lowerValueStepIndex) Upper Step Index: \(doubleSlider.upperValueStepIndex)")
-    }
-}
 
 extension MyAgeView: DoubleSliderLabelDelegate {
     func labelForStep(at index: Int) -> String? {

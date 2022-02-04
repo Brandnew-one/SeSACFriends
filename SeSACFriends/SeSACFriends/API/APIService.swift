@@ -55,4 +55,22 @@ class APIService {
         URLSession.request2(endpoint: request, completion: completion)
     }
     
+    static func updateMyPage(body: updateMypageForm, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.updateMyPage.url
+        guard let token = UserDefaults.standard.string(forKey: "FBToken") else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+        let json = updateMypageForm(searchable: body.searchable, ageMin: body.ageMin, ageMax: body.ageMax, gender: body.gender, hobby: body.hobby)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let jsonData = try? encoder.encode(json)
+        request.httpBody = jsonData
+        
+        URLSession.request2(endpoint: request, completion: completion)
+    }
 }

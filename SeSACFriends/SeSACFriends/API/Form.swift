@@ -16,3 +16,11 @@ struct signupForm: Codable {
     var email: String
     var gender: Int
 }
+
+struct updateMypageForm: Codable {
+    var searchable: Int
+    var ageMin: Int
+    var ageMax: Int
+    var gender: Int
+    var hobby: String
+}

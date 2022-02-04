@@ -48,12 +48,13 @@ class sesacTitleView: UIView {
     
     func setupConstraints() {
         cellLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview()
+            make.top.equalToSuperview().offset(-8)
+            make.leading.equalToSuperview().offset(16)
         }
         
         cellTitles[0].snp.makeConstraints { make in
             make.top.equalTo(cellLabel.snp.bottom).offset(16)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
             make.width.equalTo(cellTitles[1].snp.width)
             make.height.equalTo(32)
         }
@@ -61,13 +62,13 @@ class sesacTitleView: UIView {
         cellTitles[1].snp.makeConstraints { make in
             make.top.equalTo(cellLabel.snp.bottom).offset(16)
             make.leading.equalTo(cellTitles[0].snp.trailing).offset(8)
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(32)
         }
         
         cellTitles[2].snp.makeConstraints { make in
             make.top.equalTo(cellTitles[0].snp.bottom).offset(8)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
             make.width.equalTo(cellTitles[3].snp.width)
             make.height.equalTo(32)
         }
@@ -75,13 +76,13 @@ class sesacTitleView: UIView {
         cellTitles[3].snp.makeConstraints { make in
             make.top.equalTo(cellTitles[1].snp.bottom).offset(8)
             make.leading.equalTo(cellTitles[2].snp.trailing).offset(8)
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(32)
         }
         
         cellTitles[4].snp.makeConstraints { make in
             make.top.equalTo(cellTitles[2].snp.bottom).offset(8)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
             make.width.equalTo(cellTitles[5].snp.width)
             make.height.equalTo(32)
         }
@@ -89,7 +90,7 @@ class sesacTitleView: UIView {
         cellTitles[5].snp.makeConstraints { make in
             make.top.equalTo(cellTitles[3].snp.bottom).offset(8)
             make.leading.equalTo(cellTitles[4].snp.trailing).offset(8)
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(32)
         }
         

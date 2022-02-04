@@ -12,7 +12,11 @@ class MyCardView: UIView, ViewRepresentable {
     
     let backgroundImageView = UIImageView()
     let sesacImageView = UIImageView()
-    let toggleView = ToggleView()
+    
+    let stackView = UIStackView()
+    let nameView = sesacNameView()
+    let titleView = sesacTitleView()
+    let reviewView = sesacReviewView(frame: CGRect(), review: nil)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +29,7 @@ class MyCardView: UIView, ViewRepresentable {
     }
     
     func setupView() {
-        [backgroundImageView, sesacImageView, toggleView].forEach {
+        [backgroundImageView, sesacImageView, stackView].forEach {
             self.addSubview($0)
         }
         backgroundImageView.image = UIImage(named: "sesac_bg_01")
@@ -33,11 +37,21 @@ class MyCardView: UIView, ViewRepresentable {
         backgroundImageView.layer.cornerRadius = 8
         sesacImageView.image = UIImage(named: "sesac_face_2")
         
-        toggleView.backgroundColor = .systemBlue
-        toggleView.clipsToBounds = true
-        toggleView.layer.cornerRadius = 8
-        toggleView.layer.borderWidth = 1
-        toggleView.layer.borderColor = UIColor(rgbString: ColorSet.gray2).cgColor
+        
+        stackView.backgroundColor = .white
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        
+        stackView.layer.cornerRadius = 8
+        stackView.layer.borderColor = UIColor(rgbString: ColorSet.gray2).cgColor
+        stackView.layer.borderWidth = 1
+        stackView.spacing = 16.0
+        
+        [nameView, titleView, reviewView].forEach {
+            stackView.addArrangedSubview($0)
+        }
+        
+        reviewView.setupMode(review: "한줄이 길면 제대로 나오나?\n나와라 이놈아")
     }
     
     func setupConstraints() {
@@ -54,76 +68,82 @@ class MyCardView: UIView, ViewRepresentable {
             make.height.equalTo(184)
         }
         
-        toggleView.snp.makeConstraints { make in
+        stackView.snp.makeConstraints { make in
             make.top.equalTo(backgroundImageView.snp.bottom)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-//            make.height.equalTo(58)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+
+        nameView.snp.makeConstraints { make in
+            make.height.equalTo(58)
+        }
+        
+        titleView.snp.makeConstraints { make in
+            make.height.equalTo(146)
         }
         
     }
     
 }
 
-class ToggleView: UIView, ViewRepresentable {
-    
-    let nameLabel = UILabel()
-    var toggleButton = UIButton()
-    let titleView = sesacTitleView()
-    let reviewView = sesacReviewView(frame: CGRect(), review: nil)
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-        setupConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
-    func setupView() {
-        [nameLabel, toggleButton, titleView, reviewView].forEach {
-            self.addSubview($0)
-        }
-        nameLabel.textColor = UIColor(rgbString: ColorSet.black)
-        nameLabel.font = FontSet.title1M16
-        nameLabel.text = "신상원"
-        nameLabel.backgroundColor = .red
-        
-        toggleButton.setImage(UIImage(named: "more_arrow-bottom"), for: .normal)
-        toggleButton.isEnabled = true
-        toggleButton.backgroundColor = .blue
-        
-        titleView.backgroundColor = .brown
-        reviewView.backgroundColor = .systemPink
-    }
-    
-    func setupConstraints() {
-        nameLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().offset(16)
-//            make.bottom.equalToSuperview().offset(-16)
-        }
-        
-        toggleButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(26)
-            make.trailing.equalToSuperview().offset(-18)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
-        }
-        
-        titleView.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(24)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(146)
-        }
-        
-        reviewView.snp.makeConstraints { make in
-            make.top.equalTo(titleView.snp.bottom).offset(24)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.bottom.equalToSuperview().offset(-16)
-        }
-        
-    }
-}
+//class ToggleView: UIView, ViewRepresentable {
+//
+//    let stackView = UIStackView()
+//    let nameView = sesacNameView()
+//    let titleView = sesacTitleView()
+//    let reviewView = sesacReviewView(frame: CGRect(), review: nil)
+//
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        setupView()
+//        setupConstraints()
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError()
+//    }
+//
+//    func setupView() {
+//        self.addSubview(stackView)
+//        stackView.backgroundColor = .white
+//        stackView.axis = .vertical
+////        stackView.distribution = .fill
+//
+//        stackView.layer.cornerRadius = 8
+//        stackView.layer.borderColor = UIColor(rgbString: ColorSet.gray2).cgColor
+//        stackView.layer.borderWidth = 1
+//        stackView.spacing = 16.0
+//
+//        [nameView, titleView, reviewView].forEach {
+//            stackView.addArrangedSubview($0)
+//        }
+//        stackView.backgroundColor = .systemPink
+//        nameView.backgroundColor = .systemGray2
+//        titleView.backgroundColor = .systemGray4
+//        reviewView.backgroundColor = .systemGray6
+//    }
+//
+//    func setupConstraints() {
+//
+//        stackView.snp.makeConstraints { make in
+//            make.top.leading.trailing.bottom.equalToSuperview()
+//        }
+//
+//        nameView.snp.makeConstraints { make in
+////            make.leading.equalTo(stackView.snp.leading).offset(16)
+////            make.trailing.equalTo(stackView.snp.trailing).offset(-16)
+//            make.height.equalTo(58)
+//        }
+//
+//        titleView.snp.makeConstraints { make in
+//            make.leading.equalTo(stackView.snp.leading).offset(16)
+//            make.trailing.equalTo(stackView.snp.trailing).offset(-16)
+//            make.height.equalTo(146)
+//        }
+//
+//        reviewView.snp.makeConstraints { make in
+//            make.leading.equalTo(stackView.snp.leading).offset(16)
+//            make.trailing.equalTo(stackView.snp.trailing).offset(-16)
+//            make.bottom.equalTo(stackView.snp.bottom).offset(-16)
+//        }
+//    }
+//}

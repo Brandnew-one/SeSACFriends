@@ -48,7 +48,7 @@ class CertificationViewController: UIViewController {
                 if let code = code {
                     if code == 200 {
                         windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: TabBarController())
-                    } else if code == 201 {
+                    } else if code == 406 {
                         windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: NicknameViewController())
                     } else {
                         self.view.makeToast("네트워크 오류입니다.")

@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
     @objc func delButtonClicked() {
         LoginViewModel.shared.fetchWithdraw { code in
             if code == 200 || code == 406 {
+                UserDefaults.standard.removeObject(forKey: "FBToken")
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
                 windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: LoginViewController())
                 windowScene.windows.first?.makeKeyAndVisible()

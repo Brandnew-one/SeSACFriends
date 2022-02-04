@@ -38,16 +38,20 @@ class sesacReviewView: UIView, ViewRepresentable {
         
         contentLabel.font = FontSet.body3R14
         contentLabel.textColor = UIColor(rgbString: ColorSet.gray6)
+        contentLabel.numberOfLines = 0
     }
     
     func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview()
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
         }
         
         contentLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(16)
-            make.leading.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
         }
     }
     

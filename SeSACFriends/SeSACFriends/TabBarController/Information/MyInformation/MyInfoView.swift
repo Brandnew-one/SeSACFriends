@@ -51,14 +51,14 @@ class MyInfoView: UIView, ViewRepresentable {
         myCardView.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.top.equalToSuperview().offset(16)
+//            make.height.greaterThanOrEqualTo(250)
+//            make.top.equalToSuperview().offset(16)
         }
         
         myGenderView.snp.makeConstraints { make in
-            make.top.equalTo(myCardView.toggleView.snp.bottom).offset(24)
+            make.top.equalTo(myCardView.stackView.snp.bottom).offset(24)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-//            make.leading.trailing.equalToSuperview()
             make.height.equalTo(48)
         }
         
