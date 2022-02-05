@@ -55,6 +55,8 @@
 		AEA0A3FC27969D0C009B6D05 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3FB27969D0C009B6D05 /* LoginView.swift */; };
 		AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */; };
 		AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA32054279933C800E9B7C4 /* UserModel.swift */; };
+		AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB30F4327AE35620004A5A3 /* UserDefautlsSet.swift */; };
+		AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB30F4527AE3A930004A5A3 /* ImageSet.swift */; };
 		AEBF93A42796B6E7004C5B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */; };
 		AECEBE6E27A501A60062B86E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECEBE6D27A501A60062B86E /* TabBarController.swift */; };
 		AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C6F27992A54001ACE37 /* EndPoint.swift */; };
@@ -115,6 +117,8 @@
 		AEA0A3FB27969D0C009B6D05 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocol.swift; sourceTree = "<group>"; };
 		AEA32054279933C800E9B7C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		AEB30F4327AE35620004A5A3 /* UserDefautlsSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautlsSet.swift; sourceTree = "<group>"; };
+		AEB30F4527AE3A930004A5A3 /* ImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
 		AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AECEBE6D27A501A60062B86E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AEE96C6F27992A54001ACE37 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 				AE07E60C2797B15900866766 /* NotoSansCJKkr-Regular.otf */,
 				AEA0A3F727967CE0009B6D05 /* ColorSet.swift */,
 				AE07E6112797B18300866766 /* FontSet.swift */,
+				AEB30F4327AE35620004A5A3 /* UserDefautlsSet.swift */,
+				AEB30F4527AE3A930004A5A3 /* ImageSet.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -270,13 +276,6 @@
 			path = MyInformation;
 			sourceTree = "<group>";
 		};
-		AE8EA41F27A6F3E700853DC0 /* CustomCells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomCells;
-			sourceTree = "<group>";
-		};
 		AEA0A3D5279658A5009B6D05 = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +307,6 @@
 				AEA0A3EF279658AF009B6D05 /* Info.plist */,
 				AEFF5AE5279D35050070E0CA /* API */,
 				AE07E6072797A52900866766 /* CustomViews */,
-				AE8EA41F27A6F3E700853DC0 /* CustomCells */,
 				AE07E6102797B16A00866766 /* Resources */,
 				AE07E6082797A54900866766 /* Protocols */,
 				AE07E6092797A56E00866766 /* Login */,
@@ -503,9 +501,11 @@
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
 				AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */,
 				AE80A1F8279B168C00668D28 /* DayView.swift in Sources */,
+				AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */,
 				AE24118F279A990900A8C421 /* GenderView.swift in Sources */,
 				AE8EA41E27A6F39400853DC0 /* TitleView.swift in Sources */,
 				AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */,
+				AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */,
 				AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */,
 				AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */,
 				AECEBE6E27A501A60062B86E /* TabBarController.swift in Sources */,

@@ -108,6 +108,11 @@ class MyInformationViewController: UIViewController {
     
     func updateView() {
         // 새싹 타이틀
+//        TEST
+//        myInfoViewModel.user.value.reputation[0] = 1
+//        myInfoViewModel.user.value.reputation[2] = 1
+//        myInfoViewModel.user.value.reputation[4] = 1
+        
         var index = 0
         for rep in myInfoViewModel.user.value.reputation {
             if index >= 6 {

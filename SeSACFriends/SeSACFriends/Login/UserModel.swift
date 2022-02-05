@@ -25,7 +25,7 @@ struct Signup {
 // 구조체 멤버와이즈 이니셜라이저가 정상적으로 동작하지 않아서 클래스로 우선 만듬
 class User: Codable {
     let id: String
-    let reputation: [Int]
+    var reputation: [Int]
     let comment: [String]
     let sesacCollection, backgroundCollection: [Int]
     let purchaseToken, transactionID, reviewedBefore, reportedUser: [String]

@@ -13,11 +13,11 @@ class InformationViewController: UIViewController, ViewRepresentable {
     var tableView = UITableView()
     
     let images: [UIImage?] = [
-        UIImage(named: "notice") ?? UIImage(systemName: "star"),
-        UIImage(named: "faq") ?? UIImage(systemName: "star"),
-        UIImage(named: "qna") ?? UIImage(systemName: "star"),
-        UIImage(named: "setting_alarm") ?? UIImage(systemName: "star"),
-        UIImage(named: "permit") ?? UIImage(systemName: "star")
+        UIImage(named: ImageSet.notice) ?? UIImage(systemName: "star"),
+        UIImage(named: ImageSet.faq) ?? UIImage(systemName: "star"),
+        UIImage(named: ImageSet.qna) ?? UIImage(systemName: "star"),
+        UIImage(named: ImageSet.alarm) ?? UIImage(systemName: "star"),
+        UIImage(named: ImageSet.permit) ?? UIImage(systemName: "star")
     ]
     let titles = ["공지사항", "자주 묻는 질문", "1:1 문의", "알림 설정", "이용 약관"]
     

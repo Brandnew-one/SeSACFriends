@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         // fireBase에 회원가입 하지 않은 경우 휴대폰 전화 인증을 통해서 FB에 가입을 시켜준다.
         
-        if UserDefaults.standard.string(forKey: "FBToken") == nil {
+        if UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) == nil {
             self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
             self.window?.makeKeyAndVisible()
             return
@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 if let idToken = idToken {
                     DispatchQueue.main.async {
                         print(idToken)
-                        UserDefaults.standard.set(idToken, forKey: "FBToken") // 토큰 갱신
+                        UserDefaults.standard.set(idToken, forKey: UserDefautlsSet.firebaseToken) // 토큰 갱신
                         APIService.getUser { user, error, code in
                             if let code = code {
                                 if code == 200 { // 회원가입을 한 유저

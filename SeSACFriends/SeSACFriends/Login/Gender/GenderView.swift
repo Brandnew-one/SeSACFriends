@@ -44,13 +44,13 @@ class GenderView: UIView, ViewRepresentable {
         maleView.layer.borderWidth = 1
         maleView.clipsToBounds = true
         maleView.layer.cornerRadius = 8
-        maleView.imageView.image = UIImage(named: "man")
+        maleView.imageView.image = UIImage(named: ImageSet.man)
         
         femaleView.layer.borderColor = UIColor(rgbString: ColorSet.gray3).cgColor
         femaleView.layer.borderWidth = 1
         femaleView.clipsToBounds = true
         femaleView.layer.cornerRadius = 8
-        femaleView.imageView.image = UIImage(named: "woman")
+        femaleView.imageView.image = UIImage(named: ImageSet.woman)
     }
     
     func setupConstraints() {

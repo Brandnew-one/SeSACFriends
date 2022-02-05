@@ -32,10 +32,10 @@ class MyCardView: UIView, ViewRepresentable {
         [backgroundImageView, sesacImageView, stackView].forEach {
             self.addSubview($0)
         }
-        backgroundImageView.image = UIImage(named: "sesac_bg_01")
+        backgroundImageView.image = UIImage(named: ImageSet.background1)
         backgroundImageView.clipsToBounds = true
         backgroundImageView.layer.cornerRadius = 8
-        sesacImageView.image = UIImage(named: "sesac_face_2")
+        sesacImageView.image = UIImage(named: ImageSet.sesacFace2)
         
         
         stackView.backgroundColor = .white
@@ -50,7 +50,6 @@ class MyCardView: UIView, ViewRepresentable {
         [nameView, titleView, reviewView].forEach {
             stackView.addArrangedSubview($0)
         }
-        
         reviewView.setupMode(review: "한줄이 길면 제대로 나오나?\n나와라 이놈아")
     }
     
@@ -84,66 +83,3 @@ class MyCardView: UIView, ViewRepresentable {
     }
     
 }
-
-//class ToggleView: UIView, ViewRepresentable {
-//
-//    let stackView = UIStackView()
-//    let nameView = sesacNameView()
-//    let titleView = sesacTitleView()
-//    let reviewView = sesacReviewView(frame: CGRect(), review: nil)
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setupView()
-//        setupConstraints()
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError()
-//    }
-//
-//    func setupView() {
-//        self.addSubview(stackView)
-//        stackView.backgroundColor = .white
-//        stackView.axis = .vertical
-////        stackView.distribution = .fill
-//
-//        stackView.layer.cornerRadius = 8
-//        stackView.layer.borderColor = UIColor(rgbString: ColorSet.gray2).cgColor
-//        stackView.layer.borderWidth = 1
-//        stackView.spacing = 16.0
-//
-//        [nameView, titleView, reviewView].forEach {
-//            stackView.addArrangedSubview($0)
-//        }
-//        stackView.backgroundColor = .systemPink
-//        nameView.backgroundColor = .systemGray2
-//        titleView.backgroundColor = .systemGray4
-//        reviewView.backgroundColor = .systemGray6
-//    }
-//
-//    func setupConstraints() {
-//
-//        stackView.snp.makeConstraints { make in
-//            make.top.leading.trailing.bottom.equalToSuperview()
-//        }
-//
-//        nameView.snp.makeConstraints { make in
-////            make.leading.equalTo(stackView.snp.leading).offset(16)
-////            make.trailing.equalTo(stackView.snp.trailing).offset(-16)
-//            make.height.equalTo(58)
-//        }
-//
-//        titleView.snp.makeConstraints { make in
-//            make.leading.equalTo(stackView.snp.leading).offset(16)
-//            make.trailing.equalTo(stackView.snp.trailing).offset(-16)
-//            make.height.equalTo(146)
-//        }
-//
-//        reviewView.snp.makeConstraints { make in
-//            make.leading.equalTo(stackView.snp.leading).offset(16)
-//            make.trailing.equalTo(stackView.snp.trailing).offset(-16)
-//            make.bottom.equalTo(stackView.snp.bottom).offset(-16)
-//        }
-//    }
-//}
