@@ -50,7 +50,6 @@ class MyCardView: UIView, ViewRepresentable {
         [nameView, titleView, reviewView].forEach {
             stackView.addArrangedSubview($0)
         }
-        reviewView.setupMode(review: "한줄이 길면 제대로 나오나?\n나와라 이놈아")
     }
     
     func setupConstraints() {
