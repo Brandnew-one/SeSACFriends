@@ -21,6 +21,10 @@ class InformationViewController: UIViewController, ViewRepresentable {
     ]
     let titles = ["공지사항", "자주 묻는 질문", "1:1 문의", "알림 설정", "이용 약관"]
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

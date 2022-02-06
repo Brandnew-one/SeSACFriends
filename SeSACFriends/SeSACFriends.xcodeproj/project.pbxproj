@@ -46,6 +46,8 @@
 		AE80A1F8279B168C00668D28 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F7279B168C00668D28 /* DayView.swift */; };
 		AE8EA41E27A6F39400853DC0 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8EA41D27A6F39400853DC0 /* TitleView.swift */; };
 		AE8EA42127A6F40700853DC0 /* sesacTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */; };
+		AE8F211627AF7DEB00D2E1B8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */; };
+		AE8F211827AF805600D2E1B8 /* StatusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */; };
 		AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */; };
 		AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */; };
 		AEA0A3EB279658AF009B6D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA0A3EA279658AF009B6D05 /* Assets.xcassets */; };
@@ -106,6 +108,8 @@
 		AE80A1F7279B168C00668D28 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		AE8EA41D27A6F39400853DC0 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacTitleView.swift; sourceTree = "<group>"; };
+		AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButtonView.swift; sourceTree = "<group>"; };
 		AEA0A3DE279658A5009B6D05 /* SeSACFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				AE11285E27AC1E5500826C9A /* sesacNameView.swift */,
 				AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */,
 				AE065AA327A9213D007742DC /* sesacReviewView.swift */,
+				AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			children = (
 				AECEBE6D27A501A60062B86E /* TabBarController.swift */,
 				AEFF5AE3279D21780070E0CA /* HomeViewController.swift */,
+				AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */,
 				AE23F9DD27A1194F008D9223 /* Information */,
 			);
 			path = TabBarController;
@@ -486,6 +492,7 @@
 				AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */,
 				AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
+				AE8F211827AF805600D2E1B8 /* StatusButtonView.swift in Sources */,
 				AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */,
 				AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */,
 				AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */,
@@ -500,6 +507,7 @@
 				AEFF5AE4279D21780070E0CA /* HomeViewController.swift in Sources */,
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
 				AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */,
+				AE8F211627AF7DEB00D2E1B8 /* HomeView.swift in Sources */,
 				AE80A1F8279B168C00668D28 /* DayView.swift in Sources */,
 				AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */,
 				AE24118F279A990900A8C421 /* GenderView.swift in Sources */,

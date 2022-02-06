@@ -32,4 +32,9 @@ struct ImageSet {
     static let sesacFace1 = "sesac_face_1 1"
     static let sesacFace2 = "sesac_face_2"
     
+    static let search = "search"
+    static let message = "message"
+    static let antenna = "antenna"
+    static let place = "place"
+    
 }
