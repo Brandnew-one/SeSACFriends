@@ -48,6 +48,8 @@
 		AE8EA42127A6F40700853DC0 /* sesacTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */; };
 		AE8F211627AF7DEB00D2E1B8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */; };
 		AE8F211827AF805600D2E1B8 /* StatusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */; };
+		AE8F211A27AF937800D2E1B8 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F211927AF937800D2E1B8 /* Alert+Extension.swift */; };
+		AE94451627B018AD00879113 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94451527B018AD00879113 /* CustomAnnotationView.swift */; };
 		AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */; };
 		AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */; };
 		AEA0A3EB279658AF009B6D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA0A3EA279658AF009B6D05 /* Assets.xcassets */; };
@@ -110,6 +112,8 @@
 		AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sesacTitleView.swift; sourceTree = "<group>"; };
 		AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButtonView.swift; sourceTree = "<group>"; };
+		AE8F211927AF937800D2E1B8 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
+		AE94451527B018AD00879113 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		AEA0A3DE279658A5009B6D05 /* SeSACFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 				AE8EA42027A6F40700853DC0 /* sesacTitleView.swift */,
 				AE065AA327A9213D007742DC /* sesacReviewView.swift */,
 				AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */,
+				AE94451527B018AD00879113 /* CustomAnnotationView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */,
 				AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */,
 				AE07E6172797D1B500866766 /* Observable.swift */,
+				AE8F211927AF937800D2E1B8 /* Alert+Extension.swift */,
 				AEA0A3EA279658AF009B6D05 /* Assets.xcassets */,
 				AEA0A3EC279658AF009B6D05 /* LaunchScreen.storyboard */,
 				AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */,
@@ -501,6 +507,7 @@
 				AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */,
 				AE46E04D279E6E9E00247060 /* Form.swift in Sources */,
 				AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */,
+				AE94451627B018AD00879113 /* CustomAnnotationView.swift in Sources */,
 				AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */,
 				AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */,
 				AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */,
@@ -515,6 +522,7 @@
 				AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */,
 				AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */,
 				AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */,
+				AE8F211A27AF937800D2E1B8 /* Alert+Extension.swift in Sources */,
 				AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */,
 				AECEBE6E27A501A60062B86E /* TabBarController.swift in Sources */,
 				AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */,

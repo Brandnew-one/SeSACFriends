@@ -12,6 +12,7 @@ import MapKit
 class HomeView: UIView, ViewRepresentable {
     
     let mapView = MKMapView()
+    let centerImage = UIImageView()
     var statusButtonView = StatusButtonView(frame: CGRect(), mode: .search)
     let buttonView = UIView()
     let allButton = MyButton(frame: CGRect(), mode: .inactive, text: "전체")
@@ -30,13 +31,23 @@ class HomeView: UIView, ViewRepresentable {
     }
     
     func setupView() {
-        [mapView, statusButtonView, buttonView, gpsButton].forEach {
+        [mapView, statusButtonView, buttonView, gpsButton, centerImage].forEach {
             self.addSubview($0)
         }
+        centerImage.image = UIImage(named: ImageSet.myPosition)
+        centerImage.contentMode = .scaleAspectFit
         
         buttonView.backgroundColor = UIColor(rgbString: ColorSet.white)
         buttonView.clipsToBounds = true
         buttonView.layer.cornerRadius = 8
+        
+        buttonView.layer.borderWidth = 1
+        buttonView.layer.borderColor = UIColor.white.cgColor
+        buttonView.layer.shadowOpacity = 0.3
+        buttonView.layer.shadowColor = UIColor.black.cgColor
+        buttonView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        buttonView.layer.shadowRadius = 3
+        buttonView.layer.masksToBounds = false
         
         gpsButton.backgroundColor = UIColor(rgbString: ColorSet.white)
         gpsButton.clipsToBounds = true
@@ -51,6 +62,11 @@ class HomeView: UIView, ViewRepresentable {
     func setupConstraints() {
         mapView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
+        }
+        
+        centerImage.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.height.equalTo(48)
         }
         
         buttonView.snp.makeConstraints { make in

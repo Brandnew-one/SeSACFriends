@@ -30,7 +30,15 @@ struct ImageSet {
     static let background1 = "sesac_bg_01"
     
     static let sesacFace1 = "sesac_face_1 1"
-    static let sesacFace2 = "sesac_face_2"
+    static let sesacFace2 = "sesac_face_2-1"
+    
+    static let face1 = "sesac_face_1"
+    static let face2 = "sesac_face_2"
+    static let face3 = "sesac_face_3"
+    static let face4 = "sesac_face_4"
+    static let face5 = "sesac_face_5"
+    
+    static let myPosition = "Group 3870"
     
     static let search = "search"
     static let message = "message"
