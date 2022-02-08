@@ -73,6 +73,7 @@
 		AEF6337427B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6337327B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift */; };
 		AEF6337627B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6337527B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		AEF6337827B2607F003C67A5 /* HobbyCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6337727B2607F003C67A5 /* HobbyCustomHeaderView.swift */; };
+		AEF6337A27B2BEA7003C67A5 /* HobbyView+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6337927B2BEA7003C67A5 /* HobbyView+Notification.swift */; };
 		AEFF5AE4279D21780070E0CA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFF5AE3279D21780070E0CA /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +147,7 @@
 		AEF6337327B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEF6337527B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		AEF6337727B2607F003C67A5 /* HobbyCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCustomHeaderView.swift; sourceTree = "<group>"; };
+		AEF6337927B2BEA7003C67A5 /* HobbyView+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HobbyView+Notification.swift"; sourceTree = "<group>"; };
 		AEFF5AE3279D21780070E0CA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DFBF7245F6D0B701BD3EA4C1 /* Pods-SeSACFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACFriends.debug.xcconfig"; path = "Target Support Files/Pods-SeSACFriends/Pods-SeSACFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		E8CA0D5DA75D5BB144D1D9BB /* Pods-SeSACFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACFriends.release.xcconfig"; path = "Target Support Files/Pods-SeSACFriends/Pods-SeSACFriends.release.xcconfig"; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				AEF6337127B22D10003C67A5 /* HobbyView.swift */,
+				AEF6337927B2BEA7003C67A5 /* HobbyView+Notification.swift */,
 				AEF6336E27B21A6B003C67A5 /* HobbyViewController.swift */,
 				AEF6337327B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift */,
 				AEF6337527B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift */,
@@ -556,6 +559,7 @@
 				AEFF5AE4279D21780070E0CA /* HomeViewController.swift in Sources */,
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
 				AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */,
+				AEF6337A27B2BEA7003C67A5 /* HobbyView+Notification.swift in Sources */,
 				AE8F211627AF7DEB00D2E1B8 /* HomeView.swift in Sources */,
 				AE80A1F8279B168C00668D28 /* DayView.swift in Sources */,
 				AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */,

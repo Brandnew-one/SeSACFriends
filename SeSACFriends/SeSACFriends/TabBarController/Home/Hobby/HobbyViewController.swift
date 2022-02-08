@@ -19,6 +19,12 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = true
         self.tabBarController?.tabBar.isTranslucent = true
+        addKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardNotifications()
     }
     
     override func viewDidLoad() {
@@ -28,6 +34,8 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         let searchBar = UISearchBar()
         searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
         self.navigationItem.titleView = searchBar
+        searchBar.searchTextField.delegate = self
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: ImageSet.backButton), style: .plain, target: self, action: #selector(backButtonClicked))
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgbString: ColorSet.black)
         
@@ -39,6 +47,12 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         setupView()
         setupConstraints()
         setFlowLayout()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(#function)
+//        view.endEditing(true)
+        navigationItem.titleView?.endEditing(true) // 이렇게 해줘야 내려간다!
     }
     
     @objc func backButtonClicked() {
@@ -158,4 +172,13 @@ extension HobbyViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.collectionView.frame.width, height: 18)
     }
     
+}
+
+extension HobbyViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //view.endEditing 메서드로는 왜 키보드가 내려가지 않을까? (willHide, willShow 를 만들어놔서?)
+        textField.resignFirstResponder()
+        return true
+    }
 }
