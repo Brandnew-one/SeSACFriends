@@ -32,6 +32,13 @@ class HomeViewController: UIViewController, ViewRepresentable {
         checkUserLocationServicesAuthorization()
         
         homeView.gpsButton.addTarget(self, action: #selector(gpsButtonClicked), for: .touchUpInside)
+        homeView.statusButtonView.button.addTarget(self, action: #selector(statusButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func statusButtonClicked() {
+        let vc = HobbyViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     @objc func gpsButtonClicked() {

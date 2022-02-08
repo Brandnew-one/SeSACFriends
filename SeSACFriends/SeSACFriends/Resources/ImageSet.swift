@@ -45,4 +45,6 @@ struct ImageSet {
     static let antenna = "antenna"
     static let place = "place"
     
+    static let closeGreen = "close_small"
+    static let backButton = "Group 3856"
 }

@@ -66,6 +66,12 @@
 		AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C6F27992A54001ACE37 /* EndPoint.swift */; };
 		AEE96C722799305D001ACE37 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C712799305D001ACE37 /* APIService.swift */; };
 		AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49A902796DCC800A693F3 /* CustomTextField.swift */; };
+		AEF6336B27B219B3003C67A5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6336A27B219B3003C67A5 /* HomeViewModel.swift */; };
+		AEF6336D27B219DE003C67A5 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6336C27B219DE003C67A5 /* HomeModel.swift */; };
+		AEF6336F27B21A6B003C67A5 /* HobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6336E27B21A6B003C67A5 /* HobbyViewController.swift */; };
+		AEF6337227B22D10003C67A5 /* HobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6337127B22D10003C67A5 /* HobbyView.swift */; };
+		AEF6337427B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6337327B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift */; };
+		AEF6337627B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF6337527B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		AEFF5AE4279D21780070E0CA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFF5AE3279D21780070E0CA /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +138,12 @@
 		AEE96C6F27992A54001ACE37 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		AEE96C712799305D001ACE37 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AEF49A902796DCC800A693F3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		AEF6336A27B219B3003C67A5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		AEF6336C27B219DE003C67A5 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		AEF6336E27B21A6B003C67A5 /* HobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyViewController.swift; sourceTree = "<group>"; };
+		AEF6337127B22D10003C67A5 /* HobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyView.swift; sourceTree = "<group>"; };
+		AEF6337327B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyCollectionViewCell.swift; sourceTree = "<group>"; };
+		AEF6337527B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		AEFF5AE3279D21780070E0CA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DFBF7245F6D0B701BD3EA4C1 /* Pods-SeSACFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACFriends.debug.xcconfig"; path = "Target Support Files/Pods-SeSACFriends/Pods-SeSACFriends.debug.xcconfig"; sourceTree = "<group>"; };
 		E8CA0D5DA75D5BB144D1D9BB /* Pods-SeSACFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACFriends.release.xcconfig"; path = "Target Support Files/Pods-SeSACFriends/Pods-SeSACFriends.release.xcconfig"; sourceTree = "<group>"; };
@@ -339,11 +351,33 @@
 			isa = PBXGroup;
 			children = (
 				AECEBE6D27A501A60062B86E /* TabBarController.swift */,
-				AEFF5AE3279D21780070E0CA /* HomeViewController.swift */,
-				AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */,
+				AEF6336927B217FC003C67A5 /* Home */,
 				AE23F9DD27A1194F008D9223 /* Information */,
 			);
 			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		AEF6336927B217FC003C67A5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AEF6336C27B219DE003C67A5 /* HomeModel.swift */,
+				AEF6336A27B219B3003C67A5 /* HomeViewModel.swift */,
+				AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */,
+				AEFF5AE3279D21780070E0CA /* HomeViewController.swift */,
+				AEF6337027B21A6E003C67A5 /* Hobby */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AEF6337027B21A6E003C67A5 /* Hobby */ = {
+			isa = PBXGroup;
+			children = (
+				AEF6337127B22D10003C67A5 /* HobbyView.swift */,
+				AEF6336E27B21A6B003C67A5 /* HobbyViewController.swift */,
+				AEF6337327B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift */,
+				AEF6337527B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift */,
+			);
+			path = Hobby;
 			sourceTree = "<group>";
 		};
 		AEFF5AE5279D35050070E0CA /* API */ = {
@@ -473,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF6336F27B21A6B003C67A5 /* HobbyViewController.swift in Sources */,
 				AE0D40962799B5A9001818A2 /* NicknameView+Extension.swift in Sources */,
 				AEE96C722799305D001ACE37 /* APIService.swift in Sources */,
 				AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */,
@@ -480,6 +515,7 @@
 				AE241191279A9A8100A8C421 /* GenderImageView.swift in Sources */,
 				AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */,
 				AEA0A3FC27969D0C009B6D05 /* LoginView.swift in Sources */,
+				AEF6337627B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				AE162863279831C800CE45E8 /* CertificationView.swift in Sources */,
 				AE065AA427A9213D007742DC /* sesacReviewView.swift in Sources */,
 				AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */,
@@ -496,12 +532,14 @@
 				AE23F9E527A127FF008D9223 /* InformationViewController.swift in Sources */,
 				AE07E6182797D1B500866766 /* Observable.swift in Sources */,
 				AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */,
+				AEF6336B27B219B3003C67A5 /* HomeViewModel.swift in Sources */,
 				AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
 				AE8F211827AF805600D2E1B8 /* StatusButtonView.swift in Sources */,
 				AE77B46227A1897500AD5092 /* MyGenderView.swift in Sources */,
 				AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */,
 				AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */,
+				AEF6337227B22D10003C67A5 /* HobbyView.swift in Sources */,
 				AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */,
 				AE11285F27AC1E5500826C9A /* sesacNameView.swift in Sources */,
 				AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */,
@@ -518,12 +556,14 @@
 				AE80A1F8279B168C00668D28 /* DayView.swift in Sources */,
 				AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */,
 				AE24118F279A990900A8C421 /* GenderView.swift in Sources */,
+				AEF6337427B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift in Sources */,
 				AE8EA41E27A6F39400853DC0 /* TitleView.swift in Sources */,
 				AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */,
 				AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */,
 				AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */,
 				AE8F211A27AF937800D2E1B8 /* Alert+Extension.swift in Sources */,
 				AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */,
+				AEF6336D27B219DE003C67A5 /* HomeModel.swift in Sources */,
 				AECEBE6E27A501A60062B86E /* TabBarController.swift in Sources */,
 				AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */,
 				AE241189279A8AC000A8C421 /* EmailViewController.swift in Sources */,
