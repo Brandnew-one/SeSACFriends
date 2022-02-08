@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, ViewRepresentable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidLoad() {

@@ -9,13 +9,16 @@ import SnapKit
 import UIKit
 
 class HobbyViewController: UIViewController, ViewRepresentable {
-
+    
+    let findButton = MyButton(frame: CGRect(), mode: .fill, text: "새싹찾기")
     let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
-    let testString = ["테스트입니다", "테스트", "중", "가나", "살려줘", "오잉", "너무 어려워", "왜3개?", "중", "중", "중", "중", "중", "중",]
+    let testString = ["테스트입니다", "테스트", "중", "가나", "살려줘", "오잉", "너무 어려워", "왜3개?"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isTranslucent = true
     }
     
     override func viewDidLoad() {
@@ -30,6 +33,7 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(HobbyCustomHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HobbyCustomHeaderView.identifier)
         collectionView.register(MyHobbyCollectionViewCell.self, forCellWithReuseIdentifier: MyHobbyCollectionViewCell.identifier)
         
         setupView()
@@ -43,11 +47,21 @@ class HobbyViewController: UIViewController, ViewRepresentable {
     
     func setupView() {
         view.addSubview(collectionView)
+        view.addSubview(findButton)
     }
     
     func setupConstraints() {
+        
+        findButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
+            make.height.equalTo(48)
+        }
+        
         collectionView.snp.makeConstraints { make in
-            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(findButton.snp.top).offset(-20)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(32)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
@@ -59,7 +73,7 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         let width = 32.0
         let height = 32.0
 //        layout.itemSize = CGSize(width: width, height: height)
-        layout.sectionInset = UIEdgeInsets(top: 12.0, left: spacing, bottom: 12.0, right: spacing)
+        layout.sectionInset = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 12.0, right: spacing)
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
         layout.estimatedItemSize = CGSize(width: width, height: height)
@@ -77,7 +91,7 @@ extension HobbyViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     
@@ -126,4 +140,22 @@ extension HobbyViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: size.width, height: 32.0)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HobbyCustomHeaderView.identifier, for: indexPath) as? HobbyCustomHeaderView else {
+            return UICollectionReusableView()
+        }
+        if indexPath.section == 0 {
+            headerView.headerLabel.text = "지금 주변에는"
+        } else {
+            headerView.headerLabel.text = "내가 하고싶은"
+        }
+//        headerView.backgroundColor = .red
+        return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.collectionView.frame.width, height: 18)
+    }
+    
 }
