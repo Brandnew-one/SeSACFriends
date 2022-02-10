@@ -24,3 +24,11 @@ struct updateMypageForm: Codable {
     var gender: Int
     var hobby: String
 }
+
+struct hobbyForm {
+    var type: Int
+    var region: Double
+    var long: Double
+    var lat: Double
+    var hf: [String]
+}

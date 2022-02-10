@@ -11,6 +11,8 @@ import Foundation
 class HomeViewModel {
     
     var result = Observable(HomeModel(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
+    var hfArray: [String] = []
+    var recommendIndex: Int = 0
     
     func fetchSearchFriends(location: CLLocationCoordinate2D, completion: @escaping () -> Void) {
         APIService.searchNearFriends(location: location) { result, error, code in
@@ -32,8 +34,27 @@ class HomeViewModel {
                         return
                     }
                     self.result.value = result
-                    print(result)
+//                    print(result)
                     completion()
+                }
+            }
+        }
+    }
+    
+    // 취미입력 화면에서 컬렉션 뷰를 채워주기 위해서 배열을 초기화
+    func updatehfArray() {
+        for str in result.value.fromRecommend {
+            hfArray.append(str)
+        }
+        recommendIndex = result.value.fromRecommend.count - 1
+        
+        for arr in result.value.fromQueueDB {
+            for hobby in arr.hf {
+//                print(hobby)
+                if hobby == "anything" {
+                    continue
+                } else {
+                    hfArray.append(hobby)
                 }
             }
         }

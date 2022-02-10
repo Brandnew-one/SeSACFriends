@@ -28,6 +28,7 @@ enum EndPoint {
     case withdrawUser
     case updateMyPage
     case onqueue
+    case hobby
 }
 
 extension URL {
@@ -46,6 +47,7 @@ extension EndPoint {
         case .withdrawUser: return .makeEndpoint("user/withdraw") // 회원탈퇴
         case .updateMyPage: return .makeEndpoint("user/update/mypage") // 내 정보 업데이트
         case .onqueue: return .makeEndpoint("queue/onqueue") // 주변 새싹 탐색 기능
+        case .hobby: return .makeEndpoint("queue") // 취미입력 화면
         }
     }
 }

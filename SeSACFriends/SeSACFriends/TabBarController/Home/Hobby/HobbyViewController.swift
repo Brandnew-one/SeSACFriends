@@ -6,12 +6,18 @@
 //
 
 import SnapKit
+import Toast_Swift
+
+import CoreLocation
 import UIKit
 
 class HobbyViewController: UIViewController, ViewRepresentable {
     
     let findButton = MyButton(frame: CGRect(), mode: .fill, text: "새싹찾기")
     let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
+    let homeViewModel = HomeViewModel()
+    let hobbyViewModel = HobbyViewModel()
+    var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
     let testString = ["테스트입니다", "테스트", "중", "가나", "살려줘", "오잉", "너무 어려워", "왜3개?"]
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,6 +26,10 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         self.tabBarController?.tabBar.isHidden = true
         self.tabBarController?.tabBar.isTranslucent = true
         addKeyboardNotifications()
+        homeViewModel.fetchSearchFriends(location: location) {
+            self.homeViewModel.updatehfArray()
+//            print(self.homeViewModel.hfArray)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -29,7 +39,9 @@ class HobbyViewController: UIViewController, ViewRepresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setupView()
+        setupConstraints()
+        setFlowLayout()
         
         let searchBar = UISearchBar()
         searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
@@ -43,10 +55,18 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         collectionView.dataSource = self
         collectionView.register(HobbyCustomHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HobbyCustomHeaderView.identifier)
         collectionView.register(MyHobbyCollectionViewCell.self, forCellWithReuseIdentifier: MyHobbyCollectionViewCell.identifier)
+        collectionView.register(ServerHobbyCollectionViewCell.self, forCellWithReuseIdentifier: ServerHobbyCollectionViewCell.identifier)
+        collectionView.register(OtherHobbyCollectionViewCell.self, forCellWithReuseIdentifier: OtherHobbyCollectionViewCell.identifier)
+        // 처음 뷰 들어올 때, API 통신을 통해서 컬렉션 뷰 리로드
+        homeViewModel.result.bind { result in
+            self.collectionView.reloadData()
+        }
         
-        setupView()
-        setupConstraints()
-        setFlowLayout()
+        // 사용자가 취미를 등록할 때, 컬렉션 뷰 릴로드
+        hobbyViewModel.form.bind { result in
+            self.collectionView.reloadData()
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -58,6 +78,7 @@ class HobbyViewController: UIViewController, ViewRepresentable {
     }
     
     func setupView() {
+        view.backgroundColor = .white
         view.addSubview(collectionView)
         view.addSubview(findButton)
     }
@@ -92,29 +113,66 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         collectionView.collectionViewLayout = layout
     }
     
+    // 1) 8개가 넘지 않는가?
+    // 2) 1~8 글자 조건을 만족하는가?
+    // 3) 이미 중복되는 취미가 있는가?
+    func checkCell(str: String) -> Bool {
+        if hobbyViewModel.form.value.hf.count >= 8 {
+            self.view.makeToast("취미를 더 이상 추가할 수 없습니다")
+            return false
+        }
+        // 2)
+        if str.count < 1 || str.count > 8 {
+            self.view.makeToast("최소 한 자 이상, 최대 8글자까지 작성 가능합니다")
+            return false
+        }
+        // 3)
+        if hobbyViewModel.form.value.hf.contains(str) {
+            self.view.makeToast("이미 등록된 취미입니다.")
+            return false
+        }
+        return true
+    }
+    
     
 }
 
 extension HobbyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testString.count
+        if section == 0 {
+            return homeViewModel.hfArray.count
+        } else {
+            return hobbyViewModel.form.value.hf.count
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyHobbyCollectionViewCell.identifier, for: indexPath) as? MyHobbyCollectionViewCell else {
-            return UICollectionViewCell()
+        if indexPath.section == 0 {
+            if indexPath.item <= homeViewModel.recommendIndex {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ServerHobbyCollectionViewCell.identifier, for: indexPath) as? ServerHobbyCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                cell.cellLabel.text = homeViewModel.hfArray[indexPath.item]
+                return cell
+            } else {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OtherHobbyCollectionViewCell.identifier, for: indexPath) as? OtherHobbyCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                cell.cellLabel.text = homeViewModel.hfArray[indexPath.item]
+                return cell
+            }
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyHobbyCollectionViewCell.identifier, for: indexPath) as? MyHobbyCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.cellLabel.text = hobbyViewModel.form.value.hf[indexPath.row]
+            return cell
         }
-        
-        cell.cellLabel.text = testString[indexPath.item]
-        
-        return cell
     }
     
     
@@ -124,32 +182,53 @@ extension HobbyViewController: UICollectionViewDelegateFlowLayout {
     
     // viewModel에 넣어줄 텍스트가 저장되어 있다면 미리 사이즈를 알 수 있음
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellView = UIView()
-        let cellLabel = UILabel()
-        let cellImageView = UIImageView()
-        
-        [cellLabel, cellImageView].forEach {
-            cellView.addSubview($0)
+        // 서버에서 추천 & 주변 취미들을 위한 사이즈
+        if indexPath.section == 0 {
+            let cellView = UIView()
+            let cellLabel = UILabel()
+            
+            [cellLabel].forEach {
+                cellView.addSubview($0)
+            }
+            
+            cellLabel.font = FontSet.title4R14
+            cellLabel.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(16)
+                make.trailing.equalToSuperview().offset(-16)
+                make.top.equalToSuperview().offset(5)
+                make.bottom.equalToSuperview().offset(-5)
+            }
+            cellLabel.text = homeViewModel.hfArray[indexPath.item]
+            let size = cellView.frame.size
+            return CGSize(width: size.width, height: 32.0)
+        // 내가 추가한 취미들을 위한 사이즈
+        } else {
+            let cellView = UIView()
+            let cellLabel = UILabel()
+            let cellImageView = UIImageView()
+            
+            [cellLabel, cellImageView].forEach {
+                cellView.addSubview($0)
+            }
+            
+            cellLabel.font = FontSet.title4R14
+            cellLabel.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(16)
+                make.trailing.equalToSuperview().offset(-36)
+                make.top.equalToSuperview().offset(5)
+                make.bottom.equalToSuperview().offset(-5)
+            }
+            
+            cellImageView.snp.makeConstraints { make in
+                make.leading.equalTo(cellLabel.snp.trailing).offset(4)
+                make.centerY.equalTo(cellLabel)
+                make.height.width.equalTo(16)
+            }
+//            cellLabel.text = testString[indexPath.item]
+            cellLabel.text = hobbyViewModel.form.value.hf[indexPath.item]
+            let size = cellView.frame.size
+            return CGSize(width: size.width, height: 32.0)
         }
-        
-        cellLabel.font = FontSet.title4R14
-        cellLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-36)
-            make.top.equalToSuperview().offset(5)
-            make.bottom.equalToSuperview().offset(-5)
-        }
-        
-        cellImageView.snp.makeConstraints { make in
-            make.leading.equalTo(cellLabel.snp.trailing).offset(4)
-            make.centerY.equalTo(cellLabel)
-            make.height.width.equalTo(16)
-        }
-        
-        cellLabel.text = testString[indexPath.item]
-        let size = cellView.frame.size
-        
-        return CGSize(width: size.width, height: 32.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -161,7 +240,6 @@ extension HobbyViewController: UICollectionViewDelegateFlowLayout {
         } else {
             headerView.headerLabel.text = "내가 하고싶은"
         }
-//        headerView.backgroundColor = .red
         return headerView
     }
     
@@ -169,13 +247,44 @@ extension HobbyViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.collectionView.frame.width, height: 18)
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 추가하는 경우
+        if indexPath.section == 0 {
+            if indexPath.item <= homeViewModel.recommendIndex {
+                guard let cell = collectionView.cellForItem(at: indexPath) as? ServerHobbyCollectionViewCell, let text = cell.cellLabel.text else { return }
+                if checkCell(str: text) {
+                    hobbyViewModel.form.value.hf.append(text)
+                }
+            } else {
+                guard let cell = collectionView.cellForItem(at: indexPath) as? OtherHobbyCollectionViewCell, let text = cell.cellLabel.text else { return }
+                if checkCell(str: text) {
+                    hobbyViewModel.form.value.hf.append(text)
+                }
+            }
+        } else { // 내가 선택한 취미에서 삭제하는 경우
+            hobbyViewModel.form.value.hf.remove(at: indexPath.item)
+        }
+    }
+    
 }
 
 extension HobbyViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //view.endEditing 메서드로는 왜 키보드가 내려가지 않을까? (willHide, willShow 를 만들어놔서?)
         textField.resignFirstResponder()
+        
+        var text = textField.text ?? "" // 텍스트 필드에 입력된 값
+        var result = text.components(separatedBy: " ") // 공백을 기준으로 나눈 값들
+        
+        for str in result {
+            if !checkCell(str: str) {
+                break
+            } else {
+                hobbyViewModel.form.value.hf.append(str)
+            }
+        }
         return true
     }
+    
 }

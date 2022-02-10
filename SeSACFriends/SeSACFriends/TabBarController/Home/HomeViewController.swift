@@ -39,8 +39,8 @@ class HomeViewController: UIViewController, ViewRepresentable {
     
     @objc func statusButtonClicked() {
         let vc = HobbyViewController()
+        vc.location = self.homeView.mapView.centerCoordinate
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     @objc func gpsButtonClicked() {
