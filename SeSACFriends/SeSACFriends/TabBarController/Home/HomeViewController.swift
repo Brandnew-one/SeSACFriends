@@ -13,6 +13,7 @@ import UIKit
 class HomeViewController: UIViewController, ViewRepresentable {
     
     let homeView = HomeView()
+    let homeViewModel = HomeViewModel()
     let locationManager = CLLocationManager()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,14 +45,7 @@ class HomeViewController: UIViewController, ViewRepresentable {
     
     @objc func gpsButtonClicked() {
         // 현재 위치를 지도의 중심으로 설정한다(CenterImage 가 가리키는 좌표)
-        let coordinate = homeView.mapView.centerCoordinate
-        addCustomAnnotation(Location: coordinate, mode: .face1)
-        
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01) // 축척비율
-        let region = MKCoordinateRegion(center: coordinate, span: span)
-        homeView.mapView.setRegion(region, animated: true)
-        
-        locationManager.stopUpdatingLocation()
+        checkUserLocationServicesAuthorization()
     }
     
     func setupView() {
@@ -63,6 +57,35 @@ class HomeViewController: UIViewController, ViewRepresentable {
             make.top.equalToSuperview()
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    // API 통신을 통해서 친구를 찾고 Map에 띄워주는 함수 -> 중복되니까 함수로 만들어 놓자
+    func findFriends(location: CLLocationCoordinate2D) {
+        
+        homeViewModel.fetchSearchFriends(location: location) {
+            let fromQueueDB = self.homeViewModel.result.value.fromQueueDB
+            for data in fromQueueDB {
+                let lat = data.lat
+                let long = data.long
+                let sesacImage = data.sesac
+                var mode: AnnotationMode
+                
+                if sesacImage == 0 {
+                    mode = .face1
+                } else if sesacImage == 1 {
+                    mode = .face2
+                } else if sesacImage == 2 {
+                    mode = .face3
+                } else if sesacImage == 3 {
+                    mode = .face4
+                } else {
+                    mode = .face5
+                }
+                let coor = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                self.addCustomAnnotation(Location: coor, mode: mode)
+            }
+        }
+        locationManager.stopUpdatingLocation()
     }
     
 }
@@ -171,7 +194,7 @@ extension HomeViewController: CLLocationManagerDelegate {
             
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01) // 축척비율
             let region = MKCoordinateRegion(center: coordinate, span: span)
-            print(region)
+//            print(region)
             homeView.mapView.setRegion(region, animated: true)
             
             //10. 중요!!
@@ -252,6 +275,15 @@ extension HomeViewController: MKMapViewDelegate {
         let missionDoloresCoor = Location
         let pin = CustomAnnotation(coor: missionDoloresCoor, mode: mode)
         self.homeView.mapView.addAnnotation(pin)
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+//        let lat = mapView.centerCoordinate.latitude
+//        let long = mapView.centerCoordinate.longitude
+//
+//        let center = CLLocation(latitude: lat, longitude: long)
+        homeView.mapView.removeAnnotations(self.homeView.mapView.annotations)
+        findFriends(location: mapView.centerCoordinate)
     }
     
 }

@@ -50,8 +50,6 @@ class HobbyViewController: UIViewController, ViewRepresentable {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(#function)
-//        view.endEditing(true)
         navigationItem.titleView?.endEditing(true) // 이렇게 해줘야 내려간다!
     }
     
@@ -65,7 +63,6 @@ class HobbyViewController: UIViewController, ViewRepresentable {
     }
     
     func setupConstraints() {
-        
         findButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
