@@ -67,10 +67,22 @@ class HobbyViewController: UIViewController, ViewRepresentable {
             self.collectionView.reloadData()
         }
         
+        findButton.addTarget(self, action: #selector(findButtonClicked), for: .touchUpInside)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         navigationItem.titleView?.endEditing(true) // 이렇게 해줘야 내려간다!
+    }
+    
+    @objc func findButtonClicked() {
+        print(#function)
+        print(hobbyViewModel.form.value)
+        hobbyViewModel.form.value.long = location.longitude
+        hobbyViewModel.form.value.lat = location.latitude
+        hobbyViewModel.form.value.region = APIService.findRegion(Location: location)
+        hobbyViewModel.fetchHobbyFriends {
+            print("출력!")
+        }
     }
     
     @objc func backButtonClicked() {

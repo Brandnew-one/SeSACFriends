@@ -27,7 +27,7 @@ struct updateMypageForm: Codable {
 
 struct hobbyForm {
     var type: Int
-    var region: Double
+    var region: Int
     var long: Double
     var lat: Double
     var hf: [String]

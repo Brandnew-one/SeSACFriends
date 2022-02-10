@@ -10,7 +10,7 @@ import Foundation
 
 class APIService {
     
-    // 내 정보 확인하기
+    //MARK: 내 정보 확인하기
     static func getUser(completion: @escaping (User?, APIError?, Int?) -> Void) {
         
         let url = EndPoint.getUser.url
@@ -25,7 +25,7 @@ class APIService {
         URLSession.request(endpoint: request, completion: completion)
     }
     
-    // 회원가입
+    //MARK: 회원가입
     static func signupUser(body: Signup, completion: @escaping (APIError?, Int?) -> Void) {
         let url = EndPoint.signupUser.url
         guard let token = UserDefaults.standard.string(forKey: "FBToken") else {
@@ -41,7 +41,7 @@ class APIService {
         URLSession.request2(endpoint: request, completion: completion)
     }
     
-    // 회원탈퇴
+    //MARK: 회원탈퇴
     static func withdrawUser(completion: @escaping (APIError?, Int?) -> Void) {
         let url = EndPoint.withdrawUser.url
         guard let token = UserDefaults.standard.string(forKey: "FBToken") else {
@@ -55,7 +55,7 @@ class APIService {
         URLSession.request2(endpoint: request, completion: completion)
     }
     
-    // 내 정보 업데이트하기
+    //MARK: 내 정보 업데이트하기
     static func updateMyPage(body: updateMypageForm, completion: @escaping (APIError?, Int?) -> Void) {
         let url = EndPoint.updateMyPage.url
         guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
@@ -70,7 +70,7 @@ class APIService {
         URLSession.request2(endpoint: request, completion: completion)
     }
     
-    // 주변 새싹 탐색
+    //MARK: 주변 새싹 탐색
     static func searchNearFriends(location: CLLocationCoordinate2D, completion: @escaping (HomeModel?, APIError?, Int?) -> Void) {
         let url = EndPoint.onqueue.url
         guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
@@ -89,7 +89,7 @@ class APIService {
         URLSession.request(endpoint: request, completion: completion)
     }
     
-    // 취미 함께할 친구 찾기
+    //MARK: 취미 함께할 친구 찾기
     static func searchHobbyFriends(body: hobbyForm, completion: @escaping (APIError?, Int?) -> Void) {
         let url = EndPoint.hobby.url
         guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
@@ -97,7 +97,7 @@ class APIService {
         }
         var request = URLRequest(url: url)
         request.httpMethod = Method.POST.rawValue
-        request.httpMethod = "type=\(body.type)&region=\(body.region)&long=\(body.long)&lat=\(body.lat)&hf=\(body.hf)"
+        request.httpBody = "type=\(body.type)&region=\(body.region)&long=\(body.long)&lat=\(body.lat)&hf=\(body.hf)".data(using: .utf8, allowLossyConversion: false)
         request.setValue(token, forHTTPHeaderField: "idtoken")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
@@ -108,7 +108,7 @@ class APIService {
 
 extension APIService {
     
-    // lat, long 을 기준으로 region 을 계산하는 함수
+    //MARK: lat, long 을 기준으로 region 을 계산하는 함수
     static func findRegion(Location: CLLocationCoordinate2D) -> Int {
         var latitude = Double(Location.latitude)
         latitude += 90
