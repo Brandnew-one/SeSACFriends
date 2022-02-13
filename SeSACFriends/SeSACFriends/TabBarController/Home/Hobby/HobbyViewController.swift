@@ -18,7 +18,6 @@ class HobbyViewController: UIViewController, ViewRepresentable {
     let homeViewModel = HomeViewModel()
     let hobbyViewModel = HobbyViewModel()
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
-    let testString = ["테스트입니다", "테스트", "중", "가나", "살려줘", "오잉", "너무 어려워", "왜3개?"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -81,7 +80,8 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         hobbyViewModel.form.value.lat = location.latitude
         hobbyViewModel.form.value.region = APIService.findRegion(Location: location)
         hobbyViewModel.fetchHobbyFriends {
-            print("출력!")
+            let vc = TabmanSearchViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
