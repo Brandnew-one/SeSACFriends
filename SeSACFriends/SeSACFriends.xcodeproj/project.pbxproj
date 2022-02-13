@@ -43,6 +43,7 @@
 		AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46527A1993900AD5092 /* MyPhoneView.swift */; };
 		AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46727A1A79500AD5092 /* MyAgeView.swift */; };
 		AE7CD5D927B8D5DB007AB2F6 /* NoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */; };
+		AE7CD5DB27B8F196007AB2F6 /* SesacTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */; };
 		AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F3279B111A00668D28 /* BirthView.swift */; };
 		AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F5279B113500668D28 /* BirthViewController.swift */; };
 		AE80A1F8279B168C00668D28 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F7279B168C00668D28 /* DayView.swift */; };
@@ -120,6 +121,7 @@
 		AE77B46527A1993900AD5092 /* MyPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhoneView.swift; sourceTree = "<group>"; };
 		AE77B46727A1A79500AD5092 /* MyAgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgeView.swift; sourceTree = "<group>"; };
 		AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneView.swift; sourceTree = "<group>"; };
+		AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacTableViewCell.swift; sourceTree = "<group>"; };
 		AE80A1F3279B111A00668D28 /* BirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthView.swift; sourceTree = "<group>"; };
 		AE80A1F5279B113500668D28 /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
 		AE80A1F7279B168C00668D28 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				AE065AA327A9213D007742DC /* sesacReviewView.swift */,
 				AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */,
 				AE94451527B018AD00879113 /* CustomAnnotationView.swift */,
+				AE47ED1727A279AC000CDC79 /* MyCardView.swift */,
 				AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */,
 			);
 			path = CustomViews;
@@ -305,7 +308,6 @@
 				AE77B46727A1A79500AD5092 /* MyAgeView.swift */,
 				AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */,
 				AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */,
-				AE47ED1727A279AC000CDC79 /* MyCardView.swift */,
 				AE11286027AC3F1900826C9A /* MyInfoViewModel.swift */,
 				AE77B45F27A1895C00AD5092 /* MyInfoView.swift */,
 				AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */,
@@ -368,6 +370,7 @@
 				AEA7D75D27B6B88B009A04AE /* TabmanSearchViewController.swift */,
 				AE8DF95027B8CC7900D2C3D1 /* NearSesacViewController.swift */,
 				AE8DF95227B8CC9A00D2C3D1 /* RequestViewController.swift */,
+				AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */,
 			);
 			path = FindSesac;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */,
 				AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */,
 				AEFF5AE4279D21780070E0CA /* HomeViewController.swift in Sources */,
+				AE7CD5DB27B8F196007AB2F6 /* SesacTableViewCell.swift in Sources */,
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
 				AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */,
 				AEF6337A27B2BEA7003C67A5 /* HobbyView+Notification.swift in Sources */,

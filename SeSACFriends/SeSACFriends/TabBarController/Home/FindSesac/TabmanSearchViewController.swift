@@ -9,6 +9,7 @@ import Pageboy
 import SnapKit
 import Tabman
 
+import CoreLocation
 import UIKit
 
 
@@ -17,6 +18,7 @@ class TabmanSearchViewController: TabmanViewController {
     private var viewControllers: Array<UIViewController> = []
     private let vcName = ["주변새싹", "받은 요청"]
     let tapView = UIView()
+    var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,6 +38,7 @@ class TabmanSearchViewController: TabmanViewController {
         
         let nearVC = NearSesacViewController()
         let requestVC = RequestViewController()
+        nearVC.location = self.location
         viewControllers.append(nearVC)
         viewControllers.append(requestVC)
         

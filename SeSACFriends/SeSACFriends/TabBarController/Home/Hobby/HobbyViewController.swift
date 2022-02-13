@@ -25,6 +25,7 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         self.tabBarController?.tabBar.isHidden = true
         self.tabBarController?.tabBar.isTranslucent = true
         addKeyboardNotifications()
+        // 새싹찾기 화면으로 넘어갔다가 돌아오는 경우에 중복되는 문제점 발생 -> 수정하기!
         homeViewModel.fetchSearchFriends(location: location) {
             self.homeViewModel.updatehfArray()
 //            print(self.homeViewModel.hfArray)
@@ -81,6 +82,7 @@ class HobbyViewController: UIViewController, ViewRepresentable {
         hobbyViewModel.form.value.region = APIService.findRegion(Location: location)
         hobbyViewModel.fetchHobbyFriends {
             let vc = TabmanSearchViewController()
+            vc.location = self.location
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
