@@ -14,30 +14,27 @@ enum CellMode {
 }
 
 class SesacTableViewCell: UITableViewCell, ViewRepresentable {
-    
+
     static let identifier = "SesacTableViewCell"
     let cardView = MyCardView()
     let button = UIButton()
-//    var mode: CellMode
-//
-//    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, mode: CellMode) {
-//        self.mode = mode
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        setupView()
-//        setupConstraints()
-//    }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
-//    }
-    
-    
+    var isTouched: Bool? {
+        didSet {
+            if isTouched == true {
+                cardView.reviewView.isHidden = false
+                cardView.titleView.isHidden = false
+            } else {
+                cardView.reviewView.isHidden = true
+                cardView.titleView.isHidden = true
+            }
+        }
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupView()
         setupConstraints()
-//        layoutSubviews()
     }
     
     required init?(coder: NSCoder) {
@@ -47,7 +44,7 @@ class SesacTableViewCell: UITableViewCell, ViewRepresentable {
     
     func setupView() {
         [cardView, button].forEach {
-            self.addSubview($0)
+            contentView.addSubview($0)
         }
         
         button.clipsToBounds = true
@@ -58,16 +55,6 @@ class SesacTableViewCell: UITableViewCell, ViewRepresentable {
         button.setTitle("요청하기", for: .normal)
 
     }
-    
-//    func setupMode() {
-//        if mode == .accept {
-//            button.backgroundColor = UIColor(rgbString: ColorSet.successColor)
-//            button.setTitle("수락하기", for: .normal)
-//        } else {
-//            button.backgroundColor = UIColor(rgbString: ColorSet.errorColor)
-//            button.setTitle("요청하기", for: .normal)
-//        }
-//    }
     
     func setupConstraints() {
         cardView.snp.makeConstraints { make in
@@ -80,9 +67,5 @@ class SesacTableViewCell: UITableViewCell, ViewRepresentable {
             make.width.equalTo(80)
             make.height.equalTo(40)
         }
-        
     }
-    
-    
-    
 }

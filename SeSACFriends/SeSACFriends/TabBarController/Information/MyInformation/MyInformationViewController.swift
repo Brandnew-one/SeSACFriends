@@ -162,6 +162,7 @@ class MyInformationViewController: UIViewController {
         myInfoView.myAgeView.ageSlider.lowerValueStepIndex = myInfoViewModel.user.value.ageMin - 18
         myInfoView.myAgeView.ageSlider.upperValueStepIndex = myInfoViewModel.user.value.ageMax - 18
         myInfoView.myAgeView.ageLabel.text = "\(myInfoViewModel.user.value.ageMin) - \(myInfoViewModel.user.value.ageMax)"
+        
     }
     
 }

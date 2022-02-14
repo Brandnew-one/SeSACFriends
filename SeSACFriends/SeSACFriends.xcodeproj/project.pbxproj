@@ -23,6 +23,8 @@
 		AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285D27980EC800CE45E8 /* LoginView+Extension.swift */; };
 		AE1628602798259B00CE45E8 /* CertificationViewController.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */; };
 		AE162863279831C800CE45E8 /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE162862279831C800CE45E8 /* CertificationView.swift */; };
+		AE1F245F27BA52D400EEFEA6 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F245E27BA52D400EEFEA6 /* PopupView.swift */; };
+		AE1F246127BA566200EEFEA6 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F246027BA566200EEFEA6 /* PopupViewController.swift */; };
 		AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */; };
 		AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */; };
 		AE23F9E527A127FF008D9223 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E427A127FF008D9223 /* InformationViewController.swift */; };
@@ -101,6 +103,8 @@
 		AE16285F2798259B00CE45E8 /* CertificationViewController.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationViewController.swift.swift; sourceTree = "<group>"; };
 		AE162862279831C800CE45E8 /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
 		AE1628642798648D00CE45E8 /* SeSACFriends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACFriends.entitlements; sourceTree = "<group>"; };
+		AE1F245E27BA52D400EEFEA6 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		AE1F246027BA566200EEFEA6 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationHeaderView.swift; sourceTree = "<group>"; };
 		AE23F9E427A127FF008D9223 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				AE94451527B018AD00879113 /* CustomAnnotationView.swift */,
 				AE47ED1727A279AC000CDC79 /* MyCardView.swift */,
 				AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */,
+				AE1F245E27BA52D400EEFEA6 /* PopupView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				AE8DF95027B8CC7900D2C3D1 /* NearSesacViewController.swift */,
 				AE8DF95227B8CC9A00D2C3D1 /* RequestViewController.swift */,
 				AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */,
+				AE1F246027BA566200EEFEA6 /* PopupViewController.swift */,
 			);
 			path = FindSesac;
 			sourceTree = "<group>";
@@ -580,10 +586,12 @@
 				AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */,
 				AE11285F27AC1E5500826C9A /* sesacNameView.swift in Sources */,
 				AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */,
+				AE1F246127BA566200EEFEA6 /* PopupViewController.swift in Sources */,
 				AE46E04D279E6E9E00247060 /* Form.swift in Sources */,
 				AEA7D75E27B6B88B009A04AE /* TabmanSearchViewController.swift in Sources */,
 				AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */,
 				AE94451627B018AD00879113 /* CustomAnnotationView.swift in Sources */,
+				AE1F245F27BA52D400EEFEA6 /* PopupView.swift in Sources */,
 				AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */,
 				AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */,
 				AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */,

@@ -11,3 +11,7 @@ protocol ViewRepresentable {
     func setupView()
     func setupConstraints()
 }
+
+protocol CellButtonDelegate: AnyObject {
+    func toggleButtonTapped()
+}

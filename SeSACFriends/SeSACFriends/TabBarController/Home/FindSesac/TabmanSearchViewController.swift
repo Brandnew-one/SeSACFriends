@@ -39,6 +39,7 @@ class TabmanSearchViewController: TabmanViewController {
         let nearVC = NearSesacViewController()
         let requestVC = RequestViewController()
         nearVC.location = self.location
+        requestVC.location = self.location
         viewControllers.append(nearVC)
         viewControllers.append(requestVC)
         
@@ -105,5 +106,42 @@ extension TabmanSearchViewController: PageboyViewControllerDataSource, TMBarData
 
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
+    }
+}
+
+extension UIViewController {
+    
+    func setBackgroundImage(background: Int) -> UIImage {
+        if background == 0 {
+            return UIImage(named: ImageSet.background1)!
+        } else if background == 1 {
+            return UIImage(named: ImageSet.background2)!
+        } else if background == 2 {
+            return UIImage(named: ImageSet.background3)!
+        } else if background == 3 {
+            return UIImage(named: ImageSet.background4)!
+        } else if background == 4 {
+            return UIImage(named: ImageSet.background5)!
+        } else if background == 5 {
+            return UIImage(named: ImageSet.background6)!
+        } else if background == 6 {
+            return UIImage(named: ImageSet.background7)!
+        } else {
+            return UIImage(named: ImageSet.background8)!
+        }
+    }
+    
+    func setSesacFaceImage(sesac: Int) -> UIImage {
+        if sesac == 0 {
+            return UIImage(named: ImageSet.face1)!
+        } else if sesac == 1 {
+            return UIImage(named: ImageSet.face2)!
+        } else if sesac == 2 {
+            return UIImage(named: ImageSet.face3)!
+        } else if sesac == 3 {
+            return UIImage(named: ImageSet.face4)!
+        } else {
+            return UIImage(named: ImageSet.face5)!
+        }
     }
 }

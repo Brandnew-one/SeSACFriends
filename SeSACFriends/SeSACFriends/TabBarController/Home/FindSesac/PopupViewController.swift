@@ -1,15 +1,21 @@
 //
-//  WithdrawPopupViewController.swift
+//  PopupViewController.swift
 //  SeSACFriends
 //
-//  Created by 신상원 on 2022/02/04.
+//  Created by 신상원 on 2022/02/14.
 //
 
 import SnapKit
 import UIKit
 
-class WithdrawPopupViewController: UIViewController, ViewRepresentable {
+enum VCMode {
+    case accept
+    case request
+}
+
+class PopupViewController: UIViewController, ViewRepresentable {
     
+    var mode: VCMode = .accept
     var popupView = PopupView()
 
     override func viewDidLoad() {
@@ -17,6 +23,7 @@ class WithdrawPopupViewController: UIViewController, ViewRepresentable {
         view.backgroundColor = .black.withAlphaComponent(0.5)
         setupView()
         setupConstraints()
+        setupText()
         
         popupView.okButtoon.addTarget(self, action: #selector(okButtonClicked), for: .touchUpInside)
         popupView.cancleButton.addTarget(self, action: #selector(cancleButtonClicked), for: .touchUpInside)
@@ -28,16 +35,6 @@ class WithdrawPopupViewController: UIViewController, ViewRepresentable {
     
     @objc func okButtonClicked() {
         print(#function)
-        LoginViewModel.shared.fetchWithdraw { code in
-            if code == 200 || code == 406 {
-                UserDefaults.standard.removeObject(forKey: "FBToken")
-                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-                windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: LoginViewController())
-                windowScene.windows.first?.makeKeyAndVisible()
-            } else {
-                self.view.makeToast("네트워크 오류입니다")
-            }
-        }
     }
     
     func setupView() {
@@ -49,5 +46,16 @@ class WithdrawPopupViewController: UIViewController, ViewRepresentable {
             make.top.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    func setupText() {
+        if mode == .accept {
+            popupView.titleLabel.text = "취미 같이 하기를 수락할까요?"
+            popupView.contentLabel.text = "요청을 수락하면 채팅방에서 대화를 나눌 수 있어요"
+        } else {
+            popupView.titleLabel.text = "취미 같이 하기를 요청할게요!"
+            popupView.contentLabel.text = "요청이 수락되면 30분 후에 리뷰를 남길 수 있어요"
+        }
+    }
+    
     
 }

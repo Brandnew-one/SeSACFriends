@@ -34,6 +34,7 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(SesacTableViewCell.self, forCellReuseIdentifier: SesacTableViewCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
@@ -103,6 +104,9 @@ extension NearSesacViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SesacTableViewCell.identifier, for: indexPath) as? SesacTableViewCell else {
             return UITableViewCell()
         }
+        
+        cell.cardView.backgroundImageView.image = setBackgroundImage(background: homeViewModel.result.value.fromQueueDB[indexPath.section].background)
+        cell.cardView.sesacImageView.image = setSesacFaceImage(sesac: homeViewModel.result.value.fromQueueDB[indexPath.section].sesac)
   
         //ViewModel 에 넣어서 코드 줄이기!
         cell.cardView.nameView.nameLabel.text = homeViewModel.result.value.fromQueueDB[indexPath.section].nick
@@ -117,24 +121,23 @@ extension NearSesacViewController: UITableViewDelegate, UITableViewDataSource {
             index += 1
         }
         
-//        homeViewModel.result.value.fromQueueDB[indexPath.row].reviews.isEmpty {
-//            cell.cardView.reviewView.setupMode(review: homeViewModel.result.value.fromQueueDB[indexPath.row].reviews.first)
-//        }
-
+        cell.cardView.reviewView.setupMode(review: homeViewModel.result.value.fromQueueDB[indexPath.section].reviews.first)
+        
+        cell.button.tag = indexPath.section
+        cell.button.addTarget(self, action: #selector(sendButtonClicked(sender:)), for: .touchUpInside)
+        
         return cell
     }
     
-//    @objc func toggleButtonClicked(toggleButton: UIButton) {
-//        if toggle { // 늘어나 있으면 줄여준다
-//            toggle = !toggle
-//            myInfoView.myCardView.titleView.isHidden = true
-//            myInfoView.myCardView.reviewView.isHidden = true
-//        } else {
-//            toggle = !toggle
-//            myInfoView.myCardView.titleView.isHidden = false
-//            myInfoView.myCardView.reviewView.isHidden = false
-//        }
-//    }
-    
+    @objc func sendButtonClicked(sender: UIButton) {
+        print(#function)
+        let vc = PopupViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        vc.mode = .request
+        self.present(vc, animated: true, completion: nil)
+    }
     
 }
+
+

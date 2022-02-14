@@ -28,6 +28,13 @@ struct ImageSet {
     static let alarm = "setting_alarm"
     
     static let background1 = "sesac_bg_01"
+    static let background2 = "sesac_background_2"
+    static let background3 = "sesac_background_3"
+    static let background4 = "sesac_background_4"
+    static let background5 = "sesac_background_5"
+    static let background6 = "sesac_background_6"
+    static let background7 = "sesac_background_7"
+    static let background8 = "sesac_background_8"
     
     static let sesacFace1 = "sesac_face_1 1"
     static let sesacFace2 = "sesac_face_2-1"
