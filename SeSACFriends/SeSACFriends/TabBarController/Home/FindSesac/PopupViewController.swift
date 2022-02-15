@@ -6,6 +6,8 @@
 //
 
 import SnapKit
+import Toast_Swift
+
 import UIKit
 
 enum VCMode {
@@ -14,9 +16,12 @@ enum VCMode {
 }
 
 class PopupViewController: UIViewController, ViewRepresentable {
-    
+
     var mode: VCMode = .accept
     var popupView = PopupView()
+    var homeviewModel = HomeViewModel()
+    var completion: ((Int) -> Void)?
+    var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,17 @@ class PopupViewController: UIViewController, ViewRepresentable {
     
     @objc func okButtonClicked() {
         print(#function)
+        
+        if mode == .request {
+            homeviewModel.fetchRequestHobby(uid: homeviewModel.result.value.fromQueueDB[index].uid) { code in
+                self.completion?(code)
+            }
+        } else {
+            homeviewModel.fetchAcceptHobby(otheruid: homeviewModel.result.value.fromQueueDBRequested[index].uid) { code in
+                self.completion?(code)
+            }
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setupView() {

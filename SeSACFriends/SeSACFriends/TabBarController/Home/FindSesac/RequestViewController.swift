@@ -137,6 +137,20 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         vc.mode = .accept
+        
+        vc.completion = { code in
+            if code == 200 {
+                self.view.makeToast("취미함께 요청하기를 보냈습니다")
+            } else if code == 201 {
+                self.view.makeToast("상대방이 이미 다른 사람과 취미를 함께하는 중입니다.")
+            } else if code == 202 {
+                self.view.makeToast("상대방이 취미 함께 하기를 그만두었습니다")
+            } else if code == 203 {
+                self.view.makeToast("앗! 누군가가 나의 취미 함께 하기를 수락하였어요!")
+                print("onQueue/State 필요")
+            }
+        }
+        
         self.present(vc, animated: true, completion: nil)
     }
     

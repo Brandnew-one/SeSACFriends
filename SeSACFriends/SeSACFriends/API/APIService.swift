@@ -104,6 +104,36 @@ class APIService {
         URLSession.request2(endpoint: request, completion: completion)
     }
     
+    //MARK: 취미함께 하기 요청
+    static func requestHobby(otheruid: String, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.hobbyRequest.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "otheruid=\(otheruid)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.request2(endpoint: request, completion: completion)
+    }
+    
+    //MARK: 취미함께하기 수락
+    static func acceptHobby(otheruid: String, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.hobbyRequest.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "otheruid=\(otheruid)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.request2(endpoint: request, completion: completion)
+    }
+    
 }
 
 extension APIService {

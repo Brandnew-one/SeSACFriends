@@ -10,13 +10,13 @@ import SnapKit
 import CoreLocation
 import UIKit
 
+
 class NearSesacViewController: UIViewController, ViewRepresentable {
     
     let noneView = NoneView()
     let tableView = UITableView()
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
     let homeViewModel = HomeViewModel()
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -134,7 +134,20 @@ extension NearSesacViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = PopupViewController()
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
+        
         vc.mode = .request
+        vc.homeviewModel = self.homeViewModel
+        vc.index = sender.tag
+        
+        vc.completion = { code in
+            if code == 200 {
+                self.view.makeToast("취미함께 요청하기를 보냈습니다")
+            } else if code == 201 {
+                print("hobby Accept 200 번대 오는지 확인 필요")
+            } else if code == 202 {
+                self.view.makeToast("상대방이 취미 함께 하기를 그만두었습니다")
+            }
+        }
         self.present(vc, animated: true, completion: nil)
     }
     
