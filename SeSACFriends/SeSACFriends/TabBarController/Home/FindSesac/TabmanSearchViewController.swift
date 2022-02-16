@@ -19,6 +19,7 @@ class TabmanSearchViewController: TabmanViewController {
     private let vcName = ["주변새싹", "받은 요청"]
     let tapView = UIView()
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var homeViewModel = HomeViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,7 +34,8 @@ class TabmanSearchViewController: TabmanViewController {
         
         self.navigationItem.title = "새싹찾기"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: ImageSet.backButton), style: .plain, target: self, action: #selector(backButtonClicked))
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgbString: ColorSet.black)
+        self.navigationController?.navigationBar.tintColor = UIColor(rgbString: ColorSet.black)
+//        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgbString: ColorSet.black)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "찾기중단", style: .plain, target: self, action: #selector(stopButtonClicked))
         
         let nearVC = NearSesacViewController()
@@ -54,6 +56,15 @@ class TabmanSearchViewController: TabmanViewController {
     
     @objc func stopButtonClicked() {
         print(#function)
+        homeViewModel.stopSearchingHobbyFriends { code in
+            if code == 200 {
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                windowScene.windows.first?.rootViewController = TabBarController()
+                windowScene.windows.first?.makeKeyAndVisible()
+            } else if code == 201 {
+                self.view.makeToast("누군가 취미를 함께하기로 약속하셨어요!")
+            }
+        }
     }
     
     func setupTabView() {

@@ -11,6 +11,8 @@ import Foundation
 class HomeViewModel {
     
     var result = Observable(HomeModel(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
+    var myQueueState = Observable(queueState(dodged: -1, matched: -1, reviewed: -1, matchedNick: "", matchedUid: ""))
+    
     var hfArray: [String] = []
     var recommendIndex: Int = 0
     
@@ -42,7 +44,7 @@ class HomeViewModel {
     }
     
     func fetchRequestHobby(uid: String, completion: @escaping (Int) -> Void) {
-        APIService.requestHobby(otheruid: uid) { result, code in
+        APIService.requestHobby(otheruid: uid) { error, code in
             if let code = code {
                 if code == 401 {
                     print("Firebase Token Error")
@@ -67,7 +69,7 @@ class HomeViewModel {
     }
     
     func fetchAcceptHobby(otheruid: String, completion: @escaping (Int) -> Void) {
-        APIService.acceptHobby(otheruid: otheruid) { result, code in
+        APIService.acceptHobby(otheruid: otheruid) { error, code in
             if let code = code {
                 if code == 401 {
                     print("Firebase Token Error")
@@ -94,11 +96,66 @@ class HomeViewModel {
         }
     }
     
+    func stopSearchingHobbyFriends(completion: @escaping (Int) -> Void) {
+        APIService.stopHobbyFriends { error, code in
+            if let code = code {
+                if code == 406 {
+                    print("미가입 회원")
+                } else if code == 500 {
+                    print("Server Error")
+                } else if code == 401 {
+                    print("FireBase Token Error -> 추가적으로 구현 필요")
+                } else if code == 201 {
+                    print("이미 친구와 매칭된 상태")
+                    completion(code)
+                } else { // code == 200
+                    print("취미 함께할 친구 찾기중단 성공")
+                    completion(code)
+                }
+            }
+        }
+    }
+    
+    func fetchMyQueueState(completion: @escaping (queueState, Int) -> Void) {
+        APIService.checkMyQueueState { result, error, code in
+            if let error = error {
+                print("에러 발생")
+            } else {
+                if let code = code {
+                    if code == 500 {
+                        print("Server Error")
+                        return
+                    } else if code == 406 {
+                        print("미가입 회원")
+                        return
+                    } else if code == 401 {
+                        print("firebase Token Error")
+                        return
+                    } else if code == 201 {
+                        print("친구찾기 중단이 된 상태")
+                        guard let result = result else {
+                            return
+                        }
+                        completion(result, code)
+                    } else { // code == 200
+                        print("queue 상태 확인 성공")
+                        guard let result = result else {
+                            return
+                        }
+                        completion(result, code)
+                    }
+                }
+            }
+        }
+    }
+    
     
     // 취미입력 화면에서 컬렉션 뷰를 채워주기 위해서 배열을 초기화
     func updatehfArray() {
         for str in result.value.fromRecommend {
-            hfArray.append(str)
+            if !hfArray.contains(str) {
+                hfArray.append(str)
+            }
         }
         recommendIndex = result.value.fromRecommend.count - 1
         
@@ -107,7 +164,7 @@ class HomeViewModel {
 //                print(hobby)
                 if hobby == "anything" {
                     continue
-                } else {
+                } else if !hfArray.contains(hobby) {
                     hfArray.append(hobby)
                 }
             }

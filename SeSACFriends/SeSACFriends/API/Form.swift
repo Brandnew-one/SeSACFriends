@@ -32,3 +32,11 @@ struct hobbyForm {
     var lat: Double
     var hf: [String]
 }
+
+struct queueState: Codable {
+    var dodged: Int
+    var matched: Int
+    var reviewed: Int
+    var matchedNick: String
+    var matchedUid: String
+}

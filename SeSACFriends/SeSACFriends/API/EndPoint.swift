@@ -31,6 +31,7 @@ enum EndPoint {
     case hobby
     case hobbyRequest
     case hobbyAccept
+    case myQueueState
 }
 
 extension URL {
@@ -52,6 +53,7 @@ extension EndPoint {
         case .hobby: return .makeEndpoint("queue") // 취미입력 화면
         case .hobbyRequest: return .makeEndpoint("queue/hobbyrequest") // 취미함께 하기 요청
         case .hobbyAccept: return .makeEndpoint("queue/hobbyaccept") // 취미함께 하기 수락
+        case .myQueueState: return .makeEndpoint("queue/myQueueState") // 매칭상태 확인하기
         }
     }
 }

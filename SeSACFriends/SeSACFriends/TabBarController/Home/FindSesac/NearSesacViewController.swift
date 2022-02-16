@@ -13,7 +13,7 @@ import UIKit
 
 class NearSesacViewController: UIViewController, ViewRepresentable {
     
-    let noneView = NoneView()
+    let emptyView = EmptyView()
     let tableView = UITableView()
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
     let homeViewModel = HomeViewModel()
@@ -45,10 +45,7 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
     func setupView() {
         view.backgroundColor = .white
         view.addSubview(tableView)
-        
-        noneView.titleLabel.text = "아쉽게도 주변에 새싹이 없어요ㅠ"
-        noneView.contentLabel.text = "취미를 변경하거나 조금만 더 기다려 주세요!"
-        tableView.addSubview(noneView)
+        tableView.addSubview(emptyView)
     }
     
     func setupConstraints() {
@@ -57,15 +54,13 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
             make.leading.equalToSuperview().offset(16)
             make.trailing.bottom.equalToSuperview().offset(-16)
         }
-        
-        noneView.snp.makeConstraints { make in
-            make.centerY.equalTo(view.safeAreaLayoutGuide).offset(-24)
-            make.leading.equalToSuperview().offset(46)
-            make.trailing.equalToSuperview().offset(-46)
-            make.height.equalTo(158)
+                
+        emptyView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(44)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
         }
     }
-    
     
 }
 
@@ -73,9 +68,9 @@ extension NearSesacViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if homeViewModel.result.value.fromQueueDB.isEmpty {
-            self.noneView.isHidden = false
+            self.emptyView.isHidden = false
         } else {
-            self.noneView.isHidden = true
+            self.emptyView.isHidden = true
         }
         return homeViewModel.result.value.fromQueueDB.count
     }

@@ -33,6 +33,7 @@
 		AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118C279A8FC500A8C421 /* EmailView+Extension.swift */; };
 		AE24118F279A990900A8C421 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118E279A990900A8C421 /* GenderView.swift */; };
 		AE241191279A9A8100A8C421 /* GenderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241190279A9A8100A8C421 /* GenderImageView.swift */; };
+		AE2B2EE327BB9C7800CD452F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2B2EE227BB9C7800CD452F /* EmptyView.swift */; };
 		AE46E04D279E6E9E00247060 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46E04C279E6E9E00247060 /* Form.swift */; };
 		AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */; };
 		AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1727A279AC000CDC79 /* MyCardView.swift */; };
@@ -113,6 +114,7 @@
 		AE24118C279A8FC500A8C421 /* EmailView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmailView+Extension.swift"; sourceTree = "<group>"; };
 		AE24118E279A990900A8C421 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		AE241190279A9A8100A8C421 /* GenderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderImageView.swift; sourceTree = "<group>"; };
+		AE2B2EE227BB9C7800CD452F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		AE46E04C279E6E9E00247060 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWithdrawView.swift; sourceTree = "<group>"; };
 		AE47ED1727A279AC000CDC79 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				AE8DF95227B8CC9A00D2C3D1 /* RequestViewController.swift */,
 				AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */,
 				AE1F246027BA566200EEFEA6 /* PopupViewController.swift */,
+				AE2B2EE227BB9C7800CD452F /* EmptyView.swift */,
 			);
 			path = FindSesac;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				AE11286127AC3F1900826C9A /* MyInfoViewModel.swift in Sources */,
 				AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */,
 				AEA0A3F827967CE1009B6D05 /* ColorSet.swift in Sources */,
+				AE2B2EE327BB9C7800CD452F /* EmptyView.swift in Sources */,
 				AE8EA42127A6F40700853DC0 /* sesacTitleView.swift in Sources */,
 				AE23F9E527A127FF008D9223 /* InformationViewController.swift in Sources */,
 				AE07E6182797D1B500866766 /* Observable.swift in Sources */,

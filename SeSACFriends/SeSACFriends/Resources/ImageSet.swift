@@ -26,6 +26,7 @@ struct ImageSet {
     static let qna = "qna"
     static let faq = "faq"
     static let alarm = "setting_alarm"
+    static let refresh = "refresh"
     
     static let background1 = "sesac_bg_01"
     static let background2 = "sesac_background_2"

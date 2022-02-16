@@ -96,10 +96,28 @@ class APIService {
             return
         }
         var request = URLRequest(url: url)
+        var postParam = "type=\(body.type)&region=\(body.region)&long=\(body.long)&lat=\(body.lat)"
+        for str in body.hf{
+            postParam += "&hf=\(str)"
+        }
         request.httpMethod = Method.POST.rawValue
-        request.httpBody = "type=\(body.type)&region=\(body.region)&long=\(body.long)&lat=\(body.lat)&hf=\(body.hf)".data(using: .utf8, allowLossyConversion: false)
+        request.httpBody = postParam.data(using: .utf8, allowLossyConversion: false)
         request.setValue(token, forHTTPHeaderField: "idtoken")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.request2(endpoint: request, completion: completion)
+    }
+    
+    //MARK: 취미 함께할 친구 찾기 중단
+    static func stopHobbyFriends(completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.hobby.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.DELETE.rawValue
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+//        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         URLSession.request2(endpoint: request, completion: completion)
     }
@@ -134,6 +152,18 @@ class APIService {
         URLSession.request2(endpoint: request, completion: completion)
     }
     
+    //MARK: 매칭상태 확인
+    static func checkMyQueueState(completion: @escaping (queueState?, APIError?, Int?) -> Void) {
+        let url = EndPoint.myQueueState.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.GET.rawValue
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        
+        URLSession.request(endpoint: request, completion: completion)
+    }
 }
 
 extension APIService {

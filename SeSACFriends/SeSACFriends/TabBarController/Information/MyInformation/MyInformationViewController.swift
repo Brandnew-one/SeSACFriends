@@ -27,10 +27,11 @@ class MyInformationViewController: UIViewController {
         view.backgroundColor = .white
         
         // bar 버튼 색깔 안바뀌는 이슈 수정하기!
-        let attributes = [NSAttributedString.Key.font: FontSet.title3M14, NSAttributedString.Key.foregroundColor:UIColor(rgbString: ColorSet.black)]
-        UINavigationBar.appearance().titleTextAttributes = attributes
+//        let attributes = [NSAttributedString.Key.font: FontSet.title3M14, NSAttributedString.Key.foregroundColor:UIColor(rgbString: ColorSet.black)]
+//        UINavigationBar.appearance().titleTextAttributes = attributes
         
         navigationItem.title = "정보 관리"
+        self.navigationController?.navigationBar.tintColor = UIColor(rgbString: ColorSet.black)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
         
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
