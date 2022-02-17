@@ -40,13 +40,14 @@ class PopupViewController: UIViewController, ViewRepresentable {
     
     @objc func okButtonClicked() {
         print(#function)
-        
         if mode == .request {
             homeviewModel.fetchRequestHobby(uid: homeviewModel.result.value.fromQueueDB[index].uid) { code in
                 self.completion?(code)
             }
         } else {
             homeviewModel.fetchAcceptHobby(otheruid: homeviewModel.result.value.fromQueueDBRequested[index].uid) { code in
+                print(self.homeviewModel.result.value.fromQueueDBRequested[self.index].nick)
+                print(self.homeviewModel.result.value.fromQueueDBRequested[self.index].uid)
                 self.completion?(code)
             }
         }

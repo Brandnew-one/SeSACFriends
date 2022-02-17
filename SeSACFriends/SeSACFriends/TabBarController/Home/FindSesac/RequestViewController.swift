@@ -136,6 +136,8 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = PopupViewController()
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
+        vc.homeviewModel = self.homeViewModel
+        vc.index = sender.tag
         vc.mode = .accept
         
         vc.completion = { code in

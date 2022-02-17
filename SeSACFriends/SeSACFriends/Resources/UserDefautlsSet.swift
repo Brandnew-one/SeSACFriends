@@ -12,5 +12,6 @@ struct UserDefautlsSet {
     static let firebaseToken = "FBToken"
     static let messageToken = "FCMToken"
     static let nickName = "Nick"
+    static let state = "Mystate"
     
 }

@@ -139,7 +139,7 @@ class APIService {
     
     //MARK: 취미함께하기 수락
     static func acceptHobby(otheruid: String, completion: @escaping (APIError?, Int?) -> Void) {
-        let url = EndPoint.hobbyRequest.url
+        let url = EndPoint.hobbyAccept.url
         guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
             return
         }

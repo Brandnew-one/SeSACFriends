@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, ViewRepresentable {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
+        changeFloatingButton()
     }
     
     override func viewDidLoad() {
@@ -86,6 +87,21 @@ class HomeViewController: UIViewController, ViewRepresentable {
             }
         }
         locationManager.stopUpdatingLocation()
+    }
+    
+    func changeFloatingButton() {
+        var myState: Int? = UserDefaults.standard.integer(forKey: UserDefautlsSet.state)
+        print(myState)
+        // 일반
+        if myState == nil || myState == 0 {
+            homeView.statusButtonView.button.setImage(UIImage(named: ImageSet.search), for: .normal)
+        // 매칭 대기중
+        } else if myState == 1 {
+            homeView.statusButtonView.button.setImage(UIImage(named: ImageSet.antenna), for: .normal)
+        // 매칭 된 상태
+        } else {
+            homeView.statusButtonView.button.setImage(UIImage(named: ImageSet.message), for: .normal)
+        }
     }
     
 }

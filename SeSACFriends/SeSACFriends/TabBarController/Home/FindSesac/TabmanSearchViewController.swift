@@ -35,7 +35,6 @@ class TabmanSearchViewController: TabmanViewController {
         self.navigationItem.title = "새싹찾기"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: ImageSet.backButton), style: .plain, target: self, action: #selector(backButtonClicked))
         self.navigationController?.navigationBar.tintColor = UIColor(rgbString: ColorSet.black)
-//        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgbString: ColorSet.black)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "찾기중단", style: .plain, target: self, action: #selector(stopButtonClicked))
         
         let nearVC = NearSesacViewController()
@@ -51,7 +50,10 @@ class TabmanSearchViewController: TabmanViewController {
     
     @objc func backButtonClicked() {
         // 우선은 이전화면으로 가게 설정 -> 추후에 수정이 필요함
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        windowScene.windows.first?.rootViewController = TabBarController()
+        windowScene.windows.first?.makeKeyAndVisible()
     }
     
     @objc func stopButtonClicked() {
@@ -112,6 +114,7 @@ extension TabmanSearchViewController: PageboyViewControllerDataSource, TMBarData
 
     func viewController(for pageboyViewController: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
+//        print(#function)
         return viewControllers[index]
     }
 

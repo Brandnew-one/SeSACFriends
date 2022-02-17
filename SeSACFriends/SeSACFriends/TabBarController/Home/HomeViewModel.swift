@@ -116,7 +116,7 @@ class HomeViewModel {
         }
     }
     
-    func fetchMyQueueState(completion: @escaping (queueState, Int) -> Void) {
+    func fetchMyQueueState(completion: @escaping (Int) -> Void) {
         APIService.checkMyQueueState { result, error, code in
             if let error = error {
                 print("에러 발생")
@@ -136,13 +136,15 @@ class HomeViewModel {
                         guard let result = result else {
                             return
                         }
-                        completion(result, code)
+                        self.myQueueState.value = result
+                        completion(code)
                     } else { // code == 200
                         print("queue 상태 확인 성공")
                         guard let result = result else {
                             return
                         }
-                        completion(result, code)
+                        self.myQueueState.value = result
+                        completion(code)
                     }
                 }
             }

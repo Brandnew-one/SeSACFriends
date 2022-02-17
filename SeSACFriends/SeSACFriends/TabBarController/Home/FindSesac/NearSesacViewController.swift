@@ -18,6 +18,7 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
     let homeViewModel = HomeViewModel()
     
+    // 탭 전환할 때, 새싹찾기 목록 갱신
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         homeViewModel.fetchSearchFriends(location: location) {
