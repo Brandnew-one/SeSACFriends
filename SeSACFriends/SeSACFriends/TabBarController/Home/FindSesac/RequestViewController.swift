@@ -12,11 +12,11 @@ import UIKit
 
 class RequestViewController: UIViewController, ViewRepresentable {
     
-    let noneView = NoneView()
+    let emptyView = EmptyView()
     let tableView = UITableView()
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
     let homeViewModel = HomeViewModel()
-    
+    private var refreshControl = UIRefreshControl()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,20 +35,26 @@ class RequestViewController: UIViewController, ViewRepresentable {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "새로고침 중이에요!")
         tableView.register(SesacTableViewCell.self, forCellReuseIdentifier: SesacTableViewCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
         tableView.separatorInset.top = 10.0
         tableView.separatorInset.bottom = 10.0
+        
+        emptyView.myButton.addTarget(self, action: #selector(changeHobbyButtonClicked), for: .touchUpInside)
+        emptyView.refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
     }
     
     func setupView() {
         view.backgroundColor = .white
         view.addSubview(tableView)
         
-        noneView.titleLabel.text = "아직 받은 요청이 없어요ㅠ"
-        noneView.contentLabel.text = "취미를 변경하거나 조금만 더 기다려 주세요!"
-        tableView.addSubview(noneView)
+        emptyView.noneView.titleLabel.text = "아직 받은 요청이 없어요ㅠ"
+        emptyView.noneView.contentLabel.text = "취미를 변경하거나 조금만 더 기다려 주세요!"
+        tableView.addSubview(emptyView)
     }
     
     func setupConstraints() {
@@ -57,15 +63,33 @@ class RequestViewController: UIViewController, ViewRepresentable {
             make.leading.equalToSuperview().offset(16)
             make.trailing.bottom.equalToSuperview().offset(-16)
         }
-        
-        noneView.snp.makeConstraints { make in
-            make.centerY.equalTo(view.safeAreaLayoutGuide).offset(-24)
-            make.leading.equalToSuperview().offset(46)
-            make.trailing.equalToSuperview().offset(-46)
-            make.height.equalTo(158)
+                
+        emptyView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(44)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
         }
     }
     
+    @objc func changeHobbyButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func refreshButtonClicked() {
+        self.homeViewModel.fetchSearchFriends(location: self.location) {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    @objc func pullRefresh() {
+        DispatchQueue.main.async {
+            self.homeViewModel.fetchSearchFriends(location: self.location) {
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
     
 }
 
@@ -73,9 +97,9 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if homeViewModel.result.value.fromQueueDBRequested.isEmpty {
-            self.noneView.isHidden = false
+            self.emptyView.isHidden = false
         } else {
-            self.noneView.isHidden = true
+            self.emptyView.isHidden = true
         }
         return homeViewModel.result.value.fromQueueDBRequested.count
     }

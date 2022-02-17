@@ -16,24 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        FirebaseApp.configure()
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert], completionHandler: { (granted,error) in })
-//        application.registerForRemoteNotifications()
-//
-//        //Message Delegate Setting
-//        Messaging.messaging().delegate = self
-        
-//        Messaging.messaging().token { token, error in
-//          if let error = error {
-//            print("Error fetching FCM registration token: \(error)")
-//          } else if let token = token {
-//            UserDefaults.standard.set(token, forKey: "FCMToken")
-//            print("FCM registration token: \(token)")
-//          }
-//        }
-        
-//        return true
+
         FirebaseApp.configure()
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self

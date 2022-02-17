@@ -39,9 +39,25 @@ class HomeViewController: UIViewController, ViewRepresentable {
     }
     
     @objc func statusButtonClicked() {
-        let vc = HobbyViewController()
-        vc.location = self.homeView.mapView.centerCoordinate
-        self.navigationController?.pushViewController(vc, animated: true)
+        var myState: Int? = UserDefaults.standard.integer(forKey: UserDefautlsSet.state)
+        // 일반
+        if myState == nil || myState == 0 {
+            let vc = HobbyViewController()
+            vc.location = self.homeView.mapView.centerCoordinate
+            self.navigationController?.pushViewController(vc, animated: true)
+        // 매칭 대기중
+        } else if myState == 1 {
+            let vc1 = HobbyViewController()
+            let vc2 = TabmanSearchViewController()
+            vc1.location = self.homeView.mapView.centerCoordinate
+            self.navigationController?.pushViewController(vc1, animated: false)
+            vc2.location = vc1.location
+            self.navigationController?.pushViewController(vc2, animated: true)
+        // 매칭 된 상태
+        } else {
+            print("로직 구현 필요")
+        }
+        
     }
     
     @objc func gpsButtonClicked() {
@@ -91,7 +107,7 @@ class HomeViewController: UIViewController, ViewRepresentable {
     
     func changeFloatingButton() {
         var myState: Int? = UserDefaults.standard.integer(forKey: UserDefautlsSet.state)
-        print(myState)
+//        print(myState)
         // 일반
         if myState == nil || myState == 0 {
             homeView.statusButtonView.button.setImage(UIImage(named: ImageSet.search), for: .normal)
@@ -194,7 +210,6 @@ extension HomeViewController: CLLocationManagerDelegate {
             }
         }
     }
-    
     
     // 4) 사용자가 앱 내에서 위치 허용을 한 경우,
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

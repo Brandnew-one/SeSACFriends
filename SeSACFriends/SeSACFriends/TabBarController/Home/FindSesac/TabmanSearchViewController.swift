@@ -25,6 +25,19 @@ class TabmanSearchViewController: TabmanViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = true
+        
+        homeViewModel.fetchMyQueueState { code in
+            if code == 201 {
+                UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
+            } else if code == 200 {
+                if self.homeViewModel.myQueueState.value.matched == 0 {
+                    UserDefaults.standard.set(1, forKey: UserDefautlsSet.state)
+                } else if self.homeViewModel.myQueueState.value.matched == 1 {
+                    print("매칭이 된 상태 분기처리 필요")
+                    UserDefaults.standard.set(2, forKey: UserDefautlsSet.state)
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -49,15 +62,12 @@ class TabmanSearchViewController: TabmanViewController {
     }
     
     @objc func backButtonClicked() {
-        // 우선은 이전화면으로 가게 설정 -> 추후에 수정이 필요함
-//        self.navigationController?.popViewController(animated: true)
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-        windowScene.windows.first?.rootViewController = TabBarController()
-        windowScene.windows.first?.makeKeyAndVisible()
+        popBack(3)
     }
     
     @objc func stopButtonClicked() {
         print(#function)
+        UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
         homeViewModel.stopSearchingHobbyFriends { code in
             if code == 200 {
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
@@ -120,42 +130,5 @@ extension TabmanSearchViewController: PageboyViewControllerDataSource, TMBarData
 
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
-    }
-}
-
-extension UIViewController {
-    
-    func setBackgroundImage(background: Int) -> UIImage {
-        if background == 0 {
-            return UIImage(named: ImageSet.background1)!
-        } else if background == 1 {
-            return UIImage(named: ImageSet.background2)!
-        } else if background == 2 {
-            return UIImage(named: ImageSet.background3)!
-        } else if background == 3 {
-            return UIImage(named: ImageSet.background4)!
-        } else if background == 4 {
-            return UIImage(named: ImageSet.background5)!
-        } else if background == 5 {
-            return UIImage(named: ImageSet.background6)!
-        } else if background == 6 {
-            return UIImage(named: ImageSet.background7)!
-        } else {
-            return UIImage(named: ImageSet.background8)!
-        }
-    }
-    
-    func setSesacFaceImage(sesac: Int) -> UIImage {
-        if sesac == 0 {
-            return UIImage(named: ImageSet.face1)!
-        } else if sesac == 1 {
-            return UIImage(named: ImageSet.face2)!
-        } else if sesac == 2 {
-            return UIImage(named: ImageSet.face3)!
-        } else if sesac == 3 {
-            return UIImage(named: ImageSet.face4)!
-        } else {
-            return UIImage(named: ImageSet.face5)!
-        }
     }
 }

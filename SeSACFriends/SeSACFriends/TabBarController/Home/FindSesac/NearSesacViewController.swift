@@ -17,8 +17,8 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
     let tableView = UITableView()
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
     let homeViewModel = HomeViewModel()
+    private var refreshControl = UIRefreshControl()
     
-    // 탭 전환할 때, 새싹찾기 목록 갱신
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         homeViewModel.fetchSearchFriends(location: location) {
@@ -36,11 +36,17 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "새로고침 중이에요!")
         tableView.register(SesacTableViewCell.self, forCellReuseIdentifier: SesacTableViewCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
         tableView.separatorInset.top = 10.0
         tableView.separatorInset.bottom = 10.0
+        
+        emptyView.myButton.addTarget(self, action: #selector(changeHobbyButtonClicked), for: .touchUpInside)
+        emptyView.refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
     }
     
     func setupView() {
@@ -60,6 +66,26 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
             make.top.equalTo(view.safeAreaLayoutGuide).offset(44)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
             make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
+        }
+    }
+    
+    @objc func changeHobbyButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func refreshButtonClicked() {
+        self.homeViewModel.fetchSearchFriends(location: self.location) {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    @objc func pullRefresh() {
+        DispatchQueue.main.async {
+            self.homeViewModel.fetchSearchFriends(location: self.location) {
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     

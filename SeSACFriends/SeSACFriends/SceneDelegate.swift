@@ -29,13 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     print("error")
                     return
                 }
-//                // fireBase에 회원가입 하지 않은 경우 휴대폰 전화 인증을 통해서 FB에 가입을 시켜준다.
-//                if UserDefaults.standard.string(forKey: "FBToken") == nil {
-//                    self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
-//                    self.window?.makeKeyAndVisible()
-//                    return
-//                }
-                
+
                 if let idToken = idToken {
                     DispatchQueue.main.async {
                         print(idToken)

@@ -119,7 +119,7 @@ class HomeViewModel {
     func fetchMyQueueState(completion: @escaping (Int) -> Void) {
         APIService.checkMyQueueState { result, error, code in
             if let error = error {
-                print("에러 발생")
+                print("에러 발생", error)
             } else {
                 if let code = code {
                     if code == 500 {

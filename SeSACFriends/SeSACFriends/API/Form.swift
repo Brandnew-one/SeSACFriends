@@ -34,9 +34,9 @@ struct hobbyForm {
 }
 
 struct queueState: Codable {
-    var dodged: Int
-    var matched: Int
-    var reviewed: Int
-    var matchedNick: String
-    var matchedUid: String
+    var dodged: Int?
+    var matched: Int?
+    var reviewed: Int?
+    var matchedNick: String?
+    var matchedUid: String?
 }
