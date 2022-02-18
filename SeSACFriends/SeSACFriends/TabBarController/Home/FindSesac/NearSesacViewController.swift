@@ -10,6 +10,12 @@ import SnapKit
 import CoreLocation
 import UIKit
 
+enum QueueStateMode {
+    case fiveSecondsQueue
+    case requestQueue
+    case acceptQueue
+}
+
 
 class NearSesacViewController: UIViewController, ViewRepresentable {
     
@@ -17,7 +23,10 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
     let tableView = UITableView()
     var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
     let homeViewModel = HomeViewModel()
+    var timer: DispatchSourceTimer?
+    var remainingTime: Int = 5
     private var refreshControl = UIRefreshControl()
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,6 +35,7 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
                 self.tableView.reloadData()
             }
         }
+        startTimer()
     }
     
     override func viewDidLoad() {
@@ -49,6 +59,11 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
         emptyView.refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTimer()
+    }
+    
     func setupView() {
         view.backgroundColor = .white
         view.addSubview(tableView)
@@ -69,6 +84,27 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
         }
     }
     
+    func checkQueueState(mode: QueueStateMode) {
+        self.homeViewModel.fetchMyQueueState { code in
+            if code == 201 {
+                UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
+            } else if code == 200 {
+                if self.homeViewModel.myQueueState.value.matched == 0 {
+                    UserDefaults.standard.set(1, forKey: UserDefautlsSet.state)
+                } else if self.homeViewModel.myQueueState.value.matched == 1 {
+                    UserDefaults.standard.set(2, forKey: UserDefautlsSet.state)
+                    if mode == .fiveSecondsQueue {
+                        self.view.makeToast("\(self.homeViewModel.myQueueState.value.matchedNick)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다")
+                    } else if mode == .requestQueue {
+                        self.view.makeToast("상대방도 취미 함께 하기 요청을 했습니다. 채팅방으로 이동합니다")
+                    } else {
+                        self.view.makeToast("채팅방으로 이동합니다")
+                    }
+                }
+            }
+        }
+    }
+    
     @objc func changeHobbyButtonClicked() {
         navigationController?.popViewController(animated: true)
     }
@@ -76,7 +112,6 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
     @objc func refreshButtonClicked() {
         self.homeViewModel.fetchSearchFriends(location: self.location) {
             self.tableView.reloadData()
-            self.refreshControl.endRefreshing()
         }
     }
     
@@ -87,6 +122,39 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
                 self.refreshControl.endRefreshing()
             }
         }
+    }
+    
+    //Start & Reset
+    func startTimer() {
+        //타이머가 처음 동작하는 경우
+        if self.timer == nil {
+            self.timer = DispatchSource.makeTimerSource(flags: [], queue: .main)
+            //1초 간격으로 아래의 event 가 발생한다고 생각
+            self.timer?.schedule(deadline: .now(), repeating: 1)
+            self.timer?.setEventHandler(handler: { [weak self] in
+                guard let self = self else { return }
+                self.remainingTime -= 1
+                
+                //지정된 시간이 모두 흐른경우
+                if self.remainingTime <= 0 {
+                    self.stopTimer()
+//                    print("------------------5S-------------------")
+                    self.checkQueueState(mode: .fiveSecondsQueue)
+                    self.remainingTime = 5
+                    self.startTimer()
+                }
+            })
+            self.timer?.resume()
+        } else { // 인증번호를 다시 받는 경우
+            self.stopTimer()
+            self.remainingTime = 5
+            self.startTimer()
+        }
+    }
+    
+    func stopTimer() {
+        self.timer?.cancel()
+        self.timer = nil //nil 로 메모리 해제 필요!
     }
     
 }
@@ -144,7 +212,6 @@ extension NearSesacViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.cardView.reviewView.setupMode(review: homeViewModel.result.value.fromQueueDB[indexPath.section].reviews.first)
-        
         cell.button.tag = indexPath.section
         cell.button.addTarget(self, action: #selector(sendButtonClicked(sender:)), for: .touchUpInside)
         
@@ -153,6 +220,7 @@ extension NearSesacViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func sendButtonClicked(sender: UIButton) {
         print(#function)
+        checkQueueState(mode: .requestQueue)
         let vc = PopupViewController()
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
@@ -174,5 +242,3 @@ extension NearSesacViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-
