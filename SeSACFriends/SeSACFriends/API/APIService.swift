@@ -164,6 +164,33 @@ class APIService {
         
         URLSession.request(endpoint: request, completion: completion)
     }
+    
+    //MARK: 취미 함께하기 약속 취소
+    static func cancelHobby(otheruid: String, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.dodge.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "otheruid=\(otheruid)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request2(endpoint: request, completion: completion)
+    }
+    
+    //MARK: 리뷰작성하기
+    static func makeReview(id: String, completion: @escaping () -> Void) {
+        let url = EndPoint.rate(id: id).url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//        URLSession.request(endpoint: request, completion: completion)
+    }
 }
 
 extension APIService {

@@ -38,7 +38,23 @@ class HomeViewController: UIViewController, ViewRepresentable {
         homeView.statusButtonView.button.addTarget(self, action: #selector(statusButtonClicked), for: .touchUpInside)
     }
     
+    func checkStatus() {
+        print(UserDefaults.standard.integer(forKey: UserDefautlsSet.state))
+        self.homeViewModel.fetchMyQueueState { code in
+            if code == 201 {
+                UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
+            } else if code == 200 {
+                if self.homeViewModel.myQueueState.value.matched == 0 {
+                    UserDefaults.standard.set(1, forKey: UserDefautlsSet.state)
+                } else if self.homeViewModel.myQueueState.value.matched == 1 {
+                    UserDefaults.standard.set(2, forKey: UserDefautlsSet.state)
+                }
+            }
+        }
+    }
+    
     @objc func statusButtonClicked() {
+        checkStatus()
         var myState: Int? = UserDefaults.standard.integer(forKey: UserDefautlsSet.state)
         // 일반
         if myState == nil || myState == 0 {
@@ -56,6 +72,9 @@ class HomeViewController: UIViewController, ViewRepresentable {
         // 매칭 된 상태
         } else {
             print("로직 구현 필요")
+            let vc = ChattingViewController()
+            vc.homeViewModel = self.homeViewModel
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
     }
@@ -78,7 +97,6 @@ class HomeViewController: UIViewController, ViewRepresentable {
     
     // API 통신을 통해서 친구를 찾고 Map에 띄워주는 함수 -> 중복되니까 함수로 만들어 놓자
     func findFriends(location: CLLocationCoordinate2D) {
-        
         homeViewModel.fetchSearchFriends(location: location) {
             let fromQueueDB = self.homeViewModel.result.value.fromQueueDB
             for data in fromQueueDB {
@@ -106,8 +124,8 @@ class HomeViewController: UIViewController, ViewRepresentable {
     }
     
     func changeFloatingButton() {
+        checkStatus()
         var myState: Int? = UserDefaults.standard.integer(forKey: UserDefautlsSet.state)
-//        print(myState)
         // 일반
         if myState == nil || myState == 0 {
             homeView.statusButtonView.button.setImage(UIImage(named: ImageSet.search), for: .normal)

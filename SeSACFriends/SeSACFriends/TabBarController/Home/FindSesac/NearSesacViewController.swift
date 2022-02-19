@@ -61,6 +61,7 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        print(#function)
         stopTimer()
     }
     
@@ -153,6 +154,7 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
     }
     
     func stopTimer() {
+        print("stop Timer")
         self.timer?.cancel()
         self.timer = nil //nil 로 메모리 해제 필요!
     }

@@ -27,6 +27,7 @@ struct ImageSet {
     static let faq = "faq"
     static let alarm = "setting_alarm"
     static let refresh = "refresh"
+    static let more = "more"
     
     static let background1 = "sesac_bg_01"
     static let background2 = "sesac_background_2"
@@ -56,4 +57,8 @@ struct ImageSet {
     static let closeGreen = "close_small"
     static let backButton = "Group 3856"
     static let emptySesac = "Group 3863"
+    
+    static let write = "write"
+    static let siren = "siren"
+    static let matchCancle = "cancel_match"
 }

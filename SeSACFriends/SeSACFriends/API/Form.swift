@@ -40,3 +40,9 @@ struct queueState: Codable {
     var matchedNick: String?
     var matchedUid: String?
 }
+
+struct rateReview: Codable {
+    var otheruid: String
+    var reputation: [Int]
+    var comment: String
+}

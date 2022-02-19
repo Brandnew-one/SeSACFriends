@@ -7,6 +7,7 @@
 
 import CoreLocation
 import Foundation
+import UIKit
 
 class HomeViewModel {
     
@@ -120,6 +121,12 @@ class HomeViewModel {
         APIService.checkMyQueueState { result, error, code in
             if let error = error {
                 print("에러 발생", error)
+                // 201번에서 Decode Error 가 발생하는 것을 확인 (급한대로 일단 수정)
+                if let code = code {
+                    if code == 201 {
+                        completion(code)
+                    }
+                }
             } else {
                 if let code = code {
                     if code == 500 {
@@ -136,7 +143,6 @@ class HomeViewModel {
                         guard let result = result else {
                             return
                         }
-                        self.myQueueState.value = result
                         completion(code)
                     } else { // code == 200
                         print("queue 상태 확인 성공")
@@ -146,6 +152,37 @@ class HomeViewModel {
                         self.myQueueState.value = result
                         completion(code)
                     }
+                }
+            }
+        }
+    }
+    
+    func fetchDodgeHobby(id: String, completion: @escaping (Int) -> Void) {
+        print(#function, "id: ", id)
+        APIService.cancelHobby(otheruid: id) { error, code in
+            if let error = error {
+                print("취미함께하기 약속 취소 에러", error)
+            }
+            if let code = code {
+                if code == 500 {
+                    print("Server Error")
+                    return
+                } else if code == 501 {
+                    print("Server Error")
+                    return
+                }
+                else if code == 406 {
+                    print("미가입 회원")
+                    return
+                } else if code == 401 {
+                    print("firebase Token Error")
+                    return
+                } else if code == 201 {
+                    print("잘못된 Uid")
+                    return
+                } else { // code == 200
+                    print("약속취소 성공")
+                    completion(code)
                 }
             }
         }

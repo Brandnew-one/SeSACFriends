@@ -8,6 +8,7 @@
 import SnapKit
 import UIKit
 
+//MARK: Basic 한 popup
 class PopupView: UIView, ViewRepresentable {
     
     var contentView = UIView()
