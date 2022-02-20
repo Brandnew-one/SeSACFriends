@@ -36,7 +36,7 @@ class MyButton: UIButton {
     func setupView(text: String) {
         clipsToBounds = true
         layer.cornerRadius = 8
-        
+        layer.borderWidth = 1
         setTitle(text, for: .normal)
         titleLabel?.font = FontSet.body3R14
 
@@ -47,20 +47,23 @@ class MyButton: UIButton {
         switch self.mode {
         case .inactive:
             backgroundColor = UIColor.init(rgbString: ColorSet.white)
+            layer.borderColor = UIColor(rgbString: ColorSet.gray4).cgColor
             setTitleColor(UIColor.init(rgbString: ColorSet.black), for: .normal)
         case .fill:
             backgroundColor = UIColor.init(rgbString: ColorSet.green)
+            layer.borderColor = UIColor(rgbString: ColorSet.green).cgColor
             setTitleColor(UIColor.init(rgbString: ColorSet.white), for: .normal)
         case .outline:
             backgroundColor = UIColor.init(rgbString: ColorSet.white)
-            layer.borderWidth = 1
             layer.borderColor = UIColor(rgbString: ColorSet.whiteGreen).cgColor
             setTitleColor(UIColor.init(rgbString: ColorSet.whiteGreen), for: .normal)
         case .cancel:
             backgroundColor = UIColor.init(rgbString: ColorSet.gray2)
+            layer.borderColor = UIColor(rgbString: ColorSet.gray2).cgColor
             setTitleColor(UIColor.init(rgbString: ColorSet.black), for: .normal)
         case .disable:
             backgroundColor = UIColor.init(rgbString: ColorSet.gray6)
+            layer.borderColor = UIColor(rgbString: ColorSet.gray6).cgColor
             setTitleColor(UIColor.init(rgbString: ColorSet.white), for: .normal)
         }
     }

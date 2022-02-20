@@ -55,6 +55,7 @@ struct ImageSet {
     static let place = "place"
     
     static let closeGreen = "close_small"
+    static let closeGray = "close_big"
     static let backButton = "Group 3856"
     static let emptySesac = "Group 3863"
     

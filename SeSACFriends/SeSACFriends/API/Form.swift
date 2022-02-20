@@ -41,8 +41,8 @@ struct queueState: Codable {
     var matchedUid: String?
 }
 
-struct rateReview: Codable {
+struct RateReview: Codable {
     var otheruid: String
-    var reputation: [Int]
+    var reputation = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var comment: String
 }

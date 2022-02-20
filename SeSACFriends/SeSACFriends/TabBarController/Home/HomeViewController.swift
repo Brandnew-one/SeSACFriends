@@ -203,15 +203,12 @@ extension HomeViewController: CLLocationManagerDelegate {
         // 한 번 허용
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
-        
         // 항상 허용
         case .authorizedAlways:
             print("Always")
-            
         @unknown default:
             print("Default")
         }
-        
         // 14.0 이상부터는 위치에 접근할 때 정확도 설정이 추가됨
         if #available(iOS 14.0, *) {
             //정확토 체크: 정확도 감소가 되어 있을 경우, 1시간 4번으로 제한
@@ -250,7 +247,6 @@ extension HomeViewController: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             
         }
-        
         //얘기치 못한 오류 방지 (비행기 모드로 변환되었을 경우) <-> 5번함수와의 기능
         else {
             print("Location Cannot Find")

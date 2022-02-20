@@ -45,6 +45,9 @@
 		AE77B46427A194BB00AD5092 /* MyHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46327A194BB00AD5092 /* MyHobbyView.swift */; };
 		AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46527A1993900AD5092 /* MyPhoneView.swift */; };
 		AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B46727A1A79500AD5092 /* MyAgeView.swift */; };
+		AE79ADB027C2649700A7A9A7 /* ReviewPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79ADAF27C2649700A7A9A7 /* ReviewPopupView.swift */; };
+		AE79ADB227C27E4100A7A9A7 /* ReviewPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79ADB127C27E4000A7A9A7 /* ReviewPopupViewController.swift */; };
+		AE79ADB627C284C000A7A9A7 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79ADB527C284C000A7A9A7 /* ReviewViewModel.swift */; };
 		AE7CD5D927B8D5DB007AB2F6 /* NoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */; };
 		AE7CD5DB27B8F196007AB2F6 /* SesacTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */; };
 		AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F3279B111A00668D28 /* BirthView.swift */; };
@@ -52,6 +55,7 @@
 		AE80A1F8279B168C00668D28 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F7279B168C00668D28 /* DayView.swift */; };
 		AE84A1B527C0E9A400CF2E55 /* CanclePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84A1B427C0E9A400CF2E55 /* CanclePopupViewController.swift */; };
 		AE84A1B827C134F100CF2E55 /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84A1B727C134F100CF2E55 /* ReportPopupViewController.swift */; };
+		AE84A1BA27C139BB00CF2E55 /* ReportPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE84A1B927C139BB00CF2E55 /* ReportPopupView.swift */; };
 		AE8DF95127B8CC7900D2C3D1 /* NearSesacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DF95027B8CC7900D2C3D1 /* NearSesacViewController.swift */; };
 		AE8DF95327B8CC9A00D2C3D1 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8DF95227B8CC9A00D2C3D1 /* RequestViewController.swift */; };
 		AE8EA41E27A6F39400853DC0 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8EA41D27A6F39400853DC0 /* TitleView.swift */; };
@@ -131,6 +135,9 @@
 		AE77B46327A194BB00AD5092 /* MyHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyView.swift; sourceTree = "<group>"; };
 		AE77B46527A1993900AD5092 /* MyPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhoneView.swift; sourceTree = "<group>"; };
 		AE77B46727A1A79500AD5092 /* MyAgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgeView.swift; sourceTree = "<group>"; };
+		AE79ADAF27C2649700A7A9A7 /* ReviewPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPopupView.swift; sourceTree = "<group>"; };
+		AE79ADB127C27E4000A7A9A7 /* ReviewPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPopupViewController.swift; sourceTree = "<group>"; };
+		AE79ADB527C284C000A7A9A7 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneView.swift; sourceTree = "<group>"; };
 		AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacTableViewCell.swift; sourceTree = "<group>"; };
 		AE80A1F3279B111A00668D28 /* BirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthView.swift; sourceTree = "<group>"; };
@@ -138,6 +145,7 @@
 		AE80A1F7279B168C00668D28 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		AE84A1B427C0E9A400CF2E55 /* CanclePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanclePopupViewController.swift; sourceTree = "<group>"; };
 		AE84A1B727C134F100CF2E55 /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
+		AE84A1B927C139BB00CF2E55 /* ReportPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupView.swift; sourceTree = "<group>"; };
 		AE8DF95027B8CC7900D2C3D1 /* NearSesacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSesacViewController.swift; sourceTree = "<group>"; };
 		AE8DF95227B8CC9A00D2C3D1 /* RequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		AE8EA41D27A6F39400853DC0 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
@@ -332,11 +340,31 @@
 			path = MyInformation;
 			sourceTree = "<group>";
 		};
+		AE79ADB327C2845A00A7A9A7 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				AE79ADB527C284C000A7A9A7 /* ReviewViewModel.swift */,
+				AE79ADAF27C2649700A7A9A7 /* ReviewPopupView.swift */,
+				AE79ADB127C27E4000A7A9A7 /* ReviewPopupViewController.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		AE79ADB427C2848800A7A9A7 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				AE84A1B927C139BB00CF2E55 /* ReportPopupView.swift */,
+				AE84A1B727C134F100CF2E55 /* ReportPopupViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		AE84A1B627C12A3B00CF2E55 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
 				AE84A1B427C0E9A400CF2E55 /* CanclePopupViewController.swift */,
-				AE84A1B727C134F100CF2E55 /* ReportPopupViewController.swift */,
+				AE79ADB427C2848800A7A9A7 /* Report */,
+				AE79ADB327C2845A00A7A9A7 /* Review */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -593,7 +621,9 @@
 				AE8DF95127B8CC7900D2C3D1 /* NearSesacViewController.swift in Sources */,
 				AEFE575D27C00369009BB343 /* MoreViewController.swift in Sources */,
 				AE6CBB1527B4DCAF00AFE4FA /* HobbyViewModel.swift in Sources */,
+				AE79ADB627C284C000A7A9A7 /* ReviewViewModel.swift in Sources */,
 				AEF6337627B25445003C67A5 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				AE79ADB027C2649700A7A9A7 /* ReviewPopupView.swift in Sources */,
 				AE162863279831C800CE45E8 /* CertificationView.swift in Sources */,
 				AE065AA427A9213D007742DC /* sesacReviewView.swift in Sources */,
 				AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */,
@@ -644,12 +674,14 @@
 				AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */,
 				AE24118F279A990900A8C421 /* GenderView.swift in Sources */,
 				AEF6337427B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift in Sources */,
+				AE79ADB227C27E4100A7A9A7 /* ReviewPopupViewController.swift in Sources */,
 				AE8EA41E27A6F39400853DC0 /* TitleView.swift in Sources */,
 				AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */,
 				AE84A1B527C0E9A400CF2E55 /* CanclePopupViewController.swift in Sources */,
 				AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */,
 				AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */,
 				AE8F211A27AF937800D2E1B8 /* VC+Extension.swift in Sources */,
+				AE84A1BA27C139BB00CF2E55 /* ReportPopupView.swift in Sources */,
 				AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */,
 				AEF6336D27B219DE003C67A5 /* HomeModel.swift in Sources */,
 				AECEBE6E27A501A60062B86E /* TabBarController.swift in Sources */,

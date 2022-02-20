@@ -28,6 +28,8 @@ class MoreViewController: UIViewController, ViewRepresentable {
         
         moreView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
         moreView.cancleButtonView.button.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
+        moreView.reportButtonView.button.addTarget(self, action: #selector(reportButtonClicked) , for: .touchUpInside)
+        moreView.reviewButtonView.button.addTarget(self, action: #selector(reviewButtonClicked), for: .touchUpInside)
     }
     
     func setupView() {
@@ -52,6 +54,27 @@ class MoreViewController: UIViewController, ViewRepresentable {
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         vc.homeviewModel = self.homeViewModel
+        self.dismiss(animated: false) {
+          pvc.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func reportButtonClicked() {
+        guard let pvc = self.presentingViewController else { return }
+        let vc = ReportPopupViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        self.dismiss(animated: false) {
+          pvc.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func reviewButtonClicked() {
+        guard let pvc = self.presentingViewController else { return }
+        let vc = ReviewPopupViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        vc.homeViewModel = self.homeViewModel
         self.dismiss(animated: false) {
           pvc.present(vc, animated: true, completion: nil)
         }
