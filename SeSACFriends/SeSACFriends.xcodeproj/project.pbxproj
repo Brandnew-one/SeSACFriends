@@ -77,6 +77,8 @@
 		AEA0A3FE2796A24A009B6D05 /* CustomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */; };
 		AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA32054279933C800E9B7C4 /* UserModel.swift */; };
 		AEA7D75E27B6B88B009A04AE /* TabmanSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7D75D27B6B88B009A04AE /* TabmanSearchViewController.swift */; };
+		AEB1EFB527C505DA00C6450D /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1EFB427C505DA00C6450D /* KeyboardView.swift */; };
+		AEB1EFB727C5172300C6450D /* ChattingView+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1EFB627C5172300C6450D /* ChattingView+Notification.swift */; };
 		AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB30F4327AE35620004A5A3 /* UserDefautlsSet.swift */; };
 		AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB30F4527AE3A930004A5A3 /* ImageSet.swift */; };
 		AEBF93A42796B6E7004C5B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */; };
@@ -171,6 +173,8 @@
 		AEA0A3FD2796A24A009B6D05 /* CustomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocol.swift; sourceTree = "<group>"; };
 		AEA32054279933C800E9B7C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AEA7D75D27B6B88B009A04AE /* TabmanSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabmanSearchViewController.swift; sourceTree = "<group>"; };
+		AEB1EFB427C505DA00C6450D /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		AEB1EFB627C5172300C6450D /* ChattingView+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChattingView+Notification.swift"; sourceTree = "<group>"; };
 		AEB30F4327AE35620004A5A3 /* UserDefautlsSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautlsSet.swift; sourceTree = "<group>"; };
 		AEB30F4527AE3A930004A5A3 /* ImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
 		AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				AE47ED1727A279AC000CDC79 /* MyCardView.swift */,
 				AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */,
 				AE1F245E27BA52D400EEFEA6 /* PopupView.swift */,
+				AEB1EFB427C505DA00C6450D /* KeyboardView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				AE982A6E27BFE64100F2F300 /* ChattingViewController.swift */,
+				AEB1EFB627C5172300C6450D /* ChattingView+Notification.swift */,
 				AE79ADB727C3AA2B00A7A9A7 /* MyChatTableViewCell.swift */,
 				AE79ADB927C3AA3E00A7A9A7 /* YourChatTableViewCell.swift */,
 				AEFE575E27C004F8009BB343 /* MoreView.swift */,
@@ -633,6 +639,7 @@
 				AE162863279831C800CE45E8 /* CertificationView.swift in Sources */,
 				AE065AA427A9213D007742DC /* sesacReviewView.swift in Sources */,
 				AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */,
+				AEB1EFB527C505DA00C6450D /* KeyboardView.swift in Sources */,
 				AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */,
 				AE642EA427AD170400F583BA /* WithdrawPopupViewController.swift in Sources */,
 				AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */,
@@ -641,6 +648,7 @@
 				AE16285E27980EC800CE45E8 /* LoginView+Extension.swift in Sources */,
 				AE11286127AC3F1900826C9A /* MyInfoViewModel.swift in Sources */,
 				AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */,
+				AEB1EFB727C5172300C6450D /* ChattingView+Notification.swift in Sources */,
 				AE982A6F27BFE64100F2F300 /* ChattingViewController.swift in Sources */,
 				AEA0A3F827967CE1009B6D05 /* ColorSet.swift in Sources */,
 				AE2B2EE327BB9C7800CD452F /* EmptyView.swift in Sources */,

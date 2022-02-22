@@ -62,4 +62,7 @@ struct ImageSet {
     static let write = "write"
     static let siren = "siren"
     static let matchCancle = "cancel_match"
+    
+    static let send = "ic-4"
+    static let sendGreen = "ic-5"
 }

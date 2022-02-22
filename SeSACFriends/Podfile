@@ -16,5 +16,6 @@ target 'SeSACFriends' do
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'DoubleSlider'
   pod 'Tabman', '~> 2.11'  
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 
 end

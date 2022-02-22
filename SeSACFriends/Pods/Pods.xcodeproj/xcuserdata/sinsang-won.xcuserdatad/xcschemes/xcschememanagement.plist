@@ -137,19 +137,33 @@
 			<key>orderHint</key>
 			<integer>19</integer>
 		</dict>
-		<key>Tabman.xcscheme</key>
+		<key>Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>20</integer>
 		</dict>
-		<key>Toast-Swift.xcscheme</key>
+		<key>Starscream.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>21</integer>
+		</dict>
+		<key>Tabman.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
+		<key>Toast-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>23</integer>
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
