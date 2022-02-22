@@ -48,6 +48,8 @@
 		AE79ADB027C2649700A7A9A7 /* ReviewPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79ADAF27C2649700A7A9A7 /* ReviewPopupView.swift */; };
 		AE79ADB227C27E4100A7A9A7 /* ReviewPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79ADB127C27E4000A7A9A7 /* ReviewPopupViewController.swift */; };
 		AE79ADB627C284C000A7A9A7 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79ADB527C284C000A7A9A7 /* ReviewViewModel.swift */; };
+		AE79ADB827C3AA2B00A7A9A7 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79ADB727C3AA2B00A7A9A7 /* MyChatTableViewCell.swift */; };
+		AE79ADBA27C3AA3E00A7A9A7 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE79ADB927C3AA3E00A7A9A7 /* YourChatTableViewCell.swift */; };
 		AE7CD5D927B8D5DB007AB2F6 /* NoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */; };
 		AE7CD5DB27B8F196007AB2F6 /* SesacTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */; };
 		AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE80A1F3279B111A00668D28 /* BirthView.swift */; };
@@ -138,6 +140,8 @@
 		AE79ADAF27C2649700A7A9A7 /* ReviewPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPopupView.swift; sourceTree = "<group>"; };
 		AE79ADB127C27E4000A7A9A7 /* ReviewPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPopupViewController.swift; sourceTree = "<group>"; };
 		AE79ADB527C284C000A7A9A7 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		AE79ADB727C3AA2B00A7A9A7 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		AE79ADB927C3AA3E00A7A9A7 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
 		AE7CD5D827B8D5DB007AB2F6 /* NoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneView.swift; sourceTree = "<group>"; };
 		AE7CD5DA27B8F196007AB2F6 /* SesacTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacTableViewCell.swift; sourceTree = "<group>"; };
 		AE80A1F3279B111A00668D28 /* BirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthView.swift; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 			isa = PBXGroup;
 			children = (
 				AE982A6E27BFE64100F2F300 /* ChattingViewController.swift */,
+				AE79ADB727C3AA2B00A7A9A7 /* MyChatTableViewCell.swift */,
+				AE79ADB927C3AA3E00A7A9A7 /* YourChatTableViewCell.swift */,
 				AEFE575E27C004F8009BB343 /* MoreView.swift */,
 				AEFE575C27C00369009BB343 /* MoreViewController.swift */,
 				AE84A1B627C12A3B00CF2E55 /* Popup */,
@@ -447,6 +453,7 @@
 			children = (
 				AECEBE6D27A501A60062B86E /* TabBarController.swift */,
 				AEF6336927B217FC003C67A5 /* Home */,
+				AE982A6D27BFE51100F2F300 /* Chat */,
 				AE23F9DD27A1194F008D9223 /* Information */,
 			);
 			path = TabBarController;
@@ -461,7 +468,6 @@
 				AEFF5AE3279D21780070E0CA /* HomeViewController.swift */,
 				AEF6337027B21A6E003C67A5 /* Hobby */,
 				AEA7D75C27B6B855009A04AE /* FindSesac */,
-				AE982A6D27BFE51100F2F300 /* Chat */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -677,9 +683,11 @@
 				AE79ADB227C27E4100A7A9A7 /* ReviewPopupViewController.swift in Sources */,
 				AE8EA41E27A6F39400853DC0 /* TitleView.swift in Sources */,
 				AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */,
+				AE79ADB827C3AA2B00A7A9A7 /* MyChatTableViewCell.swift in Sources */,
 				AE84A1B527C0E9A400CF2E55 /* CanclePopupViewController.swift in Sources */,
 				AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */,
 				AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */,
+				AE79ADBA27C3AA3E00A7A9A7 /* YourChatTableViewCell.swift in Sources */,
 				AE8F211A27AF937800D2E1B8 /* VC+Extension.swift in Sources */,
 				AE84A1BA27C139BB00CF2E55 /* ReportPopupView.swift in Sources */,
 				AEA0A3FA27967F88009B6D05 /* CustomButton.swift in Sources */,

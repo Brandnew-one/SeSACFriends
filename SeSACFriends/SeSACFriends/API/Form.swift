@@ -46,3 +46,9 @@ struct RateReview: Codable {
     var reputation = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var comment: String
 }
+
+struct ReportUser: Codable {
+    var otheruid: String
+    var reportedReputation = [0, 0, 0, 0, 0, 0]
+    var comment: String
+}

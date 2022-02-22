@@ -34,6 +34,7 @@ enum EndPoint {
     case myQueueState
     case rate(id: String)
     case dodge
+    case report
 }
 
 extension URL {
@@ -56,8 +57,9 @@ extension EndPoint {
         case .hobbyRequest: return .makeEndpoint("queue/hobbyrequest") // 취미함께 하기 요청
         case .hobbyAccept: return .makeEndpoint("queue/hobbyaccept") // 취미함께 하기 수락
         case .myQueueState: return .makeEndpoint("queue/myQueueState") // 매칭상태 확인하기
-        case .rate(id: let id): return.makeEndpoint("queue/rate/\(id)") 
-        case .dodge: return.makeEndpoint("queue/dodge")
+        case .rate(id: let id): return.makeEndpoint("queue/rate/\(id)") // 리뷰남기기
+        case .dodge: return.makeEndpoint("queue/dodge") // 취미함께하기 취소하기
+        case .report: return.makeEndpoint("user/report") // 신고하기
         }
     }
 }

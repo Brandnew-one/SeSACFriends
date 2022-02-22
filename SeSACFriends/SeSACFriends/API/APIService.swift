@@ -180,7 +180,7 @@ class APIService {
     }
     
     //MARK: 리뷰작성하기
-    static func makeReview(id: String, body: RateReview ,completion: @escaping (APIError?, Int?) -> Void) {
+    static func makeReview(id: String, body: RateReview, completion: @escaping (APIError?, Int?) -> Void) {
         let url = EndPoint.rate(id: id).url
         guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
             return
@@ -188,6 +188,20 @@ class APIService {
         var request = URLRequest(url: url)
         request.httpMethod = Method.POST.rawValue
         request.httpBody = "otheruid=\(body.otheruid)&reputation=\(body.reputation)&comment=\(body.comment)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request2(endpoint: request, completion: completion)
+    }
+    
+    //MARK: 신고하기
+    static func userReport(id: String, body: ReportUser, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.report.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "otheruid=\(body.otheruid)&reportedReputation=\(body.reportedReputation)&comment=\(body.comment)".data(using: .utf8, allowLossyConversion: false)
         request.setValue(token, forHTTPHeaderField: "idtoken")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         URLSession.request2(endpoint: request, completion: completion)
