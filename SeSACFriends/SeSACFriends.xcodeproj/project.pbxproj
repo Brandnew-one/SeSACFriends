@@ -25,6 +25,7 @@
 		AE162863279831C800CE45E8 /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE162862279831C800CE45E8 /* CertificationView.swift */; };
 		AE1F245F27BA52D400EEFEA6 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F245E27BA52D400EEFEA6 /* PopupView.swift */; };
 		AE1F246127BA566200EEFEA6 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F246027BA566200EEFEA6 /* PopupViewController.swift */; };
+		AE221C9027C56B5A0053EED8 /* ChattingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE221C8F27C56B5A0053EED8 /* ChattingModel.swift */; };
 		AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */; };
 		AE23F9E327A122AE008D9223 /* InformationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */; };
 		AE23F9E527A127FF008D9223 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F9E427A127FF008D9223 /* InformationViewController.swift */; };
@@ -38,6 +39,8 @@
 		AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */; };
 		AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1727A279AC000CDC79 /* MyCardView.swift */; };
 		AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */; };
+		AE639EC127C559F100D8CD52 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE639EC027C559F100D8CD52 /* SocketManager.swift */; };
+		AE639EC327C566B200D8CD52 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE639EC227C566B200D8CD52 /* ChattingViewModel.swift */; };
 		AE642EA427AD170400F583BA /* WithdrawPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */; };
 		AE6CBB1527B4DCAF00AFE4FA /* HobbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CBB1427B4DCAF00AFE4FA /* HobbyViewModel.swift */; };
 		AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B45F27A1895C00AD5092 /* MyInfoView.swift */; };
@@ -119,6 +122,7 @@
 		AE1628642798648D00CE45E8 /* SeSACFriends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACFriends.entitlements; sourceTree = "<group>"; };
 		AE1F245E27BA52D400EEFEA6 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		AE1F246027BA566200EEFEA6 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		AE221C8F27C56B5A0053EED8 /* ChattingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingModel.swift; sourceTree = "<group>"; };
 		AE23F9E027A11B44008D9223 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		AE23F9E227A122AE008D9223 /* InformationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationHeaderView.swift; sourceTree = "<group>"; };
 		AE23F9E427A127FF008D9223 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 		AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWithdrawView.swift; sourceTree = "<group>"; };
 		AE47ED1727A279AC000CDC79 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
 		AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationViewController.swift; sourceTree = "<group>"; };
+		AE639EC027C559F100D8CD52 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
+		AE639EC227C566B200D8CD52 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
 		AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawPopupViewController.swift; sourceTree = "<group>"; };
 		AE6CBB1427B4DCAF00AFE4FA /* HobbyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyViewModel.swift; sourceTree = "<group>"; };
 		AE77B45F27A1895C00AD5092 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
@@ -381,6 +387,9 @@
 		AE982A6D27BFE51100F2F300 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				AE639EC027C559F100D8CD52 /* SocketManager.swift */,
+				AE221C8F27C56B5A0053EED8 /* ChattingModel.swift */,
+				AE639EC227C566B200D8CD52 /* ChattingViewModel.swift */,
 				AE982A6E27BFE64100F2F300 /* ChattingViewController.swift */,
 				AEB1EFB627C5172300C6450D /* ChattingView+Notification.swift */,
 				AE79ADB727C3AA2B00A7A9A7 /* MyChatTableViewCell.swift */,
@@ -623,6 +632,7 @@
 				AE84A1B827C134F100CF2E55 /* ReportPopupViewController.swift in Sources */,
 				AE0D40962799B5A9001818A2 /* NicknameView+Extension.swift in Sources */,
 				AEE96C722799305D001ACE37 /* APIService.swift in Sources */,
+				AE639EC127C559F100D8CD52 /* SocketManager.swift in Sources */,
 				AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */,
 				AE07E60B2797ABD300866766 /* LoginViewController.swift in Sources */,
 				AE241191279A9A8100A8C421 /* GenderImageView.swift in Sources */,
@@ -666,6 +676,7 @@
 				AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */,
 				AEF6337227B22D10003C67A5 /* HobbyView.swift in Sources */,
 				AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */,
+				AE639EC327C566B200D8CD52 /* ChattingViewModel.swift in Sources */,
 				AE11285F27AC1E5500826C9A /* sesacNameView.swift in Sources */,
 				AE24118D279A8FC500A8C421 /* EmailView+Extension.swift in Sources */,
 				AE1F246127BA566200EEFEA6 /* PopupViewController.swift in Sources */,
@@ -681,6 +692,7 @@
 				AEFF5AE4279D21780070E0CA /* HomeViewController.swift in Sources */,
 				AE7CD5DB27B8F196007AB2F6 /* SesacTableViewCell.swift in Sources */,
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
+				AE221C9027C56B5A0053EED8 /* ChattingModel.swift in Sources */,
 				AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */,
 				AEF6337A27B2BEA7003C67A5 /* HobbyView+Notification.swift in Sources */,
 				AE8F211627AF7DEB00D2E1B8 /* HomeView.swift in Sources */,

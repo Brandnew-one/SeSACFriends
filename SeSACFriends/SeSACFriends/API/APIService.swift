@@ -206,6 +206,33 @@ class APIService {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         URLSession.request2(endpoint: request, completion: completion)
     }
+    
+    //MARK: 채팅 전송하기
+    static func sendChat(id: String, chat: String, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.chat(id: id).url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "chat=\(chat)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request2(endpoint: request, completion: completion)
+    }
+    
+    //MARK: 채팅 내용 요청
+    static func historyChat(id: String, date: String, completion: @escaping (ChatModel?, APIError?, Int?) -> Void) {
+        var url = EndPoint.chatHistroy(id: id, lastchatDate: date).url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.GET.rawValue
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request(endpoint: request, completion: completion)
+    }
 }
 
 extension APIService {

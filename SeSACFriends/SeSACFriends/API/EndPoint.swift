@@ -35,6 +35,8 @@ enum EndPoint {
     case rate(id: String)
     case dodge
     case report
+    case chat(id: String)
+    case chatHistroy(id: String, lastchatDate: String)
 }
 
 extension URL {
@@ -60,6 +62,8 @@ extension EndPoint {
         case .rate(id: let id): return.makeEndpoint("queue/rate/\(id)") // 리뷰남기기
         case .dodge: return.makeEndpoint("queue/dodge") // 취미함께하기 취소하기
         case .report: return.makeEndpoint("user/report") // 신고하기
+        case .chat(id: let id): return.makeEndpoint("chat/\(id)") // 채팅전송
+        case .chatHistroy(id: let id, lastchatDate: let lastchatDate): return.makeEndpoint("chat/\(id)?lastchatDate=\(lastchatDate)") // 채팅 내용 요청
         }
     }
 }

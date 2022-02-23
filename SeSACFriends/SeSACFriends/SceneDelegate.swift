@@ -37,6 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         APIService.getUser { user, error, code in
                             if let code = code {
                                 if code == 200 { // 회원가입을 한 유저
+                                    UserDefaults.standard.set(user?.uid, forKey: UserDefautlsSet.myID)
                                     self.window?.rootViewController = TabBarController()
                                     self.window?.makeKeyAndVisible()
                                     return

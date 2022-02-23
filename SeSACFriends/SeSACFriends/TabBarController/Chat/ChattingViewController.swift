@@ -6,11 +6,15 @@
 //
 
 import SnapKit
+import Toast_Swift
+
 import UIKit
 
 class ChattingViewController: UIViewController, ViewRepresentable {
     
     var homeViewModel = HomeViewModel()
+    var chattingModel = ChattingViewModel()
+    
     var tableView = UITableView()
     var keyboardView = KeyboardView()
     var dummyData = ["신", "상원", "이무니다.", "개행하면 어쩔\n티비", "ㄹㅇㅋㅋ\nㅋㅋㄹㅃ\n뽕", "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"]
@@ -20,15 +24,22 @@ class ChattingViewController: UIViewController, ViewRepresentable {
         self.addKeyboardNotifications()
         navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = true
+        
         homeViewModel.myQueueState.bind { _ in
             self.navigationItem.title = "\(self.homeViewModel.myQueueState.value.matchedNick!)"
             print(self.homeViewModel.myQueueState.value.matchedUid)
         }
+        
+        chattingModel.chatModel.bind { _ in
+            self.tableView.reloadData()
+        }
+        SocketIOManager.shared.establishConnection()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.removeKeyboardNotifications()
+        SocketIOManager.shared.closeConnection()
     }
     
     override func viewDidLoad() {
@@ -48,6 +59,12 @@ class ChattingViewController: UIViewController, ViewRepresentable {
         tableView.register(YourChatTableViewCell.self, forCellReuseIdentifier: YourChatTableViewCell.identifier)
         
         keyboardView.textView.delegate = self
+        chattingModel.fetchChatHistory(id: self.homeViewModel.myQueueState.value.matchedUid!, date: "2022-02-22T18:29:16.073Z") { code in
+            if code == 200 {
+                print("??되는건가요??")
+            }
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(getMessage), name: NSNotification.Name("getMessage"), object: nil)
     }
     
     func setupView() {
@@ -88,6 +105,21 @@ class ChattingViewController: UIViewController, ViewRepresentable {
         self.present(vc, animated: true, completion: nil)
     }
     
+    @objc func getMessage(notification: NSNotification) {
+        print("112233")
+        let chat = notification.userInfo!["chat"] as! String
+        let from = notification.userInfo!["from"] as! String
+        let to = notification.userInfo!["to"] as! String
+        let createdAt = notification.userInfo!["createdAt"] as! String
+        let v = notification.userInfo!["__v"] as! Int
+        let id = notification.userInfo!["_id"] as! String
+        
+        var value = Payload(id: id, v: v, to: to, from: from, chat: chat, createdAt: createdAt)
+        
+        chattingModel.chatModel.value.payload.append(value)
+        self.tableView.reloadData()
+    }
+    
 }
 
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -97,24 +129,24 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return dummyData.count
+        return chattingModel.chatModel.value.payload.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section % 2 == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.identifier, for: indexPath) as? MyChatTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.label.text = dummyData[indexPath.section]
-            cell.timeLabel.text = "15:41"
-            cell.selectionStyle = .none
-            return cell
-        } else {
+        if UserDefaults.standard.string(forKey: UserDefautlsSet.myID)! != homeViewModel.myQueueState.value.matchedUid {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: YourChatTableViewCell.identifier, for: indexPath) as? YourChatTableViewCell else {
                 return UITableViewCell()
             }
-            cell.label.text = dummyData[indexPath.section]
-            cell.timeLabel.text = "16:41"
+            cell.label.text = chattingModel.chatModel.value.payload[indexPath.section].chat
+            cell.timeLabel.text = chattingModel.chatModel.value.payload[indexPath.section].createdAt
+            cell.selectionStyle = .none
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.identifier, for: indexPath) as? MyChatTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.label.text = chattingModel.chatModel.value.payload[indexPath.section].chat
+            cell.timeLabel.text = chattingModel.chatModel.value.payload[indexPath.section].createdAt
             cell.selectionStyle = .none
             return cell
         }
@@ -150,22 +182,5 @@ extension ChattingViewController: UITextViewDelegate {
         } else {
             keyboardView.sendButton.setImage(UIImage(named: ImageSet.sendGreen), for: .normal)
         }
-//        let contentHeight = keyboardView.textView.contentSize.height
-//        print(contentHeight)
-//        DispatchQueue.main.async {
-//            if contentHeight <= 30 {
-//                self.keyboardView.textView.snp.updateConstraints {
-//                    $0.height.equalTo(24)
-//                }
-//            } else if contentHeight >= 80 {
-//                self.keyboardView.textView.snp.updateConstraints {
-//                    $0.height.equalTo(63)
-//                }
-//            } else {
-//                self.keyboardView.textView.snp.updateConstraints {
-//                    $0.height.equalTo(contentHeight)
-//                }
-//            }
-//        }
     }
 }

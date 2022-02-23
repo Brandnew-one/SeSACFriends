@@ -13,5 +13,6 @@ struct UserDefautlsSet {
     static let messageToken = "FCMToken"
     static let nickName = "Nick"
     static let state = "Mystate"
+    static let myID = "myID"
     
 }
