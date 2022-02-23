@@ -59,6 +59,7 @@ class ChattingViewController: UIViewController, ViewRepresentable {
         tableView.register(YourChatTableViewCell.self, forCellReuseIdentifier: YourChatTableViewCell.identifier)
         
         keyboardView.textView.delegate = self
+        keyboardView.sendButton.addTarget(self, action: #selector(sendButtonClicked), for: .touchUpInside)
         chattingModel.fetchChatHistory(id: self.homeViewModel.myQueueState.value.matchedUid!, date: "2022-02-22T18:29:16.073Z") { code in
             if code == 200 {
                 print("??되는건가요??")
@@ -75,14 +76,12 @@ class ChattingViewController: UIViewController, ViewRepresentable {
     }
     
     func setupConstraints() {
-        
         keyboardView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(52)
         }
-        
         tableView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(keyboardView.snp.top)
@@ -103,6 +102,23 @@ class ChattingViewController: UIViewController, ViewRepresentable {
         vc.modalTransitionStyle = .crossDissolve
         vc.homeViewModel = self.homeViewModel
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func sendButtonClicked() {
+        let chat = keyboardView.textView.text
+        keyboardView.textView.text.removeAll()
+        keyboardView.sendButton.setImage(UIImage(named: ImageSet.send), for: .normal)
+        chattingModel.sendChatting(id: homeViewModel.myQueueState.value.matchedUid!, chat: chat!) { code in
+            if code == 201 {
+                self.view.makeToast("약속이 종료되어 채팅을 보낼 수 없습니다")
+            } else if code == 200 {
+                self.chattingModel.fetchChatHistory(id: self.homeViewModel.myQueueState.value.matchedUid!, date: "2022-02-22T18:29:16.073Z") { code in
+                    if code == 200 {
+                        print("??되는건가요??")
+                    }
+                }
+            }
+        }
     }
     
     @objc func getMessage(notification: NSNotification) {
@@ -133,7 +149,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if UserDefaults.standard.string(forKey: UserDefautlsSet.myID)! != homeViewModel.myQueueState.value.matchedUid {
+        if chattingModel.chatModel.value.payload[indexPath.section].from != homeViewModel.myQueueState.value.matchedUid {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: YourChatTableViewCell.identifier, for: indexPath) as? YourChatTableViewCell else {
                 return UITableViewCell()
             }
@@ -177,7 +193,10 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ChattingViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        print(textView.text)
         if textView.text.isEmpty {
+            keyboardView.sendButton.setImage(UIImage(named: ImageSet.send), for: .normal)
+        } else if textView.text == "" {
             keyboardView.sendButton.setImage(UIImage(named: ImageSet.send), for: .normal)
         } else {
             keyboardView.sendButton.setImage(UIImage(named: ImageSet.sendGreen), for: .normal)
