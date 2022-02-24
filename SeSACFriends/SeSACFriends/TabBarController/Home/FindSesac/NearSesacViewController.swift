@@ -9,6 +9,7 @@ import SnapKit
 
 import CoreLocation
 import UIKit
+import Toast_Swift
 
 enum QueueStateMode {
     case fiveSecondsQueue
@@ -95,15 +96,27 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
                 } else if self.homeViewModel.myQueueState.value.matched == 1 {
                     UserDefaults.standard.set(2, forKey: UserDefautlsSet.state)
                     if mode == .fiveSecondsQueue {
-                        self.view.makeToast("\(self.homeViewModel.myQueueState.value.matchedNick)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다")
+                        self.view.makeToast("\(self.homeViewModel.myQueueState.value.matchedNick!)님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다", duration: 1, position: .bottom, style: ToastManager.shared.style) { didTap in
+                            self.changeViewChatting()
+                        }
                     } else if mode == .requestQueue {
-                        self.view.makeToast("상대방도 취미 함께 하기 요청을 했습니다. 채팅방으로 이동합니다")
+                        self.view.makeToast("상대방도 취미 함께 하기 요청을 했습니다. 채팅방으로 이동합니다", duration: 1, position: .bottom, style: ToastManager.shared.style) { didTap in
+                            self.changeViewChatting()
+                        }
                     } else {
-                        self.view.makeToast("채팅방으로 이동합니다")
+                        self.view.makeToast("채팅방으로 이동합니다", duration: 1, position: .bottom, style: ToastManager.shared.style) { didTap in
+                            self.changeViewChatting()
+                        }
                     }
                 }
             }
         }
+    }
+    
+    func changeViewChatting() {
+        let vc = ChattingViewController()
+        vc.homeViewModel = self.homeViewModel
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func changeHobbyButtonClicked() {

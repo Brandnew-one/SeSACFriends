@@ -71,7 +71,6 @@ class HomeViewController: UIViewController, ViewRepresentable {
             self.navigationController?.pushViewController(vc2, animated: true)
         // 매칭 된 상태
         } else {
-            print("로직 구현 필요")
             let vc = ChattingViewController()
             vc.homeViewModel = self.homeViewModel
             self.navigationController?.pushViewController(vc, animated: true)
