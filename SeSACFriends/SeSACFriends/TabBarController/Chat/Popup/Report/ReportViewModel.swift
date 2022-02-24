@@ -1,20 +1,20 @@
 //
-//  ReviewViewModel.swift
+//  ReportViewModel.swift
 //  SeSACFriends
 //
-//  Created by 신상원 on 2022/02/20.
+//  Created by 신상원 on 2022/02/24.
 //
 
 import Foundation
 
-class ReviewViewModel {
+class ReportViewModel {
     
-    var rateReview: RateReview = RateReview(otheruid: "", comment: "")
+    var reportUser: ReportUser = ReportUser(otheruid: "", reportedReputation: [0, 0, 0, 0, 0, 0], comment: "")
     
-    func fetchRateReview(completion: @escaping (Int) -> Void) {
-        APIService.makeReview(id: rateReview.otheruid, body: rateReview) { error, code in
+    func fetchReportUser(completion: @escaping (Int) -> Void) {
+        APIService.userReport(id: reportUser.otheruid, body: self.reportUser) { error, code in
             if let error = error {
-                print("리뷰 남기기 에러발생")
+                print("신고하기 에러발생")
                 return
             } else {
                 if let code = code {
@@ -26,6 +26,8 @@ class ReviewViewModel {
                         print("Server Error")
                     } else if code == 501 {
                         print("Client Error")
+                    } else if code == 201 {
+                        completion(code)
                     } else { // code == 200
                         completion(code)
                     }
@@ -33,5 +35,4 @@ class ReviewViewModel {
             }
         }
     }
-    
 }

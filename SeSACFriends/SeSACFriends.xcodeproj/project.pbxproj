@@ -84,6 +84,7 @@
 		AEB1EFB727C5172300C6450D /* ChattingView+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1EFB627C5172300C6450D /* ChattingView+Notification.swift */; };
 		AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB30F4327AE35620004A5A3 /* UserDefautlsSet.swift */; };
 		AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB30F4527AE3A930004A5A3 /* ImageSet.swift */; };
+		AEB97CBA27C693D60087401E /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB97CB927C693D60087401E /* ReportViewModel.swift */; };
 		AEBF93A42796B6E7004C5B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */; };
 		AECEBE6E27A501A60062B86E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECEBE6D27A501A60062B86E /* TabBarController.swift */; };
 		AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE96C6F27992A54001ACE37 /* EndPoint.swift */; };
@@ -183,6 +184,7 @@
 		AEB1EFB627C5172300C6450D /* ChattingView+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChattingView+Notification.swift"; sourceTree = "<group>"; };
 		AEB30F4327AE35620004A5A3 /* UserDefautlsSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautlsSet.swift; sourceTree = "<group>"; };
 		AEB30F4527AE3A930004A5A3 /* ImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
+		AEB97CB927C693D60087401E /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
 		AEBF93A32796B6E7004C5B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AECEBE6D27A501A60062B86E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AEE96C6F27992A54001ACE37 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 		AE79ADB427C2848800A7A9A7 /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				AEB97CB927C693D60087401E /* ReportViewModel.swift */,
 				AE84A1B927C139BB00CF2E55 /* ReportPopupView.swift */,
 				AE84A1B727C134F100CF2E55 /* ReportPopupViewController.swift */,
 			);
@@ -668,6 +671,7 @@
 				AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */,
 				AEF6337827B2607F003C67A5 /* HobbyCustomHeaderView.swift in Sources */,
 				AEF6336B27B219B3003C67A5 /* HomeViewModel.swift in Sources */,
+				AEB97CBA27C693D60087401E /* ReportViewModel.swift in Sources */,
 				AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
 				AE8F211827AF805600D2E1B8 /* StatusButtonView.swift in Sources */,

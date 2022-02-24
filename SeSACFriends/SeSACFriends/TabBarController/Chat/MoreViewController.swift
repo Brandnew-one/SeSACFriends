@@ -64,6 +64,7 @@ class MoreViewController: UIViewController, ViewRepresentable {
         let vc = ReportPopupViewController()
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
+        vc.homeViewModel = self.homeViewModel
         self.dismiss(animated: false) {
           pvc.present(vc, animated: true, completion: nil)
         }

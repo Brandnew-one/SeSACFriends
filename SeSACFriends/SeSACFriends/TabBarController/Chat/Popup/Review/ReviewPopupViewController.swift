@@ -24,6 +24,10 @@ class ReviewPopupViewController: UIViewController, ViewRepresentable {
         popupView.textView.delegate = self
         popupView.textView.text =  "자세한 피드백은 다른새싹들에게 도움이 됩니다.\n(500자 이내 작성)"
         popupView.textView.textColor = UIColor(rgbString: ColorSet.gray7)
+        
+        // 탭하면 키보드 사라지도록 구현
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
+        view.addGestureRecognizer(tapGesture)
     }
     
     func setupView() {
@@ -144,7 +148,10 @@ extension ReviewPopupViewController: UITextViewDelegate {
       if textView.text.isEmpty {
           textView.text = "자세한 피드백은 다른새싹들에게 도움이 됩니다.\n(500자 이내 작성)"
           textView.textColor = UIColor.lightGray
-        }
+          popupView.finalButton.setupMode(mode: .disable)
+      } else {
+          popupView.finalButton.setupMode(mode: .fill)
+      }
     }
     
 }
