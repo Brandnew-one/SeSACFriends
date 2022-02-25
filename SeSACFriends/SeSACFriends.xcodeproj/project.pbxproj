@@ -68,6 +68,7 @@
 		AE8F211627AF7DEB00D2E1B8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */; };
 		AE8F211827AF805600D2E1B8 /* StatusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */; };
 		AE8F211A27AF937800D2E1B8 /* VC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F211927AF937800D2E1B8 /* VC+Extension.swift */; };
+		AE93505F27C7DF9400E16695 /* StatusCodeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93505E27C7DF9400E16695 /* StatusCodeSet.swift */; };
 		AE94451627B018AD00879113 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94451527B018AD00879113 /* CustomAnnotationView.swift */; };
 		AE982A6F27BFE64100F2F300 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE982A6E27BFE64100F2F300 /* ChattingViewController.swift */; };
 		AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */; };
@@ -166,6 +167,7 @@
 		AE8F211527AF7DEB00D2E1B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AE8F211727AF805600D2E1B8 /* StatusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButtonView.swift; sourceTree = "<group>"; };
 		AE8F211927AF937800D2E1B8 /* VC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC+Extension.swift"; sourceTree = "<group>"; };
+		AE93505E27C7DF9400E16695 /* StatusCodeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodeSet.swift; sourceTree = "<group>"; };
 		AE94451527B018AD00879113 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		AE982A6E27BFE64100F2F300 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		AEA0A3DE279658A5009B6D05 /* SeSACFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +289,7 @@
 				AE07E6112797B18300866766 /* FontSet.swift */,
 				AEB30F4327AE35620004A5A3 /* UserDefautlsSet.swift */,
 				AEB30F4527AE3A930004A5A3 /* ImageSet.swift */,
+				AE93505E27C7DF9400E16695 /* StatusCodeSet.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				AE79ADB827C3AA2B00A7A9A7 /* MyChatTableViewCell.swift in Sources */,
 				AE84A1B527C0E9A400CF2E55 /* CanclePopupViewController.swift in Sources */,
 				AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */,
+				AE93505F27C7DF9400E16695 /* StatusCodeSet.swift in Sources */,
 				AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */,
 				AE79ADBA27C3AA3E00A7A9A7 /* YourChatTableViewCell.swift in Sources */,
 				AE8F211A27AF937800D2E1B8 /* VC+Extension.swift in Sources */,

@@ -24,13 +24,13 @@ class HomeViewModel {
                 return
             }
             if let code = code {
-                if code == 401 {
+                if code == StatusCode.tokenError {
                     print("Firebase Token Error")
-                } else if code == 406 {
+                } else if code == StatusCode.unknownUser {
                     print("미가입 유저")
-                } else if code == 500 {
+                } else if code == StatusCode.serverError {
                     print("Server Error")
-                } else if code == 501 {
+                } else if code == StatusCode.clientError {
                     print("Client Error")
                 } else { // code == 200
                     guard let result = result else {
@@ -47,18 +47,18 @@ class HomeViewModel {
     func fetchRequestHobby(uid: String, completion: @escaping (Int) -> Void) {
         APIService.requestHobby(otheruid: uid) { error, code in
             if let code = code {
-                if code == 401 {
+                if code == StatusCode.tokenError {
                     print("Firebase Token Error")
-                } else if code == 406 {
+                } else if code == StatusCode.unknownUser {
                     print("미가입 유저")
-                } else if code == 500 {
+                } else if code == StatusCode.serverError {
                     print("Server Error")
-                } else if code == 501 {
+                } else if code == StatusCode.clientError {
                     print("Client Error")
-                } else if code == 202 {
+                } else if code == StatusCode.successCase2 {
                     print("상대방이 친구찾기를 중단한 상태")
                     completion(code)
-                } else if code == 201 {
+                } else if code == StatusCode.successCase1 {
                     print("상대방이 이미 나에게 취미 함께 하기를 요청한 상태")
                     completion(code)
                 } else {
@@ -72,21 +72,21 @@ class HomeViewModel {
     func fetchAcceptHobby(otheruid: String, completion: @escaping (Int) -> Void) {
         APIService.acceptHobby(otheruid: otheruid) { error, code in
             if let code = code {
-                if code == 401 {
+                if code == StatusCode.tokenError {
                     print("Firebase Token Error")
-                } else if code == 406 {
+                } else if code == StatusCode.unknownUser {
                     print("미가입 유저")
-                } else if code == 500 {
+                } else if code == StatusCode.serverError {
                     print("Server Error")
-                } else if code == 501 {
+                } else if code == StatusCode.clientError {
                     print("Client Error")
-                } else if code == 203 {
+                } else if code == StatusCode.successCase3 {
                     print("내가 이미 다른 사람과 매칭된 상태")
                     completion(code)
-                } else if code == 202 {
+                } else if code == StatusCode.successCase2 {
                     print("상대방이 취미함께 하기를 중단한 상태")
                     completion(code)
-                } else if code == 201 {
+                } else if code == StatusCode.successCase1 {
                     print("상대방이 이미 다른 사람과 취미를 함께 하는 중입니다")
                     completion(code)
                 } else {
@@ -100,13 +100,13 @@ class HomeViewModel {
     func stopSearchingHobbyFriends(completion: @escaping (Int) -> Void) {
         APIService.stopHobbyFriends { error, code in
             if let code = code {
-                if code == 406 {
+                if code == StatusCode.unknownUser {
                     print("미가입 회원")
-                } else if code == 500 {
+                } else if code == StatusCode.serverError {
                     print("Server Error")
-                } else if code == 401 {
+                } else if code == StatusCode.tokenError {
                     print("FireBase Token Error -> 추가적으로 구현 필요")
-                } else if code == 201 {
+                } else if code == StatusCode.successCase1 {
                     print("이미 친구와 매칭된 상태")
                     completion(code)
                 } else { // code == 200
@@ -123,22 +123,22 @@ class HomeViewModel {
                 print("에러 발생", error)
                 // 201번에서 Decode Error 가 발생하는 것을 확인 (급한대로 일단 수정)
                 if let code = code {
-                    if code == 201 {
+                    if code == StatusCode.successCase1 {
                         completion(code)
                     }
                 }
             } else {
                 if let code = code {
-                    if code == 500 {
+                    if code == StatusCode.serverError {
                         print("Server Error")
                         return
-                    } else if code == 406 {
+                    } else if code == StatusCode.unknownUser {
                         print("미가입 회원")
                         return
-                    } else if code == 401 {
+                    } else if code == StatusCode.tokenError {
                         print("firebase Token Error")
                         return
-                    } else if code == 201 {
+                    } else if code == StatusCode.successCase1 {
                         print("친구찾기 중단이 된 상태")
                         guard let result = result else {
                             return
@@ -164,20 +164,20 @@ class HomeViewModel {
                 print("취미함께하기 약속 취소 에러", error)
             }
             if let code = code {
-                if code == 500 {
+                if code == StatusCode.serverError {
                     print("Server Error")
                     return
-                } else if code == 501 {
+                } else if code == StatusCode.clientError {
                     print("Server Error")
                     return
                 }
-                else if code == 406 {
+                else if code == StatusCode.unknownUser {
                     print("미가입 회원")
                     return
-                } else if code == 401 {
+                } else if code == StatusCode.tokenError {
                     print("firebase Token Error")
                     return
-                } else if code == 201 {
+                } else if code == StatusCode.successCase1 {
                     print("잘못된 Uid")
                     return
                 } else { // code == 200

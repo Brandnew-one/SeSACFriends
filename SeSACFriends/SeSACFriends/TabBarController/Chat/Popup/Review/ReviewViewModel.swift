@@ -18,13 +18,13 @@ class ReviewViewModel {
                 return
             } else {
                 if let code = code {
-                    if code == 401 {
+                    if code == StatusCode.tokenError {
                         print("Firebase Token Error")
-                    } else if code == 406 {
+                    } else if code == StatusCode.unknownUser {
                         print("미가입 회원")
-                    } else if code == 500 {
+                    } else if code == StatusCode.serverError {
                         print("Server Error")
-                    } else if code == 501 {
+                    } else if code == StatusCode.clientError {
                         print("Client Error")
                     } else { // code == 200
                         completion(code)
@@ -33,5 +33,4 @@ class ReviewViewModel {
             }
         }
     }
-    
 }

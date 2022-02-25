@@ -61,7 +61,7 @@ class ReviewPopupViewController: UIViewController, ViewRepresentable {
         reviewViewModel.rateReview.comment = popupView.textView.text
         reviewViewModel.rateReview.otheruid = homeViewModel.myQueueState.value.matchedUid!
         reviewViewModel.fetchRateReview { code in
-            if code == 200 {
+            if code == StatusCode.success {
                 UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
                 windowScene.windows.first?.rootViewController = TabBarController()

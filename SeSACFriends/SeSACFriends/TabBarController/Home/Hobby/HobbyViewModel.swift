@@ -16,7 +16,7 @@ final class HobbyViewModel {
         APIService.searchHobbyFriends(body: form.value) { result, code in
             if let code = code {
                 print("code: ", code)
-                if code == 200 {
+                if code == StatusCode.success {
                     if let result = result {
                         print("result: ", result)
                     }
@@ -26,5 +26,4 @@ final class HobbyViewModel {
             }
         }
     }
-    
 }

@@ -76,9 +76,9 @@ class RequestViewController: UIViewController, ViewRepresentable {
     
     func checkQueueState(mode: QueueStateMode) {
         self.homeViewModel.fetchMyQueueState { code in
-            if code == 201 {
+            if code == StatusCode.successCase1 {
                 UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
-            } else if code == 200 {
+            } else if code == StatusCode.success {
                 if self.homeViewModel.myQueueState.value.matched == 0 {
                     UserDefaults.standard.set(1, forKey: UserDefautlsSet.state)
                 } else if self.homeViewModel.myQueueState.value.matched == 1 {
@@ -222,13 +222,13 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         vc.mode = .accept
         
         vc.completion = { code in
-            if code == 200 {
+            if code == StatusCode.success {
                 self.view.makeToast("취미함께 요청하기를 보냈습니다")
-            } else if code == 201 {
+            } else if code == StatusCode.successCase1 {
                 self.view.makeToast("상대방이 이미 다른 사람과 취미를 함께하는 중입니다.")
-            } else if code == 202 {
+            } else if code == StatusCode.successCase2 {
                 self.view.makeToast("상대방이 취미 함께 하기를 그만두었습니다")
-            } else if code == 203 {
+            } else if code == StatusCode.successCase3 {
                 self.view.makeToast("앗! 누군가가 나의 취미 함께 하기를 수락하였어요!")
                 print("onQueue/State 필요")
             }

@@ -109,11 +109,11 @@ class ChattingViewController: UIViewController, ViewRepresentable {
         keyboardView.textView.text.removeAll()
         keyboardView.sendButton.setImage(UIImage(named: ImageSet.send), for: .normal)
         chattingModel.sendChatting(id: homeViewModel.myQueueState.value.matchedUid!, chat: chat!) { code in
-            if code == 201 {
+            if code == StatusCode.successCase1 {
                 self.view.makeToast("약속이 종료되어 채팅을 보낼 수 없습니다")
-            } else if code == 200 {
+            } else if code == StatusCode.success {
                 self.chattingModel.fetchChatHistory(id: self.homeViewModel.myQueueState.value.matchedUid!, date: "2022-02-22T18:29:16.073Z") { code in
-                    if code == 200 {
+                    if code == StatusCode.success {
                         print("??되는건가요??")
                     }
                 }

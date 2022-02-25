@@ -14,7 +14,7 @@ class APIService {
     static func getUser(completion: @escaping (User?, APIError?, Int?) -> Void) {
         
         let url = EndPoint.getUser.url
-        guard let token = UserDefaults.standard.string(forKey: "FBToken") else {
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
             return
         }
 //        print(token)
@@ -28,7 +28,7 @@ class APIService {
     //MARK: 회원가입
     static func signupUser(body: Signup, completion: @escaping (APIError?, Int?) -> Void) {
         let url = EndPoint.signupUser.url
-        guard let token = UserDefaults.standard.string(forKey: "FBToken") else {
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
             return
         }
         var request = URLRequest(url: url)
@@ -44,7 +44,7 @@ class APIService {
     //MARK: 회원탈퇴
     static func withdrawUser(completion: @escaping (APIError?, Int?) -> Void) {
         let url = EndPoint.withdrawUser.url
-        guard let token = UserDefaults.standard.string(forKey: "FBToken") else {
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
             return
         }
         var request = URLRequest(url: url)

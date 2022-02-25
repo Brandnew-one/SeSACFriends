@@ -17,16 +17,16 @@ class ChattingViewModel {
                 print("채팅 기록 불러오기 에러", error)
             } else {
                 if let code = code {
-                    if code == 501 {
+                    if code == StatusCode.clientError {
                         print("Client Error")
                         return
-                    } else if code == 500 {
+                    } else if code == StatusCode.serverError {
                         print("Server")
                         return
-                    } else if code == 406 {
+                    } else if code == StatusCode.unknownUser {
                         print("미가입 회원")
                         return
-                    } else if code == 401 {
+                    } else if code == StatusCode.tokenError {
                         print("Firebase Token Error")
                         return
                     } else { // code == 200
@@ -46,19 +46,19 @@ class ChattingViewModel {
                 print("채팅 보내기 에러", error)
             } else {
                 if let code = code {
-                    if code == 501 {
+                    if code == StatusCode.clientError {
                         print("Client Error")
                         return
-                    } else if code == 500 {
+                    } else if code == StatusCode.serverError {
                         print("Server")
                         return
-                    } else if code == 406 {
+                    } else if code == StatusCode.unknownUser {
                         print("미가입 회원")
                         return
-                    } else if code == 401 {
+                    } else if code == StatusCode.tokenError {
                         print("Firebase Token Error")
                         return
-                    } else if code == 201 {
+                    } else if code == StatusCode.successCase1 {
                         completion(code)
                     } else { // code == 200
                         completion(code)

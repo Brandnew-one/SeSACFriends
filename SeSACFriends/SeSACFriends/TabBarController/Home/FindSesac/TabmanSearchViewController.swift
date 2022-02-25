@@ -27,9 +27,9 @@ class TabmanSearchViewController: TabmanViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         homeViewModel.fetchMyQueueState { code in
-            if code == 201 {
+            if code == StatusCode.successCase1 {
                 UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
-            } else if code == 200 {
+            } else if code == StatusCode.success {
                 if self.homeViewModel.myQueueState.value.matched == 0 {
                     UserDefaults.standard.set(1, forKey: UserDefautlsSet.state)
                 } else if self.homeViewModel.myQueueState.value.matched == 1 {
@@ -69,11 +69,11 @@ class TabmanSearchViewController: TabmanViewController {
         print(#function)
         UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
         homeViewModel.stopSearchingHobbyFriends { code in
-            if code == 200 {
+            if code == StatusCode.success {
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
                 windowScene.windows.first?.rootViewController = TabBarController()
                 windowScene.windows.first?.makeKeyAndVisible()
-            } else if code == 201 {
+            } else if code == StatusCode.successCase1 {
                 self.view.makeToast("누군가 취미를 함께하기로 약속하셨어요!")
             }
         }

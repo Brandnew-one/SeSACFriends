@@ -41,9 +41,9 @@ class HomeViewController: UIViewController, ViewRepresentable {
     func checkStatus() {
         print(UserDefaults.standard.integer(forKey: UserDefautlsSet.state))
         self.homeViewModel.fetchMyQueueState { code in
-            if code == 201 {
+            if code == StatusCode.successCase1 {
                 UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
-            } else if code == 200 {
+            } else if code == StatusCode.success {
                 if self.homeViewModel.myQueueState.value.matched == 0 {
                     UserDefaults.standard.set(1, forKey: UserDefautlsSet.state)
                 } else if self.homeViewModel.myQueueState.value.matched == 1 {

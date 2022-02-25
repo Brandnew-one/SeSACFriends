@@ -88,9 +88,9 @@ class NearSesacViewController: UIViewController, ViewRepresentable {
     
     func checkQueueState(mode: QueueStateMode) {
         self.homeViewModel.fetchMyQueueState { code in
-            if code == 201 {
+            if code == StatusCode.successCase1 {
                 UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
-            } else if code == 200 {
+            } else if code == StatusCode.success {
                 if self.homeViewModel.myQueueState.value.matched == 0 {
                     UserDefaults.standard.set(1, forKey: UserDefautlsSet.state)
                 } else if self.homeViewModel.myQueueState.value.matched == 1 {
@@ -245,11 +245,11 @@ extension NearSesacViewController: UITableViewDelegate, UITableViewDataSource {
         vc.index = sender.tag
         
         vc.completion = { code in
-            if code == 200 {
+            if code == StatusCode.success {
                 self.view.makeToast("취미함께 요청하기를 보냈습니다")
-            } else if code == 201 {
+            } else if code == StatusCode.successCase1 {
                 print("hobby Accept 200 번대 오는지 확인 필요")
-            } else if code == 202 {
+            } else if code == StatusCode.successCase2 {
                 self.view.makeToast("상대방이 취미 함께 하기를 그만두었습니다")
             }
         }

@@ -63,10 +63,9 @@ class ReportPopupViewController: UIViewController, ViewRepresentable {
         reportViewModel.reportUser.comment = popupView.textView.text
         reportViewModel.reportUser.otheruid = homeViewModel.myQueueState.value.matchedUid!
         reportViewModel.fetchReportUser { code in
-            if code == 201 {
+            if code == StatusCode.successCase1 {
                 self.view.makeToast("이미 신고한 유저 입니다")
-                
-            } else if code == 200 {
+            } else if code == StatusCode.success {
                 UserDefaults.standard.set(0, forKey: UserDefautlsSet.state)
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
                 windowScene.windows.first?.rootViewController = TabBarController()
