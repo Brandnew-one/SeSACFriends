@@ -35,7 +35,7 @@ class OnBoardingView: UIView, ViewRepresentable {
     func setupConstraints() {
         label.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(60)
+            make.trailing.equalToSuperview().offset(-60)
             make.top.equalToSuperview().offset(116)
         }
         

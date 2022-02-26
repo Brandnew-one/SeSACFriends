@@ -17,10 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene:  windowScene)
         window?.windowScene = windowScene
-        // fireBase에 회원가입 하지 않은 경우 휴대폰 전화 인증을 통해서 FB에 가입을 시켜준다.
-        
+
+         //fireBase에 회원가입 하지 않은 경우 휴대폰 전화 인증을 통해서 FB에 가입을 시켜준다.
         if UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) == nil {
-            self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+            self.window?.rootViewController = UINavigationController(rootViewController: OnBoardingViewController())
             self.window?.makeKeyAndVisible()
             return
         } else {

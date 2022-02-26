@@ -63,4 +63,11 @@ class OnBoardingContentViewController3: OnBoardingContentViewController1 {
         onBoardingView.label.text = "SeSAC Friends"
         onBoardingView.imageView.image = UIImage(named: ImageSet.onboardingImage3)
     }
+    
+    override func setupConstraints() {
+        onBoardingView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(19)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+    }
 }

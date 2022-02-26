@@ -32,7 +32,7 @@ class WithdrawPopupViewController: UIViewController, ViewRepresentable {
             if code == 200 || code == 406 {
                 UserDefaults.standard.removeObject(forKey: "FBToken")
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-                windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+                windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: OnBoardingViewController())
                 windowScene.windows.first?.makeKeyAndVisible()
             } else {
                 self.view.makeToast("네트워크 오류입니다")
