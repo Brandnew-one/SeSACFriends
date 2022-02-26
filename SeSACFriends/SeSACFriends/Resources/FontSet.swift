@@ -12,6 +12,7 @@ import UIKit
 
 struct FontSet {
     
+    static let displayR24 = UIFont(name: "NotoSansCJKkr-Regular", size: 24)
     static let displayR20 = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
     
     static let title1M16 = UIFont(name: "NotoSansCJKkr-Medium", size: 16)

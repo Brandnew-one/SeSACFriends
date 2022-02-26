@@ -35,6 +35,9 @@
 		AE24118F279A990900A8C421 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE24118E279A990900A8C421 /* GenderView.swift */; };
 		AE241191279A9A8100A8C421 /* GenderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE241190279A9A8100A8C421 /* GenderImageView.swift */; };
 		AE2B2EE327BB9C7800CD452F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2B2EE227BB9C7800CD452F /* EmptyView.swift */; };
+		AE31894927C8AD5A0094FDF2 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31894827C8AD5A0094FDF2 /* OnBoardingView.swift */; };
+		AE31894B27C8DC080094FDF2 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31894A27C8DC080094FDF2 /* OnBoardingViewController.swift */; };
+		AE31894D27C902050094FDF2 /* OnBoardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31894C27C902050094FDF2 /* OnBoardingContentViewController.swift */; };
 		AE46E04D279E6E9E00247060 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46E04C279E6E9E00247060 /* Form.swift */; };
 		AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */; };
 		AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1727A279AC000CDC79 /* MyCardView.swift */; };
@@ -134,6 +137,9 @@
 		AE24118E279A990900A8C421 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		AE241190279A9A8100A8C421 /* GenderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderImageView.swift; sourceTree = "<group>"; };
 		AE2B2EE227BB9C7800CD452F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		AE31894827C8AD5A0094FDF2 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		AE31894A27C8DC080094FDF2 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		AE31894C27C902050094FDF2 /* OnBoardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingContentViewController.swift; sourceTree = "<group>"; };
 		AE46E04C279E6E9E00247060 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWithdrawView.swift; sourceTree = "<group>"; };
 		AE47ED1727A279AC000CDC79 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
@@ -344,6 +350,16 @@
 			path = Gender;
 			sourceTree = "<group>";
 		};
+		AE31894727C8AD2F0094FDF2 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				AE31894827C8AD5A0094FDF2 /* OnBoardingView.swift */,
+				AE31894C27C902050094FDF2 /* OnBoardingContentViewController.swift */,
+				AE31894A27C8DC080094FDF2 /* OnBoardingViewController.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		AE77B45E27A1889500AD5092 /* MyInformation */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +457,7 @@
 				AE07E6072797A52900866766 /* CustomViews */,
 				AE07E6102797B16A00866766 /* Resources */,
 				AE07E6082797A54900866766 /* Protocols */,
+				AE31894727C8AD2F0094FDF2 /* OnBoarding */,
 				AE07E6092797A56E00866766 /* Login */,
 				AECEBE6C27A501740062B86E /* TabBarController */,
 			);
@@ -637,6 +654,7 @@
 				AEF6336F27B21A6B003C67A5 /* HobbyViewController.swift in Sources */,
 				AE84A1B827C134F100CF2E55 /* ReportPopupViewController.swift in Sources */,
 				AE0D40962799B5A9001818A2 /* NicknameView+Extension.swift in Sources */,
+				AE31894927C8AD5A0094FDF2 /* OnBoardingView.swift in Sources */,
 				AEE96C722799305D001ACE37 /* APIService.swift in Sources */,
 				AE639EC127C559F100D8CD52 /* SocketManager.swift in Sources */,
 				AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */,
@@ -674,6 +692,7 @@
 				AE0A851C279AF9A7004C3EFA /* GenderViewController.swift in Sources */,
 				AEF6337827B2607F003C67A5 /* HobbyCustomHeaderView.swift in Sources */,
 				AEF6336B27B219B3003C67A5 /* HomeViewModel.swift in Sources */,
+				AE31894D27C902050094FDF2 /* OnBoardingContentViewController.swift in Sources */,
 				AEB97CBA27C693D60087401E /* ReportViewModel.swift in Sources */,
 				AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
@@ -691,6 +710,7 @@
 				AEA7D75E27B6B88B009A04AE /* TabmanSearchViewController.swift in Sources */,
 				AEE96C7027992A54001ACE37 /* EndPoint.swift in Sources */,
 				AE94451627B018AD00879113 /* CustomAnnotationView.swift in Sources */,
+				AE31894B27C8DC080094FDF2 /* OnBoardingViewController.swift in Sources */,
 				AE1F245F27BA52D400EEFEA6 /* PopupView.swift in Sources */,
 				AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */,
 				AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */,

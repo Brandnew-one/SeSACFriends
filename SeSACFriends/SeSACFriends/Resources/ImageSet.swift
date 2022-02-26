@@ -9,6 +9,12 @@ import Foundation
 
 struct ImageSet {
     
+    static let splashText = "splash_text"
+    static let splashImage = "splash_logo"
+    static let onboardingImage1 = "onboarding_img1"
+    static let onboardingImage2 = "onboarding_img2"
+    static let onboardingImage3 = "onboarding_img3"
+    
     static let woman = "woman"
     static let man = "man"
     
