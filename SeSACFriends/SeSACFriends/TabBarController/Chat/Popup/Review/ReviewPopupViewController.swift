@@ -24,6 +24,7 @@ class ReviewPopupViewController: UIViewController, ViewRepresentable {
         popupView.textView.delegate = self
         popupView.textView.text =  "자세한 피드백은 다른새싹들에게 도움이 됩니다.\n(500자 이내 작성)"
         popupView.textView.textColor = UIColor(rgbString: ColorSet.gray7)
+        popupView.contentLabel.text = "\(homeViewModel.myQueueState.value.matchedNick!)님과의 취미활동은 어떠셨나요?"
         
         // 탭하면 키보드 사라지도록 구현
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(view.endEditing))
