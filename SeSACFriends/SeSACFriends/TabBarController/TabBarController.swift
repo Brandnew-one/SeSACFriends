@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
         homeVC.tabBarItem.title = "홈"
         homeVC.tabBarItem.image = UIImage(named: "ic")
         
-        let shopVC = UINavigationController(rootViewController: HomeViewController())
+        let shopVC = UINavigationController(rootViewController: ShopViewController())
         shopVC.tabBarItem.title = "새싹샵"
         shopVC.tabBarItem.image = UIImage(named: "ic-1")
         

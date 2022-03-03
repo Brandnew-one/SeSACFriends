@@ -38,6 +38,10 @@
 		AE31894927C8AD5A0094FDF2 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31894827C8AD5A0094FDF2 /* OnBoardingView.swift */; };
 		AE31894B27C8DC080094FDF2 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31894A27C8DC080094FDF2 /* OnBoardingViewController.swift */; };
 		AE31894D27C902050094FDF2 /* OnBoardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE31894C27C902050094FDF2 /* OnBoardingContentViewController.swift */; };
+		AE42205E27D0DF4100592DAE /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42205D27D0DF4100592DAE /* ShopViewController.swift */; };
+		AE42206027D0E2C700592DAE /* SessacShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42205F27D0E2C700592DAE /* SessacShopViewController.swift */; };
+		AE42206227D0E2D100592DAE /* BackgroundShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42206127D0E2D100592DAE /* BackgroundShopViewController.swift */; };
+		AE42206427D0E34800592DAE /* ShopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE42206327D0E34800592DAE /* ShopImageView.swift */; };
 		AE46E04D279E6E9E00247060 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46E04C279E6E9E00247060 /* Form.swift */; };
 		AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */; };
 		AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1727A279AC000CDC79 /* MyCardView.swift */; };
@@ -140,6 +144,10 @@
 		AE31894827C8AD5A0094FDF2 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		AE31894A27C8DC080094FDF2 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		AE31894C27C902050094FDF2 /* OnBoardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingContentViewController.swift; sourceTree = "<group>"; };
+		AE42205D27D0DF4100592DAE /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		AE42205F27D0E2C700592DAE /* SessacShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessacShopViewController.swift; sourceTree = "<group>"; };
+		AE42206127D0E2D100592DAE /* BackgroundShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundShopViewController.swift; sourceTree = "<group>"; };
+		AE42206327D0E34800592DAE /* ShopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopImageView.swift; sourceTree = "<group>"; };
 		AE46E04C279E6E9E00247060 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWithdrawView.swift; sourceTree = "<group>"; };
 		AE47ED1727A279AC000CDC79 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
@@ -360,6 +368,17 @@
 			path = OnBoarding;
 			sourceTree = "<group>";
 		};
+		AE42205C27D0DE9200592DAE /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				AE42206327D0E34800592DAE /* ShopImageView.swift */,
+				AE42205D27D0DF4100592DAE /* ShopViewController.swift */,
+				AE42205F27D0E2C700592DAE /* SessacShopViewController.swift */,
+				AE42206127D0E2D100592DAE /* BackgroundShopViewController.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		AE77B45E27A1889500AD5092 /* MyInformation */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +510,7 @@
 			children = (
 				AECEBE6D27A501A60062B86E /* TabBarController.swift */,
 				AEF6336927B217FC003C67A5 /* Home */,
+				AE42205C27D0DE9200592DAE /* Shop */,
 				AE982A6D27BFE51100F2F300 /* Chat */,
 				AE23F9DD27A1194F008D9223 /* Information */,
 			);
@@ -701,6 +721,7 @@
 				AEF49A912796DCC800A693F3 /* CustomTextField.swift in Sources */,
 				AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */,
 				AEF6337227B22D10003C67A5 /* HobbyView.swift in Sources */,
+				AE42205E27D0DF4100592DAE /* ShopViewController.swift in Sources */,
 				AE77B46827A1A79500AD5092 /* MyAgeView.swift in Sources */,
 				AE639EC327C566B200D8CD52 /* ChattingViewModel.swift in Sources */,
 				AE11285F27AC1E5500826C9A /* sesacNameView.swift in Sources */,
@@ -720,7 +741,9 @@
 				AE7CD5DB27B8F196007AB2F6 /* SesacTableViewCell.swift in Sources */,
 				AE07E6142797CF7C00866766 /* LoginViewModel.swift in Sources */,
 				AE221C9027C56B5A0053EED8 /* ChattingModel.swift in Sources */,
+				AE42206427D0E34800592DAE /* ShopImageView.swift in Sources */,
 				AE80A1F6279B113500668D28 /* BirthViewController.swift in Sources */,
+				AE42206227D0E2D100592DAE /* BackgroundShopViewController.swift in Sources */,
 				AEF6337A27B2BEA7003C67A5 /* HobbyView+Notification.swift in Sources */,
 				AE8F211627AF7DEB00D2E1B8 /* HomeView.swift in Sources */,
 				AE80A1F8279B168C00668D28 /* DayView.swift in Sources */,
@@ -732,6 +755,7 @@
 				AEA32055279933C800E9B7C4 /* UserModel.swift in Sources */,
 				AE79ADB827C3AA2B00A7A9A7 /* MyChatTableViewCell.swift in Sources */,
 				AE84A1B527C0E9A400CF2E55 /* CanclePopupViewController.swift in Sources */,
+				AE42206027D0E2C700592DAE /* SessacShopViewController.swift in Sources */,
 				AEB30F4627AE3A930004A5A3 /* ImageSet.swift in Sources */,
 				AE93505F27C7DF9400E16695 /* StatusCodeSet.swift in Sources */,
 				AE24118B279A8D0000A8C421 /* EmailView.swift in Sources */,
