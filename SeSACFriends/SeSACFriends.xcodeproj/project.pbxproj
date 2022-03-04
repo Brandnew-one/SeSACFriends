@@ -48,6 +48,7 @@
 		AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */; };
 		AE5F407C27D19BC300A722DC /* BackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F407B27D19BC200A722DC /* BackgroundTableViewCell.swift */; };
 		AE5F407E27D1AC9300A722DC /* ShopViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F407D27D1AC9300A722DC /* ShopViewController+Extension.swift */; };
+		AE5F408027D1E5AD00A722DC /* SessacShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F407F27D1E5AD00A722DC /* SessacShopCollectionViewCell.swift */; };
 		AE639EC127C559F100D8CD52 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE639EC027C559F100D8CD52 /* SocketManager.swift */; };
 		AE639EC327C566B200D8CD52 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE639EC227C566B200D8CD52 /* ChattingViewModel.swift */; };
 		AE642EA427AD170400F583BA /* WithdrawPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */; };
@@ -156,6 +157,7 @@
 		AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationViewController.swift; sourceTree = "<group>"; };
 		AE5F407B27D19BC200A722DC /* BackgroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTableViewCell.swift; sourceTree = "<group>"; };
 		AE5F407D27D1AC9300A722DC /* ShopViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopViewController+Extension.swift"; sourceTree = "<group>"; };
+		AE5F407F27D1E5AD00A722DC /* SessacShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessacShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE639EC027C559F100D8CD52 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		AE639EC227C566B200D8CD52 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
 		AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawPopupViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				AE42205D27D0DF4100592DAE /* ShopViewController.swift */,
 				AE5F407D27D1AC9300A722DC /* ShopViewController+Extension.swift */,
 				AE42205F27D0E2C700592DAE /* SessacShopViewController.swift */,
+				AE5F407F27D1E5AD00A722DC /* SessacShopCollectionViewCell.swift */,
 				AE42206127D0E2D100592DAE /* BackgroundShopViewController.swift */,
 				AE5F407B27D19BC200A722DC /* BackgroundTableViewCell.swift */,
 			);
@@ -685,6 +688,7 @@
 				AE639EC127C559F100D8CD52 /* SocketManager.swift in Sources */,
 				AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */,
 				AE07E60B2797ABD300866766 /* LoginViewController.swift in Sources */,
+				AE5F408027D1E5AD00A722DC /* SessacShopCollectionViewCell.swift in Sources */,
 				AE241191279A9A8100A8C421 /* GenderImageView.swift in Sources */,
 				AE80A1F4279B111A00668D28 /* BirthView.swift in Sources */,
 				AE7CD5D927B8D5DB007AB2F6 /* NoneView.swift in Sources */,

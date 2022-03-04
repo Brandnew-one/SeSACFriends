@@ -12,7 +12,7 @@ class SessacShopViewController: UIViewController, ViewRepresentable {
     
     let emptyImageView = UIView()
     let emptyTapView = UIView()
-    let emptyButton = MyButton(frame: CGRect(), mode: .fill, text: "TEST")
+    let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +21,30 @@ class SessacShopViewController: UIViewController, ViewRepresentable {
     }
     
     func setupView() {
-        [emptyButton].forEach {
+        [emptyImageView, emptyTapView, collectionView].forEach {
             view.addSubview($0)
         }
-        emptyButton.backgroundColor = .blue
+        emptyImageView.backgroundColor = .clear
+        emptyTapView.backgroundColor = .clear
     }
     
     func setupConstraints() {
-        emptyButton.snp.makeConstraints { make in
-            make.centerY.leading.trailing.equalToSuperview()
-            make.height.equalTo(100)
+        emptyImageView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(15)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(14)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-12.8)
+            make.height.equalTo(174.61)
+        }
+        
+        emptyTapView.snp.makeConstraints { make in
+            make.top.equalTo(emptyImageView.snp.bottom)
+            make.leading.trailing.equalToSuperview().inset(1)
+            make.height.equalTo(44)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(emptyTapView.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
