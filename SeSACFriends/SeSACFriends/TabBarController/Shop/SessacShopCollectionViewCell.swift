@@ -78,7 +78,7 @@ class SessacShopCollectionViewCell: UICollectionViewCell, ViewRepresentable {
         
         contentLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     

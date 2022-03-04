@@ -55,7 +55,6 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.contentLabel.text = sesacContents[row]
         cell.priceButton.tag = row
         cell.priceButton.addTarget(self, action: #selector(sessacPriceButtonClicked(sender:)), for: .touchUpInside)
-        cell.contentView.isUserInteractionEnabled = false
         return cell
     }
     
@@ -77,7 +76,6 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //    }
     
     @objc func sessacPriceButtonClicked(sender: UIButton) {
-        print(#function)
         shopImageView.sesacImageView.image = setSesacFaceImage(sesac: sender.tag)
     }
     
