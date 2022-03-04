@@ -46,6 +46,8 @@
 		AE47ED1627A270B8000CDC79 /* MyWithdrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */; };
 		AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE47ED1727A279AC000CDC79 /* MyCardView.swift */; };
 		AE49F20227A30BD9006725B3 /* MyInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */; };
+		AE5F407C27D19BC300A722DC /* BackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F407B27D19BC200A722DC /* BackgroundTableViewCell.swift */; };
+		AE5F407E27D1AC9300A722DC /* ShopViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F407D27D1AC9300A722DC /* ShopViewController+Extension.swift */; };
 		AE639EC127C559F100D8CD52 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE639EC027C559F100D8CD52 /* SocketManager.swift */; };
 		AE639EC327C566B200D8CD52 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE639EC227C566B200D8CD52 /* ChattingViewModel.swift */; };
 		AE642EA427AD170400F583BA /* WithdrawPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */; };
@@ -152,6 +154,8 @@
 		AE47ED1527A270B8000CDC79 /* MyWithdrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWithdrawView.swift; sourceTree = "<group>"; };
 		AE47ED1727A279AC000CDC79 /* MyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardView.swift; sourceTree = "<group>"; };
 		AE49F20127A30BD9006725B3 /* MyInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationViewController.swift; sourceTree = "<group>"; };
+		AE5F407B27D19BC200A722DC /* BackgroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTableViewCell.swift; sourceTree = "<group>"; };
+		AE5F407D27D1AC9300A722DC /* ShopViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopViewController+Extension.swift"; sourceTree = "<group>"; };
 		AE639EC027C559F100D8CD52 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		AE639EC227C566B200D8CD52 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
 		AE642EA327AD170400F583BA /* WithdrawPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawPopupViewController.swift; sourceTree = "<group>"; };
@@ -373,8 +377,10 @@
 			children = (
 				AE42206327D0E34800592DAE /* ShopImageView.swift */,
 				AE42205D27D0DF4100592DAE /* ShopViewController.swift */,
+				AE5F407D27D1AC9300A722DC /* ShopViewController+Extension.swift */,
 				AE42205F27D0E2C700592DAE /* SessacShopViewController.swift */,
 				AE42206127D0E2D100592DAE /* BackgroundShopViewController.swift */,
+				AE5F407B27D19BC200A722DC /* BackgroundTableViewCell.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -713,6 +719,7 @@
 				AEF6337827B2607F003C67A5 /* HobbyCustomHeaderView.swift in Sources */,
 				AEF6336B27B219B3003C67A5 /* HomeViewModel.swift in Sources */,
 				AE31894D27C902050094FDF2 /* OnBoardingContentViewController.swift in Sources */,
+				AE5F407E27D1AC9300A722DC /* ShopViewController+Extension.swift in Sources */,
 				AEB97CBA27C693D60087401E /* ReportViewModel.swift in Sources */,
 				AE47ED1827A279AD000CDC79 /* MyCardView.swift in Sources */,
 				AE07E6122797B18300866766 /* FontSet.swift in Sources */,
@@ -747,6 +754,7 @@
 				AEF6337A27B2BEA7003C67A5 /* HobbyView+Notification.swift in Sources */,
 				AE8F211627AF7DEB00D2E1B8 /* HomeView.swift in Sources */,
 				AE80A1F8279B168C00668D28 /* DayView.swift in Sources */,
+				AE5F407C27D19BC300A722DC /* BackgroundTableViewCell.swift in Sources */,
 				AEB30F4427AE35620004A5A3 /* UserDefautlsSet.swift in Sources */,
 				AE24118F279A990900A8C421 /* GenderView.swift in Sources */,
 				AEF6337427B22FF3003C67A5 /* MyHobbyCollectionViewCell.swift in Sources */,

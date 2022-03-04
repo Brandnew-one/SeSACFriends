@@ -10,6 +10,8 @@ import SnapKit
 
 class SessacShopViewController: UIViewController, ViewRepresentable {
     
+    let emptyImageView = UIView()
+    let emptyTapView = UIView()
     let emptyButton = MyButton(frame: CGRect(), mode: .fill, text: "TEST")
     
     override func viewDidLoad() {
