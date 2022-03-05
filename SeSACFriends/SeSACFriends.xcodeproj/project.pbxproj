@@ -81,6 +81,7 @@
 		AE93505F27C7DF9400E16695 /* StatusCodeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93505E27C7DF9400E16695 /* StatusCodeSet.swift */; };
 		AE94451627B018AD00879113 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94451527B018AD00879113 /* CustomAnnotationView.swift */; };
 		AE982A6F27BFE64100F2F300 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE982A6E27BFE64100F2F300 /* ChattingViewController.swift */; };
+		AE9A956327D368A400487AE7 /* ShopImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A956227D368A400487AE7 /* ShopImageViewModel.swift */; };
 		AEA0A3E2279658A5009B6D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */; };
 		AEA0A3E4279658A5009B6D05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */; };
 		AEA0A3EB279658AF009B6D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA0A3EA279658AF009B6D05 /* Assets.xcassets */; };
@@ -190,6 +191,7 @@
 		AE93505E27C7DF9400E16695 /* StatusCodeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodeSet.swift; sourceTree = "<group>"; };
 		AE94451527B018AD00879113 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		AE982A6E27BFE64100F2F300 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		AE9A956227D368A400487AE7 /* ShopImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopImageViewModel.swift; sourceTree = "<group>"; };
 		AEA0A3DE279658A5009B6D05 /* SeSACFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA0A3E1279658A5009B6D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA0A3E3279658A5009B6D05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				AE42206327D0E34800592DAE /* ShopImageView.swift */,
+				AE9A956227D368A400487AE7 /* ShopImageViewModel.swift */,
 				AE42205D27D0DF4100592DAE /* ShopViewController.swift */,
 				AE5F407D27D1AC9300A722DC /* ShopViewController+Extension.swift */,
 				AE42205F27D0E2C700592DAE /* SessacShopViewController.swift */,
@@ -704,6 +707,7 @@
 				AE065AA427A9213D007742DC /* sesacReviewView.swift in Sources */,
 				AE77B46627A1993900AD5092 /* MyPhoneView.swift in Sources */,
 				AEB1EFB527C505DA00C6450D /* KeyboardView.swift in Sources */,
+				AE9A956327D368A400487AE7 /* ShopImageViewModel.swift in Sources */,
 				AE77B46027A1895C00AD5092 /* MyInfoView.swift in Sources */,
 				AE642EA427AD170400F583BA /* WithdrawPopupViewController.swift in Sources */,
 				AE23F9E127A11B44008D9223 /* InformationTableViewCell.swift in Sources */,

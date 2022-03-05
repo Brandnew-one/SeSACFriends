@@ -233,6 +233,19 @@ class APIService {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         URLSession.request(endpoint: request, completion: completion)
     }
+    
+    //MARK: 새싹샵 내 정보요청
+    static func getShopMyInfo(completion: @escaping (User?, APIError?, Int?) -> Void) {
+        let url = EndPoint.shopMyInfo.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.GET.rawValue
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        
+        URLSession.request(endpoint: request, completion: completion)
+    }
 }
 
 extension APIService {

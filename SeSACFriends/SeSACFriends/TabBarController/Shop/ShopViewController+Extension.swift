@@ -11,7 +11,7 @@ import UIKit
 extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return backgroundTitles.count
+        return shopViewModel.backgroundTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,8 +20,16 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let row = indexPath.row
         cell.backgroundImageView.image = setBackgroundImage(background: row)
-        cell.contentLabel.text = backgroundContents[row]
-        cell.titleLabel.text = backgroundTitles[row]
+        cell.contentLabel.text = shopViewModel.backgroundContents[row]
+        cell.titleLabel.text = shopViewModel.backgroundTitles[row]
+        if setBackgroundPriceButton(index: row) {
+            cell.priceButton.setTitle("보유", for: .normal)
+            cell.priceButton.setupMode(mode: .cancel)
+            cell.priceButton.isEnabled = false
+        } else {
+            cell.priceButton.setTitle(shopViewModel.backgroundPrice[row], for: .normal)
+            cell.priceButton.isEnabled = true
+        }
         cell.priceButton.tag = row
         cell.priceButton.addTarget(self, action: #selector(priceButtonClicked(sender:)), for: .touchUpInside)
         cell.selectionStyle = .none
@@ -32,9 +40,23 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
         return 190
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        shopImageView.backgroundImageView.image = setBackgroundImage(background: indexPath.row)
+    }
+    
     @objc func priceButtonClicked(sender: UIButton) {
         shopImageView.backgroundImageView.image = setBackgroundImage(background: sender.tag)
     }
+    
+    // 이미 결제된 상품인지 확인하는 메서드
+    func setBackgroundPriceButton(index: Int) -> Bool {
+        if shopViewModel.myShopInfo.value.backgroundCollection.contains(index) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     
 }
 
@@ -42,7 +64,7 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
 extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sesacTitles.count
+        return shopViewModel.sesacTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,8 +73,16 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         let row = indexPath.item
         cell.sesacImageView.image = setSesacFaceImage(sesac: row)
-        cell.titleLabel.text = sesacTitles[row]
-        cell.contentLabel.text = sesacContents[row]
+        cell.titleLabel.text = shopViewModel.sesacTitles[row]
+        cell.contentLabel.text = shopViewModel.sesacContents[row]
+        if setBackgroundPriceButton(index: row) {
+            cell.priceButton.setTitle("보유", for: .normal)
+            cell.priceButton.setupMode(mode: .cancel)
+            cell.priceButton.isEnabled = false
+        } else {
+            cell.priceButton.setTitle(shopViewModel.sesacPrice[row], for: .normal)
+            cell.priceButton.isEnabled = true
+        }
         cell.priceButton.tag = row
         cell.priceButton.addTarget(self, action: #selector(sessacPriceButtonClicked(sender:)), for: .touchUpInside)
         return cell
@@ -71,12 +101,21 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return layout
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        shopImageView.sesacImageView.image = setSesacFaceImage(sesac: indexPath.item)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        shopImageView.sesacImageView.image = setSesacFaceImage(sesac: indexPath.item)
+    }
     
     @objc func sessacPriceButtonClicked(sender: UIButton) {
         shopImageView.sesacImageView.image = setSesacFaceImage(sesac: sender.tag)
+    }
+    
+    // 이미 결제된 상품인지 확인하는 메서드
+    func setSesacPriceButton(index: Int) -> Bool {
+        if shopViewModel.myShopInfo.value.sesacCollection.contains(index) {
+            return true
+        } else {
+            return false
+        }
     }
     
 }
