@@ -52,6 +52,28 @@ extension UIViewController {
         }
     }
     
+    func getIntfromBackgroundImage(image: UIImage) -> Int {
+        if image == UIImage(named: ImageSet.background1) {
+            return 0
+        } else if image == UIImage(named: ImageSet.background2) {
+            return 1
+        } else if image == UIImage(named: ImageSet.background3) {
+            return 2
+        } else if image == UIImage(named: ImageSet.background4) {
+            return 3
+        } else if image == UIImage(named: ImageSet.background5) {
+            return 4
+        } else if image == UIImage(named: ImageSet.background6) {
+            return 5
+        } else if image == UIImage(named: ImageSet.background7) {
+            return 6
+        } else if image == UIImage(named: ImageSet.background8) {
+            return 7
+        } else {
+            return 10 // Error
+        }
+    }
+    
     func setSesacFaceImage(sesac: Int) -> UIImage {
         if sesac == 0 {
             return UIImage(named: ImageSet.face1)!
@@ -65,6 +87,23 @@ extension UIViewController {
             return UIImage(named: ImageSet.face5)!
         }
     }
+    
+    func getIntfromSesacImage(image: UIImage) -> Int {
+        if image == UIImage(named: ImageSet.face1) {
+            return 0
+        } else if image == UIImage(named: ImageSet.face2) {
+            return 1
+        } else if image == UIImage(named: ImageSet.face3) {
+            return 2
+        } else if image == UIImage(named: ImageSet.face4) {
+            return 3
+        } else if image == UIImage(named: ImageSet.face5) {
+            return 4
+        } else {
+            return 10 // Error
+        }
+    }
+    
 }
 
 // MARK: Navigation Controller

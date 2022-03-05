@@ -246,6 +246,40 @@ class APIService {
         
         URLSession.request(endpoint: request, completion: completion)
     }
+    
+    //MARK: 새싹샵 아이템 구매 (인앱x)
+    static func purchaseItemWithoutIAP(sesac: Int?, background: Int?, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.purchaseItem.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        if let sesac = sesac {
+            request.httpBody = "sesac=\(sesac)".data(using: .utf8, allowLossyConversion: false)
+        } else {
+            if let background = background {
+                request.httpBody = "background=\(background)".data(using: .utf8, allowLossyConversion: false)
+            }
+        }
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request2(endpoint: request, completion: completion)
+    }
+    
+    //MARK: 사용자 프로필, 배경화면 업데이트
+    static func updateShop(sesac: Int, background: Int, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.updateShop.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "sesac=\(sesac)&background=\(background)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request2(endpoint: request, completion: completion)
+    }
 }
 
 extension APIService {

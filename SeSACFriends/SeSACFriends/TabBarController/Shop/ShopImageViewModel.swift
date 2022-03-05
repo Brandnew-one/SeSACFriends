@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum ShopMode {
+    case sessac
+    case background
+}
+
 class ShopImageViewModel {
     
     var vcName = ["새싹", "배경"]
@@ -25,6 +30,7 @@ class ShopImageViewModel {
     var sesacPrice = ["보유", "1,200", "2,500", "2,500", "2,500"]
     
     var myShopInfo = Observable(User())
+    
     
     func fetchMyShopInfo(completion: @escaping (Int) -> Void) {
         APIService.getShopMyInfo { result, error, code in
@@ -51,6 +57,58 @@ class ShopImageViewModel {
         }
     }
     
+    func fetchpurchaseItem(mode: ShopMode, itemIndex: Int, completion: @escaping (Int) -> Void) {
+        var sesac: Int? = nil
+        var background: Int? = nil
+        if mode == .sessac {
+            sesac = itemIndex
+        } else {
+            background = itemIndex
+        }
+        APIService.purchaseItemWithoutIAP(sesac: sesac, background: background) { error, code in
+            if let error = error {
+                print("새싹 구매 오류: ", error)
+                return
+            }
+            if let code = code {
+                if code == StatusCode.clientError {
+                    completion(code)
+                } else if code == StatusCode.serverError {
+                    completion(code)
+                } else if code == StatusCode.unknownUser {
+                    completion(code)
+                } else if code == StatusCode.tokenError {
+                    completion(code)
+                } else if code == StatusCode.successCase1 {
+                    completion(code)
+                } else { // success
+                    completion(code)
+                }
+            }
+        }
+    }
     
-    
+    func fetchUpdateShop(sesac: Int, background: Int, completion: @escaping (Int) -> Void) {
+        APIService.updateShop(sesac: sesac, background: background) { error, code in
+            if let error = error {
+                print("샵 업데이트 오류: ", error)
+                return
+            }
+            if let code = code {
+                if code == StatusCode.clientError {
+                    completion(code)
+                } else if code == StatusCode.serverError {
+                    completion(code)
+                } else if code == StatusCode.unknownUser {
+                    completion(code)
+                } else if code == StatusCode.tokenError {
+                    completion(code)
+                } else if code == StatusCode.successCase1 {
+                    completion(code)
+                } else { // success
+                    completion(code)
+                }
+            }
+        }
+    }
 }

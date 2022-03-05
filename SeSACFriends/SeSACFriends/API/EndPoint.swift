@@ -38,6 +38,8 @@ enum EndPoint {
     case chat(id: String)
     case chatHistroy(id: String, lastchatDate: String)
     case shopMyInfo
+    case purchaseItem
+    case updateShop
 }
 
 extension URL {
@@ -66,6 +68,8 @@ extension EndPoint {
         case .chat(id: let id): return.makeEndpoint("chat/\(id)") // 채팅전송
         case .chatHistroy(id: let id, lastchatDate: let lastchatDate): return.makeEndpoint("chat/\(id)?lastchatDate=\(lastchatDate)") // 채팅 내용 요청
         case .shopMyInfo: return .makeEndpoint("user/shop/myinfo") // 새싹 샵 내 정보요청
+        case .purchaseItem: return .makeEndpoint("user/shop/purchaseItem") // 새싹 샵 인앱결제x
+        case .updateShop: return .makeEndpoint("user/update/shop") // 프로필, 배경화면 업데이트
         }
     }
 }

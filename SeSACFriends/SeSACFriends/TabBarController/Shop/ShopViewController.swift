@@ -10,6 +10,7 @@ import UIKit
 import Pageboy
 import SnapKit
 import Tabman
+import Toast_Swift
 
 class ShopViewController: TabmanViewController, ViewRepresentable {
     
@@ -107,6 +108,15 @@ class ShopViewController: TabmanViewController, ViewRepresentable {
     
     @objc func buttonClicked() {
         print(#function)
+        var sesac = getIntfromSesacImage(image: shopImageView.sesacImageView.image!)
+        var background = getIntfromBackgroundImage(image: shopImageView.backgroundImageView.image!)
+        shopViewModel.fetchUpdateShop(sesac: sesac, background: background) { code in
+            if code == 201 {
+                self.view.makeToast("구매가 필요한 아이템이 있어요!")
+            } else if code == 200 {
+                self.view.makeToast("업데이트 성공")
+            }
+        }
     }
 }
 

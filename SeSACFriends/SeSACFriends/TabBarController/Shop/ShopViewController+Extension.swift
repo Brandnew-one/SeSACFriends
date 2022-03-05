@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 // MARK: Background TableView Delegate
 extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
@@ -25,10 +26,9 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
         if setBackgroundPriceButton(index: row) {
             cell.priceButton.setTitle("보유", for: .normal)
             cell.priceButton.setupMode(mode: .cancel)
-            cell.priceButton.isEnabled = false
         } else {
             cell.priceButton.setTitle(shopViewModel.backgroundPrice[row], for: .normal)
-            cell.priceButton.isEnabled = true
+            cell.priceButton.setupMode(mode: .fill)
         }
         cell.priceButton.tag = row
         cell.priceButton.addTarget(self, action: #selector(priceButtonClicked(sender:)), for: .touchUpInside)
@@ -45,7 +45,20 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func priceButtonClicked(sender: UIButton) {
-        shopImageView.backgroundImageView.image = setBackgroundImage(background: sender.tag)
+        print(#function)
+//        shopImageView.backgroundImageView.image = setBackgroundImage(background: sender.tag)
+        shopViewModel.fetchpurchaseItem(mode: .background, itemIndex: sender.tag) { code in
+            if code == 201 {
+                self.view.makeToast("이미 보유한 아이템입니다.")
+            } else if code == 200 {
+                self.view.makeToast("아이템 구매 성공.")
+                self.shopViewModel.fetchMyShopInfo { code in
+                    if code == 200 {
+                        self.backgroundVC.tableView.reloadData()
+                    }
+                }
+            }
+        }
     }
     
     // 이미 결제된 상품인지 확인하는 메서드
@@ -56,8 +69,6 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
             return false
         }
     }
-    
-    
 }
 
 // MARK: Sesac CollectionView Delegate
@@ -75,7 +86,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.sesacImageView.image = setSesacFaceImage(sesac: row)
         cell.titleLabel.text = shopViewModel.sesacTitles[row]
         cell.contentLabel.text = shopViewModel.sesacContents[row]
-        if setBackgroundPriceButton(index: row) {
+        if setSesacPriceButton(index: row) {
             cell.priceButton.setTitle("보유", for: .normal)
             cell.priceButton.setupMode(mode: .cancel)
             cell.priceButton.isEnabled = false
@@ -106,7 +117,19 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     @objc func sessacPriceButtonClicked(sender: UIButton) {
-        shopImageView.sesacImageView.image = setSesacFaceImage(sesac: sender.tag)
+        print(#function)
+        shopViewModel.fetchpurchaseItem(mode: .sessac, itemIndex: sender.tag) { code in
+            if code == 201 {
+                self.view.makeToast("이미 보유한 아이템입니다.")
+            } else if code == 200 {
+                self.view.makeToast("아이템 구매 성공.")
+                self.shopViewModel.fetchMyShopInfo { code in
+                    if code == 200 {
+                        self.sesacVC.collectionView.reloadData()
+                    }
+                }
+            }
+        }
     }
     
     // 이미 결제된 상품인지 확인하는 메서드
