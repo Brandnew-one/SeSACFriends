@@ -9,6 +9,7 @@ import CoreLocation
 import CoreLocationUI
 import MapKit
 import UIKit
+import Toast_Swift
 
 class HomeViewController: UIViewController, ViewRepresentable {
     
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController, ViewRepresentable {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
+        checkStatus()
         changeFloatingButton()
     }
     
@@ -33,7 +35,6 @@ class HomeViewController: UIViewController, ViewRepresentable {
         locationManager.delegate = self
         
         checkUserLocationServicesAuthorization()
-        
         homeView.gpsButton.addTarget(self, action: #selector(gpsButtonClicked), for: .touchUpInside)
         homeView.statusButtonView.button.addTarget(self, action: #selector(statusButtonClicked), for: .touchUpInside)
     }
@@ -56,6 +57,7 @@ class HomeViewController: UIViewController, ViewRepresentable {
     @objc func statusButtonClicked() {
         checkStatus()
         var myState: Int? = UserDefaults.standard.integer(forKey: UserDefautlsSet.state)
+        checkLocationAuth()
         // 일반
         if myState == nil || myState == 0 {
             let vc = HobbyViewController()
@@ -173,6 +175,34 @@ extension HomeViewController: CLLocationManagerDelegate {
             //취소 버튼을 누른 경우
             print("iOS 위치 서비스를 켜주세요!")
         }
+    }
+    
+    func checkLocationAuth() {
+        let authorizationStatus: CLAuthorizationStatus
+        
+        //14 부터는 정확도 설정이 들어가기 때문에 시스템 설정도 다르게 (8) 에서 보면 열거형의 구성이 추가되어 있음)
+        if #available(iOS 14.0, *) {
+            authorizationStatus = locationManager.authorizationStatus //iOS 14 이상만 사용가능
+        }
+        else {
+            authorizationStatus = CLLocationManager.authorizationStatus() // iOS 14 미만
+        }
+        if CLLocationManager.locationServicesEnabled() {
+            return
+        }
+        showAlert(title: "설정으로 이동", message: "권한 허용해주세요", okTitle: "설정으로 가기") {
+            guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url) { success in
+                    print("잘 열렸다. \(success)")
+                }
+            }
+        }
+        //취소 버튼을 누른 경우
+        print("iOS 위치 서비스를 켜주세요!")
     }
     
     
