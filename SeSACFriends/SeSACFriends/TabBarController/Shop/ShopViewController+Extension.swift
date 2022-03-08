@@ -86,6 +86,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.sesacImageView.image = setSesacFaceImage(sesac: row)
         cell.titleLabel.text = shopViewModel.sesacTitles[row]
         cell.contentLabel.text = shopViewModel.sesacContents[row]
+        cell.backgroundColor = .red
         if setSesacPriceButton(index: row) {
             cell.priceButton.setTitle("보유", for: .normal)
             cell.priceButton.setupMode(mode: .cancel)

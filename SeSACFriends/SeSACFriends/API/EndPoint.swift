@@ -40,6 +40,7 @@ enum EndPoint {
     case shopMyInfo
     case purchaseItem
     case updateShop
+    case purchaseItemIAP
 }
 
 extension URL {
@@ -70,6 +71,7 @@ extension EndPoint {
         case .shopMyInfo: return .makeEndpoint("user/shop/myinfo") // 새싹 샵 내 정보요청
         case .purchaseItem: return .makeEndpoint("user/shop/purchaseItem") // 새싹 샵 인앱결제x
         case .updateShop: return .makeEndpoint("user/update/shop") // 프로필, 배경화면 업데이트
+        case .purchaseItemIAP: return .makeEndpoint("user/shop/ios") //새싹 샵 인앱결제o
         }
     }
 }

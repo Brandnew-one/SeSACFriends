@@ -26,7 +26,7 @@ class BackgroundShopViewController: UIViewController, ViewRepresentable {
         }
         emptyImageView.backgroundColor = .clear
         emptyTapView.backgroundColor = .clear
-        tableView.backgroundColor = .systemGray2
+//        tableView.backgroundColor = .systemGray2
     }
     
     func setupConstraints() {

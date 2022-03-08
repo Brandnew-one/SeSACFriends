@@ -55,6 +55,7 @@ class ShopViewController: TabmanViewController, ViewRepresentable {
         shopViewModel.fetchMyShopInfo { code in
             if code == StatusCode.success {
                 print("Fetch ShopInfo Success")
+                self.setupImage()
             }
         }
         // 보유중인 상품이 먼저 viewDidLoad 에서 수정되지 않게 하기 위해서
@@ -84,6 +85,11 @@ class ShopViewController: TabmanViewController, ViewRepresentable {
             make.leading.trailing.equalToSuperview().inset(1)
             make.height.equalTo(44)
         }
+    }
+    
+    func setupImage() {
+        shopImageView.backgroundImageView.image = setBackgroundImage(background: shopViewModel.myShopInfo.value.background)
+        shopImageView.sesacImageView.image = setSesacFaceImage(sesac: shopViewModel.myShopInfo.value.sesac)
     }
     
     func createBar() {

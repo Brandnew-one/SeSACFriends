@@ -280,6 +280,20 @@ class APIService {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         URLSession.request2(endpoint: request, completion: completion)
     }
+    
+    //MARK: 새싹샵 구매 (인앱결제)
+    static func purchaseItemIAP(receipt: String, product: String, completion: @escaping (APIError?, Int?) -> Void) {
+        let url = EndPoint.purchaseItemIAP.url
+        guard let token = UserDefaults.standard.string(forKey: UserDefautlsSet.firebaseToken) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "receipt=\(receipt)&product=\(product)".data(using: .utf8, allowLossyConversion: false)
+        request.setValue(token, forHTTPHeaderField: "idtoken")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request2(endpoint: request, completion: completion)
+    }
 }
 
 extension APIService {
